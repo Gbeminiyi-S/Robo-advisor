@@ -1,4 +1,4 @@
-use `request_directory`;
+use `advice_request_directory`;
 drop table if exists `user_inputs`;
 /*!40101 set @saved_cs_client = @@character_set_client */;
 /*!40101 set character_set_client = utf8 */;
