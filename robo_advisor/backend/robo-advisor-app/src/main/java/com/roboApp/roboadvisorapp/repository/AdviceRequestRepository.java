@@ -1,4 +1,4 @@
-package com.roboApp.roboadvisorapp.dao;
+package com.roboApp.roboadvisorapp.repository;
 
 import com.roboApp.roboadvisorapp.entity.AdviceRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
