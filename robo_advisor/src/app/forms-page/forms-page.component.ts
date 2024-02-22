@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './forms-page.component.css'
 })
 export class FormsPageComponent {
-
+  title = 'Forms page';
 }
