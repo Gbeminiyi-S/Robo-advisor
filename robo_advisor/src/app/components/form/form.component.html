@@ -1,9 +1,22 @@
 <div class="questionairre h-screen p-4 bg-slate-300">
   <div class="container">
     <div class="w-1/2 mx-auto bg-white rounded-sm shadow-lg text-center p-6">
-      <h2 class="font-medium font-mono">
-        Question {{ currentQuestion + 1 }} of {{ questions.length }}
-      </h2>
+      <div class="relative flex items-center justify-center">
+        <h2 class="font-medium font-mono absolute text-[#3f51b5]">
+          {{ currentQuestion + 1 }}/{{ questions.length }}
+        </h2>
+        <round-progress
+          [current]="currentQuestion + 1"
+          [max]="questions.length"
+          [radius]="30"
+          [stroke]="5"
+          [color]="'#3f51b5'"
+          [background]="'#f2f2f2'"
+          [animation]="'easeInOutCubic'"
+        >
+        </round-progress>
+      </div>
+
       <p class="font-bold my-2">
         @if (questions[currentQuestion]) {
         {{ questions[currentQuestion].text }}
@@ -12,22 +25,25 @@
       <form [formGroup]="myForm" class="p-4 grid form-check">
         @for (option of questions[currentQuestion].options; track option.label)
         {
-            <label
-            class="custom-radio text-start p-2 mb-2 rounded-xl bg-slate-200"
-            [ngClass]="{'border-blue-600 border': myForm.get('question'+currentQuestion)?.value ===  option.value}"
-            for="option-{{ option.value }}"
-          >
-            <input
-              class="mb-2 text-start peer:checked+label:bg-blue-500"
-              type="radio"
-              id="option-{{ option.value }}"
-              name="question{{ currentQuestion }}"
-              formControlName="question{{ currentQuestion }}"
-              value="{{ option.value }}"
-            />
-            {{ option.label }}
-          </label>
-          
+        <label
+          class="custom-radio text-start p-2 mb-2 rounded-xl bg-slate-200"
+          [ngClass]="{
+            'border-blue-600 border':
+              myForm.get('question' + currentQuestion)?.value === option.value
+          }"
+          for="option-{{ option.value }}"
+        >
+          <input
+            class="mb-2 text-start peer:checked+label:bg-blue-500"
+            type="radio"
+            id="option-{{ option.value }}"
+            name="question{{ currentQuestion }}"
+            formControlName="question{{ currentQuestion }}"
+            value="{{ option.value }}"
+          />
+          {{ option.label }}
+        </label>
+
         }
       </form>
       <div class="buttons flex justify-between">
