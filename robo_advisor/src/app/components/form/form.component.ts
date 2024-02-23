@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormQuestionsData } from '../../models/FormQuestionsData';
 import { FormQuestions } from '../../models/interfaces/formQuestions';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
