@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormComponent } from './components/form/form.component';
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -9,7 +10,7 @@ import { FooterComponent } from "./footer/footer.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, LandingPageComponent, NavbarComponent, FooterComponent]
+    imports: [RouterOutlet, FormComponent, LandingPageComponent, NavbarComponent, FooterComponent]
 })
 export class AppComponent {
 }
