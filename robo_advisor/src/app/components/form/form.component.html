@@ -48,12 +48,12 @@
       </form>
       <div class="buttons flex justify-between">
         @if (currentQuestion > 0){<button
-          class="p-4 rounded-sm bg-blue-700 text-slate-100"
+          class="p-2 rounded-sm bg-blue-700 text-slate-100"
           (click)="previousQuestion()"
         >
           Prev</button
         >} @if (currentQuestion < questions.length - 1) {<button
-          class="p-4 rounded-sm bg-blue-700 text-slate-100"
+          class="p-2 rounded-sm bg-blue-700 text-slate-100"
           (click)="nextQuestion()"
         >
           Next</button
@@ -61,7 +61,7 @@
       </div>
       @if (currentQuestion === questions.length - 1) {
       <button
-        class="p-4 rounded-sm bg-blue-700 text-slate-100"
+        class="p-2 rounded-sm bg-blue-700 text-slate-100"
         (click)="submitForm()"
       >
         Submit</button
