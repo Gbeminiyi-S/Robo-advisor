@@ -12,11 +12,11 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-
 export class FormComponent {
   currentQuestion = 0;
   questions: FormQuestions[] = FormQuestionsData;
   myForm: FormGroup;
+  isChecked: boolean[] = Array(this.questions.length).fill(false);
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({});
@@ -25,13 +25,24 @@ export class FormComponent {
     });
   }
 
-  
+  onChange(event: Event) {
+    const newVal = (event.target as HTMLInputElement).checked;
+    const questionIndex = this.currentQuestion;
+    this.isChecked[questionIndex] = newVal;
+  }
+
   nextQuestion() {
-    this.currentQuestion++;
+    const questionIndex = this.currentQuestion;
+    if (this.isChecked[questionIndex]) {
+      this.currentQuestion++;
+    }
   }
 
   previousQuestion() {
-    this.currentQuestion--;
+    const questionIndex = this.currentQuestion;
+    if (this.isChecked[questionIndex]) {
+      this.currentQuestion--;
+    }
   }
 
   submitForm() {

@@ -40,6 +40,7 @@
             name="question{{ currentQuestion }}"
             formControlName="question{{ currentQuestion }}"
             value="{{ option.value }}"
+            (change)="onChange($event)"
           />
           {{ option.label }}
         </label>
