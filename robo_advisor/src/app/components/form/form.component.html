@@ -28,6 +28,9 @@
         <label
           class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
           [ngClass]="{
+            'border-red-600 border':
+              attemptedToNavigateFlags[currentQuestion] &&
+              !myForm.get('question' + currentQuestion)?.value,
             'border-blue-600 border':
               myForm.get('question' + currentQuestion)?.value === option.value
           }"
@@ -40,20 +43,34 @@
             name="question{{ currentQuestion }}"
             formControlName="question{{ currentQuestion }}"
             value="{{ option.value }}"
+            (change)="onChange($event)"
           />
           {{ option.label }}
         </label>
 
         }
+        <small
+          class="text-red-600"
+          [class.visible]="
+            attemptedToNavigateFlags[currentQuestion] &&
+            !myForm.get('question' + currentQuestion)?.value
+          "
+          [class.invisible]="
+            !attemptedToNavigateFlags[currentQuestion] ||
+            myForm.get('question' + currentQuestion)?.value
+          "
+        >
+          Please select an option
+        </small>
       </form>
       <div class="buttons flex justify-between">
         @if (currentQuestion > 0){<button
-          class="p-4 rounded-sm bg-blue-700 text-slate-100"
+          class="p-2 rounded-sm bg-blue-700 text-slate-100"
           (click)="previousQuestion()"
         >
           Prev</button
         >} @if (currentQuestion < questions.length - 1) {<button
-          class="p-4 rounded-sm bg-blue-700 text-slate-100"
+          class="p-2 rounded-sm bg-blue-700 text-slate-100"
           (click)="nextQuestion()"
         >
           Next</button
@@ -61,7 +78,7 @@
       </div>
       @if (currentQuestion === questions.length - 1) {
       <button
-        class="p-4 rounded-sm bg-blue-700 text-slate-100"
+        class="p-2 rounded-sm bg-blue-700 text-slate-100"
         (click)="submitForm()"
       >
         Submit</button

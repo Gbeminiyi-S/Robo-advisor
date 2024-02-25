@@ -2,7 +2,7 @@
   <div
     class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
   >
-    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0" [routerLink]="['']">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -30,7 +30,7 @@
         >Home</a
       >
       <a
-        class="mr-5 hover:text-white text-lg"
+        class="mr-5 hover:text-white p-2 rounded-sm bg-blue-700 text-slate-100"
         [routerLink]="['formspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
