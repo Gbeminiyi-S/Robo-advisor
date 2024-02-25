@@ -25,11 +25,10 @@
       <form [formGroup]="myForm" class="p-4 grid form-check">
         @for (option of questions[currentQuestion].options; track option.label)
         {
-        <label
+          <label
           class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
           [ngClass]="{
-            'border-blue-600 border':
-              myForm.get('question' + currentQuestion)?.value === option.value
+            'border-blue-600 border': myForm.get('question' + currentQuestion)?.value === option.value,
           }"
           for="option-{{ option.value }}"
         >

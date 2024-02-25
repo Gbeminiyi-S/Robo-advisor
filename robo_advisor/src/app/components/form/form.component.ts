@@ -27,22 +27,17 @@ export class FormComponent {
 
   onChange(event: Event) {
     const newVal = (event.target as HTMLInputElement).checked;
-    const questionIndex = this.currentQuestion;
-    this.isChecked[questionIndex] = newVal;
+    this.isChecked[this.currentQuestion] = newVal;
   }
 
   nextQuestion() {
-    const questionIndex = this.currentQuestion;
-    if (this.isChecked[questionIndex]) {
+    if (this.isChecked[this.currentQuestion]) {
       this.currentQuestion++;
     }
   }
 
   previousQuestion() {
-    const questionIndex = this.currentQuestion;
-    if (this.isChecked[questionIndex]) {
       this.currentQuestion--;
-    }
   }
 
   submitForm() {
