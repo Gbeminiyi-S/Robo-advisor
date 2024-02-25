@@ -5,16 +5,7 @@
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
           {{ currentQuestion + 1 }}/{{ questions.length }}
         </h2>
-        <round-progress
-          [current]="currentQuestion + 1"
-          [max]="questions.length"
-          [radius]="30"
-          [stroke]="5"
-          [color]="'#3f51b5'"
-          [background]="'#f2f2f2'"
-          [animation]="'easeInOutCubic'"
-        >
-        </round-progress>
+        <app-progress [currentQuestion] = "currentQuestion" [totalQuestions]="questions.length"></app-progress>
       </div>
 
       <p class="font-bold my-2">

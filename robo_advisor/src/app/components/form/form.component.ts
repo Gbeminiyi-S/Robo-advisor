@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormQuestionsData } from '../../models/FormQuestionsData';
 import { FormQuestions } from '../../models/interfaces/formQuestions';
 import { NgClass } from '@angular/common';
-import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { QuestionComponent } from '../question/question.component';
+import { ProgressComponent } from '../progress/progress.component';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, RoundProgressModule],
+  imports: [ReactiveFormsModule, NgClass, QuestionComponent, ProgressComponent],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
