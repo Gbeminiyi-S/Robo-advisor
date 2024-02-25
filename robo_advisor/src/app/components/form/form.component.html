@@ -25,10 +25,11 @@
       <form [formGroup]="myForm" class="p-4 grid form-check">
         @for (option of questions[currentQuestion].options; track option.label)
         {
-          <label
+        <label
           class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
           [ngClass]="{
             'border-blue-600 border': myForm.get('question' + currentQuestion)?.value === option.value,
+            'border-red-600 border': attemptedToNavigateFlags[currentQuestion] && !myForm.get('question' + currentQuestion)?.value
           }"
           for="option-{{ option.value }}"
         >
@@ -44,6 +45,9 @@
           {{ option.label }}
         </label>
 
+        }
+        @if (attemptedToNavigateFlags[currentQuestion] && !myForm.get('question'+currentQuestion)?.value) {
+          <small class="text-red-600">Please select an option</small>
         }
       </form>
       <div class="buttons flex justify-between">

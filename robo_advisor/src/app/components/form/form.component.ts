@@ -17,6 +17,7 @@ export class FormComponent {
   questions: FormQuestions[] = FormQuestionsData;
   myForm: FormGroup;
   isChecked: boolean[] = Array(this.questions.length).fill(false);
+  attemptedToNavigateFlags: boolean[] = Array(this.questions.length).fill(false);
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({});
@@ -32,7 +33,10 @@ export class FormComponent {
 
   nextQuestion() {
     if (this.isChecked[this.currentQuestion]) {
+      this.attemptedToNavigateFlags[this.currentQuestion]= false;
       this.currentQuestion++;
+    } else{
+      this.attemptedToNavigateFlags[this.currentQuestion]= true;
     }
   }
 
