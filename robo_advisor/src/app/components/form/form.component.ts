@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormQuestionsData } from '../../models/FormQuestionsData';
 import { FormQuestions } from '../../models/interfaces/formQuestions';
 import { NgClass } from '@angular/common';
-import { QuestionComponent } from '../question/question.component';
 import { ProgressComponent } from '../progress/progress.component';
+import { NavigationComponent } from '../navigation/navigation.component';
+import { SubmitComponent } from '../submit/submit.component';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, QuestionComponent, ProgressComponent],
+  imports: [ReactiveFormsModule, NgClass, ProgressComponent, NavigationComponent, SubmitComponent],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
@@ -40,12 +41,17 @@ export class FormComponent {
       this.attemptedToNavigateFlags[this.currentQuestion]= true;
     }
   }
-
+  
   previousQuestion() {
-      this.currentQuestion--;
+    this.currentQuestion--;
   }
-
+  
   submitForm() {
-    console.log(this.myForm.value);
+    if (this.isChecked[this.currentQuestion]) {
+      this.attemptedToNavigateFlags[this.currentQuestion]= false;
+      console.log(this.myForm.value);
+    } else{
+      this.attemptedToNavigateFlags[this.currentQuestion]= true;
+    }
   }
 }

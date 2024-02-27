@@ -5,7 +5,10 @@
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
           {{ currentQuestion + 1 }}/{{ questions.length }}
         </h2>
-        <app-progress [currentQuestion] = "currentQuestion" [totalQuestions]="questions.length"></app-progress>
+        <app-progress
+          [currentQuestion]="currentQuestion"
+          [totalQuestions]="questions.length"
+        />
       </div>
 
       <p class="font-bold my-2">
@@ -54,26 +57,14 @@
           Please select an option
         </small>
       </form>
-      <div class="buttons flex justify-between">
-        @if (currentQuestion > 0){<button
-          class="p-2 rounded-sm bg-blue-700 text-slate-100"
-          (click)="previousQuestion()"
-        >
-          Prev</button
-        >} @if (currentQuestion < questions.length - 1) {<button
-          class="p-2 rounded-sm bg-blue-700 text-slate-100"
-          (click)="nextQuestion()"
-        >
-          Next</button
-        >}
-      </div>
+      <app-navigation
+        [currentQuestion]="currentQuestion"
+        [totalQuestions]="questions.length"
+        (previousClick)="previousQuestion()"
+        (nextClick)="nextQuestion()"
+      />
       @if (currentQuestion === questions.length - 1) {
-      <button
-        class="p-2 rounded-sm bg-blue-700 text-slate-100"
-        (click)="submitForm()"
-      >
-        Submit</button
-      >}
+      <app-submit (submit)="submitForm()" />}
     </div>
   </div>
 </div>
