@@ -1,22 +1,30 @@
-.navbar {
-  position: relative;
-  z-index: 1000; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
   width: 100%;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  position: relative;
-  overflow: hidden;
-
-  /* for the background image */
-  background-image: url('https://img.freepik.com/free-photo/3d-rendering-biorobots-concept_23-2149524393.jpg?w=1060&t=st=1709124195~exp=1709124795~hmac=e239081a135f17bc6b018aa9aec5f7c8afc4c2f68d054489fbcdb54b9fa666b1');
+  font-family: 'Poppins', sans-serif, Roboto, -apple-system;
+  position: absolute;
+  background-image: url('https://img.freepik.com/free-photo/robot-hand-background-presenting-technology-gesture_53876-129785.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
   background-size: cover;
   background-repeat: no-repeat;
+  background-color:#d9e9fa;
+}
+
+/* body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
+  overflow: hidden; */
+
+  /* for the background image */
+  /* background-image: url('https://img.freepik.com/free-photo/3d-rendering-biorobots-concept_23-2149524393.jpg?w=1060&t=st=1709124195~exp=1709124795~hmac=e239081a135f17bc6b018aa9aec5f7c8afc4c2f68d054489fbcdb54b9fa666b1');
+  background-size: cover;
+  background-repeat: no-repeat; */
 
  /* the overlay... */
-  content: "";
+  /* content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -28,17 +36,18 @@ body {
   background-color:#d9e9fa;
   mix-blend-mode: multiply;
   z-index: -1;
-}
+} */
 
 .write-ups {
   border: 0px transparent transparent;
   width: 55%;
-  height: 50%;
+  height: 60%;
   display: grid;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  color: white;
+  color:aliceblue;
 }
 #break {
   height: 3px;
@@ -74,6 +83,7 @@ body {
   height: 50%;
   float: left;
   display: grid;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
@@ -93,21 +103,27 @@ body {
   margin: 20px 20px 10px 20px;
 }
 #fgt-usr, #fgt-pwd {
-  font-size: 10px !important;
+  font-size: 2vh !important;
   color:darkblue !important;
 }
 #fgt-usr {
   text-align: left;
-  padding: 0px 25px 25px 25px;
+  padding-top: 0px;
+  padding-left: 25px;
+  padding-bottom: 25px;
 }
 #fgt-pwd {
   text-align: right;
-  padding: 0px 25px 25px 25px;
+  padding-top: 0px;
+  padding-right: 25px;
+  padding-bottom: 25px;
 }
 #crt-acct {
-  font-size: 10px !important;
+  font-size: 2vh !important;
   color:darkblue !important;
-  margin: 8px 35% 30% 35%;
+  margin-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 25px !important;
 }
 table {
   width: 100%;
@@ -161,7 +177,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 .log-page {
   width: 100%;
-  top: 30%;
+  top: 20%;
   position: absolute;
 }
 
@@ -174,9 +190,14 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    max-width: 100%;
+    background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+  }
   table {
-    top: 10%;
     overflow-x: auto;
+    width: 100%;
+    top: 5%;
   }
   td {
     display: block;
@@ -186,4 +207,24 @@ input[type="text"]:focus, input[type="password"]:focus {
   #login-form {
     float: none;
   }
+}
+
+  @media screen and (max-width: 768px) {
+    body {
+      max-width: 100%;
+      background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+    }
+    table {
+      overflow-x: auto;
+      width: 100%;
+      top: 5%;
+    }
+    td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #login-form {
+      float: none;
+    }
 }

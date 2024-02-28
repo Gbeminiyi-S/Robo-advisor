@@ -54,12 +54,14 @@
   } 
 
   /* Hamburger Menu */
+
 .hamburger {
   cursor: pointer;
   width: 24px;
   height: 24px;
   transition: all 0.25s;
   position: relative;
+  z-index: 1000;
 }
 
 .hamburger-top,
