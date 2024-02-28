@@ -5,10 +5,10 @@ body {
   height: 100%;
   font-family: 'Poppins', sans-serif, Roboto, -apple-system;
   position: absolute;
-  background-image: url('https://img.freepik.com/free-photo/robot-hand-background-presenting-technology-gesture_53876-129785.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
+  background-image: url('https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color:#d9e9fa;
+  background-color:#002146;
 }
 
 /* body {
@@ -177,6 +177,8 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 .log-page {
   width: 100%;
+  height: auto;
+  margin: auto;
   top: 20%;
   position: absolute;
 }
@@ -212,7 +214,8 @@ input[type="text"]:focus, input[type="password"]:focus {
   @media screen and (max-width: 768px) {
     body {
       max-width: 100%;
-      background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+      background-image: url('https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
+      /* background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais'); */
     }
     table {
       overflow-x: auto;
