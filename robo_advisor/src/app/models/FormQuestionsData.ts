@@ -3,13 +3,9 @@ import { FormQuestions } from "./interfaces/formQuestions";
 export const FormQuestionsData: FormQuestions[] = [
     {
       id:1,
-      text: "What is your age range?",
+      text: "Age",
       options: [
         { label: "Under 25", value: "under25" },
-        { label: "25-35", value: "25-35" },
-        { label: "35-45", value: "35-45" },
-        { label: "45-55", value: "45-55" },
-        { label: "55 and above", value: "55+" },
       ]
     },
     {

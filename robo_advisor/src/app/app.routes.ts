@@ -1,3 +1,4 @@
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { FormComponent } from './components/form/form.component';
@@ -9,4 +10,5 @@ export const routes: Routes = [
   { path : 'login', title:'login', component: LoginpageComponent},
   { path : 'sign-up', title:'sign-up', component: SignUpPageComponent },
   { path: 'formspage',title:'user form', component: FormComponent },
+  { path: 'homepage',title:'user homepage', component: HomepageComponent },
 ];

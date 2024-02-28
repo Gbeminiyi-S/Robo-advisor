@@ -1,30 +1,39 @@
 <div class="questionairre h-screen p-4 bg-slate-300">
   <div class="container">
-    <div class="w-1/2 mx-auto bg-white rounded-sm shadow-lg text-center p-6">
+    <div
+      class="w-1/2 mx-auto relative bg-white rounded-sm shadow-lg text-center p-6"
+    >
       <div class="relative flex items-center justify-center">
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
           {{ currentQuestion + 1 }}/{{ questions.length }}
         </h2>
-        <round-progress
-          [current]="currentQuestion + 1"
-          [max]="questions.length"
-          [radius]="30"
-          [stroke]="5"
-          [color]="'#3f51b5'"
-          [background]="'#f2f2f2'"
-          [animation]="'easeInOutCubic'"
-        >
-        </round-progress>
+        <app-progress
+          [currentQuestion]="currentQuestion"
+          [totalQuestions]="questions.length"
+        />
       </div>
-
+      @if (currentQuestion===0) {
+      <label for="question1" class="font-bold mt-4 absolute left-5"
+        >{{ questions[currentQuestion].text }}:</label
+      >
+      }@else {
       <p class="font-bold my-2">
-        @if (questions[currentQuestion]) {
         {{ questions[currentQuestion].text }}
-        }
       </p>
+      }
       <form [formGroup]="myForm" class="p-4 grid form-check">
         @for (option of questions[currentQuestion].options; track option.label)
-        {
+        { @if (currentQuestion === 0) {
+        <input
+          type="number"
+          name="question{{ currentQuestion }}"
+          id="option-{{ option.value }}"
+          class="border-2 w-11/12 ms-auto"
+          formControlName="question{{ currentQuestion }}"
+          (change)="onChange($event)"
+          placeholder="enter age"
+        />
+        }@else {
         <label
           class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
           [ngClass]="{
@@ -37,7 +46,7 @@
           for="option-{{ option.value }}"
         >
           <input
-            class="mb-2 text-start peer:checked+label:bg-blue-500"
+            class="mb-2 text-start"
             type="radio"
             id="option-{{ option.value }}"
             name="question{{ currentQuestion }}"
@@ -45,44 +54,24 @@
             value="{{ option.value }}"
             (change)="onChange($event)"
           />
+
           {{ option.label }}
         </label>
-
-        }
-        <small
-          class="text-red-600"
-          [class.visible]="
-            attemptedToNavigateFlags[currentQuestion] &&
-            !myForm.get('question' + currentQuestion)?.value
-          "
-          [class.invisible]="
-            !attemptedToNavigateFlags[currentQuestion] ||
-            myForm.get('question' + currentQuestion)?.value
-          "
-        >
-          Please select an option
-        </small>
+        } }
+        <app-input-val-message
+          [attemptedToNavigate]="attemptedToNavigateFlags[currentQuestion]"
+          [currentQuestion]="currentQuestion"
+          [formControlValue]="myForm.get('question' + currentQuestion)?.value"
+        />
       </form>
-      <div class="buttons flex justify-between">
-        @if (currentQuestion > 0){<button
-          class="p-2 rounded-sm bg-blue-700 text-slate-100"
-          (click)="previousQuestion()"
-        >
-          Prev</button
-        >} @if (currentQuestion < questions.length - 1) {<button
-          class="p-2 rounded-sm bg-blue-700 text-slate-100"
-          (click)="nextQuestion()"
-        >
-          Next</button
-        >}
-      </div>
+      <app-navigation
+        [currentQuestion]="currentQuestion"
+        [totalQuestions]="questions.length"
+        (previousClick)="previousQuestion()"
+        (nextClick)="nextQuestion()"
+      />
       @if (currentQuestion === questions.length - 1) {
-      <button
-        class="p-2 rounded-sm bg-blue-700 text-slate-100"
-        (click)="submitForm()"
-      >
-        Submit</button
-      >}
+      <app-submit (submit)="submitForm()" />}
     </div>
   </div>
 </div>

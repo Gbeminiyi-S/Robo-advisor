@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,5 +10,27 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+
+  isMenuOpen: boolean = false;
+  menuOpen:boolean=false;
+
+   toggleMenu(): void {
+     this.menuOpen = !this.menuOpen;
+     this.isMenuOpen = !this.isMenuOpen;
+   }
+
+  
+   @HostListener('document:click', ['$event'])
+   handleClickOutside(event: MouseEvent): void {
+     const container = document.querySelector('.hamburger') as HTMLElement;
+     const container2 = document.querySelector('.desktop_menu') as HTMLElement;
+    
+     if (!container.contains(event.target as Node) && !container2.contains(event.target as Node)) {
+       this.menuOpen = false;
+       this.isMenuOpen = false;
+     }
+   }
+
+
 
 }
