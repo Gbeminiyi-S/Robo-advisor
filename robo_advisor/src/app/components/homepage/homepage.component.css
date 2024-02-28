@@ -1,0 +1,21 @@
+body {
+    background-image: url(../../../assets/images/backpicc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-color: #d9e9fa;
+   background-blend-mode:overlay;
+
+
+}
+
+/* 
+.fill-primary:hover {
+fill:#002146;
+} */
+
+.fourcontainer:hover .item {
+color:#002146;
+fill:#002146;
+}
+
+
