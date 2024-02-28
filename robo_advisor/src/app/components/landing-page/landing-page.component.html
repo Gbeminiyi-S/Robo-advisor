@@ -10,14 +10,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robo-Advisor</title>
   </head>
   <body class="font-primary text-primary">
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="hero" class="h-screen">
       <!-- Flex Container -->
       <div
         class="container flex flex-col-reverse items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 md:flex-row"
@@ -46,7 +42,7 @@
         <!-- Image -->
         <div class="md:w-1/2">
           <img 
-          class="h-2/5 md:mb-32 p-16"
+          class="h-2/5 mb-0 md:mb-32 pb-0 pt-16 pr-16 pl-16"
            src="../../../assets/images/robot.png"alt="" />
         </div>
       </div>
@@ -57,10 +53,10 @@
       <!-- Flex container -->
 
       <div
-        class="container flex flex-col-reverse items-center h-2/5 px-6 mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row"
+        class="container flex flex-col-reverse items-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row"
       >
         <!-- Left item -->
-        <div class="text-white w-1/2 mb-32 space-y-12">
+        <div class="text-white md:w-1/2 mb-32 space-y-12">
           <h2 class="text-4xl font-bold text-center pt-4 md:text-left">
             What's different about Robo-Advisor?
           </h2>
@@ -386,10 +382,10 @@
           What's Different About Robo-Advisor?
         </h2>
         <!-- Testimonials Container -->
-        <div class="flex flex-col mt-8 md:flex-row md:space-x-6">
+        <div class="flex flex-col mt-8 space-y-8 md:space-y-0 md:flex-row md:space-x-6">
           <!-- Testimonial 1 -->
           <div
-            class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
           >
             <!-- Heading -->
             <div class="rounded-l-full md:bg-transparent">
@@ -414,7 +410,7 @@
 
           <!-- Testimonial 2 -->
           <div
-            class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
           >
             <!-- Heading -->
             <div class="rounded-l-full md:bg-transparent">
@@ -441,7 +437,7 @@
 
           <!-- Testimonial 3 -->
           <div
-            class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
           >
             <!-- Heading -->
             <div class="rounded-l-full md:bg-transparent">
@@ -485,8 +481,7 @@
           [routerLink]="['formspage']"
           routerLinkActive="active active-style"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Get Started</a
-        >
+          >Get Started</a>
 
         </div>
       </div>

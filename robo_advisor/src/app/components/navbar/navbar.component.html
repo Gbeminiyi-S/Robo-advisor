@@ -42,17 +42,17 @@
 
 
     <!-- Navbar -->
-    <nav class="relative container mx-auto p-8">
+    <nav class="fixed top-0 container mx-auto">
       <!-- Flex container -->
-      <div class="flex items-center justify-between">
+      <div class="flex items-center  bg-primary justify-between  md:h-12 md:w-screen">
         <!-- Logo -->
-        <div class="pt-2">
-          <img src="../../../assets/images/logo.png" alt="logo" class="w-16" />
+        <div class="p-2 bg-white">
+          <img src="../../../assets/images/logo.png" alt="logo" class="max-w-10" />
         </div>
         <!-- Menu Items -->
-        <div class="hidden space-x-8 md:flex">
+        <div class="hidden space-x-8 pr-16 md:flex">
            <a
-        class="font-semibold hover:text-firstgold hover:border-b-2 hover:border-b-primary text-lg"
+        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
         [routerLink]="['']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -60,7 +60,7 @@
       >
 
       <a
-      class="font-semibold hover:text-firstgold hover:border-b-2 hover:border-b-primary text-lg"
+      class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
       [routerLink]="['formspage']"
       routerLinkActive="active active-style"
       [routerLinkActiveOptions]="{ exact: true }"
@@ -68,7 +68,7 @@
     >
 
     <a
-    class="font-semibold hover:text-firstgold hover:border-b-2 hover:border-b-primary text-lg"
+    class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
     [routerLink]="['formspage']"
     routerLinkActive="active active-style"
     [routerLinkActiveOptions]="{ exact: true }"
@@ -77,7 +77,7 @@
 
 
   <a
-  class="font-semibold hover:text-firstgold hover:border-b-2 hover:border-b-primary text-lg"
+  class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
   [routerLink]="['formspage']"
   routerLinkActive="active active-style"
   [routerLinkActiveOptions]="{ exact: true }"
@@ -88,7 +88,8 @@
         <!-- Hamburger Icon -->
         <button
 
-          class="block hamburger md:hidden focus:outline-none" (click)="toggleMenu()"
+          class="block hamburger pr-16 md:pr-0 md:hidden focus:outline-none" (click)="toggleMenu()"
+          [class.open]="isMenuOpen"
         >
           <span class="hamburger-top"></span>
           <span class="hamburger-middle"></span>
@@ -99,7 +100,7 @@
       <!-- Mobile Menu -->
      
 
-      <div class="desktop_menu md:mt-24 fixed right-0 transition ease-in-out top-32 bg-primary w-72 h-72" 
+      <div class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 transition ease-in-out bg-primary w-72 h-72" 
       id="menu" [ngClass]="{'hidden': !menuOpen}">
         <ul class="list-none text-white">
             <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">Home</a></li>
