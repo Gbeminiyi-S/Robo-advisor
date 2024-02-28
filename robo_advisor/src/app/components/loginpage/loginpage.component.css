@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif, Roboto, -apple-system;
+  position: absolute;
+  background-image: url('https://img.freepik.com/free-photo/robot-hand-background-presenting-technology-gesture_53876-129785.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color:#d9e9fa;
+}
+
+/* body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
+  overflow: hidden; */
+
+  /* for the background image */
+  /* background-image: url('https://img.freepik.com/free-photo/3d-rendering-biorobots-concept_23-2149524393.jpg?w=1060&t=st=1709124195~exp=1709124795~hmac=e239081a135f17bc6b018aa9aec5f7c8afc4c2f68d054489fbcdb54b9fa666b1');
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+ /* the overlay... */
+  /* content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://img.freepik.com/free-photo/3d-rendering-biorobots-concept_23-2149524393.jpg?w=1060&t=st=1709124195~exp=1709124795~hmac=e239081a135f17bc6b018aa9aec5f7c8afc4c2f68d054489fbcdb54b9fa666b1');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color:#d9e9fa;
+  mix-blend-mode: multiply;
+  z-index: -1;
+} */
+
+.write-ups {
+  border: 0px transparent transparent;
+  width: 55%;
+  height: 60%;
+  display: grid;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  color:aliceblue;
+}
+#break {
+  height: 3px;
+  width: 80px;
+  border-radius: 3px;
+  background-color: orange;
+  margin-left: 20px;
+}
+#started {
+  padding: 10px 10px;
+  border: 1px solid orange;
+  border-radius: 10px;
+  font-size: 11px;
+  color: white;
+  width: 100px;
+  margin: 15px;
+}
+#head1 {
+  padding: 20px;
+  font-size: 20px;
+}
+#head2 {
+  padding: 20px;
+  font-size: 25px;
+}
+
+
+#login-form {
+  border: 0px transparent transparent;
+  background-color: white;
+  border-radius: 4px;
+  width: 55%;
+  height: 50%;
+  float: left;
+  display: grid;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+#username, #password{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+}
+#sign {
+  margin: 5px 20px 8px 8px;
+  color: rgb(3, 3, 79);
+}
+#mylabel {
+  margin: 20px 20px 10px 20px;
+}
+#fgt-usr, #fgt-pwd {
+  font-size: 2vh !important;
+  color:darkblue !important;
+}
+#fgt-usr {
+  text-align: left;
+  padding-top: 0px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+#fgt-pwd {
+  text-align: right;
+  padding-top: 0px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+#crt-acct {
+  font-size: 2vh !important;
+  color:darkblue !important;
+  margin-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 25px !important;
+}
+table {
+  width: 100%;
+}
+#par {
+  font-size: 14px;
+  margin: 0px 20px 20px 20px;
+}
+
+input[type="text"] {
+  width: 100% !important;
+  margin: 5px 2% 0px 2%;
+  background-color: white;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>');
+  background-position: 5px center;
+  background-repeat: no-repeat;
+  background-size: 8px;
+  padding-left: 40px;
+  border: 2px solid rgb(195, 221, 230);
+  border-radius: 2px;
+}
+
+input[type="password"] {
+  width: 100% !important;
+  margin: 0px 2% 0px 2%;
+  background-color: white;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>');
+  background-position: 5px center;
+  background-repeat: no-repeat;
+  background-size: 8px;
+  padding-left: 40px;
+  border: 2px solid rgb(195, 221, 230);
+  border-radius: 2px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+  border: 2px solid whitesmoke;
+}
+
+#login {
+  background-color:rgb(68, 68, 181);
+  border: none;
+  color: whitesmoke;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 5px 5px 5px 0px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.log-page {
+  width: 100%;
+  top: 20%;
+  position: absolute;
+}
+
+#first {
+  align-content: right;
+  height: 70%;
+}
+#second {
+  height: 70%;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    max-width: 100%;
+    background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+  }
+  table {
+    overflow-x: auto;
+    width: 100%;
+    top: 5%;
+  }
+  td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #login-form {
+    float: none;
+  }
+}
+
+  @media screen and (max-width: 768px) {
+    body {
+      max-width: 100%;
+      background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+    }
+    table {
+      overflow-x: auto;
+      width: 100%;
+      top: 5%;
+    }
+    td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #login-form {
+      float: none;
+    }
+}
