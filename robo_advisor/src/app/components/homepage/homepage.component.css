@@ -4,7 +4,7 @@ body {
     background-size: cover;
    /* background-color: #d9e9fa; */
    background-blend-mode:overlay;
-   background: linear-gradient(45deg, #d9e9fa, #3F5EFB);
+   background: linear-gradient(45deg, #d9e9fa, #3F5EFB); 
 
 }
 
@@ -19,6 +19,7 @@ color:#002146;
 fill:#002146;
 }
 
+
 .container {
     background: rgba(255,255,255,0.3);
     height: 80%;
@@ -29,6 +30,7 @@ fill:#002146;
     box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
     text-align: center;
     transition: all 0.2s ease-in-out;
+    margin-top: 8%;
     margin-bottom: 5%;
 }
 

@@ -40,14 +40,13 @@
   </div>
 </header> -->
 
-
     <!-- Navbar -->
-    <nav class="fixed top-0 container mx-auto">
+    <nav class="fixed z-1000 top-0 container mx-auto">
       <!-- Flex container -->
       <div class="flex items-center  bg-primary justify-between  md:h-12 md:w-screen">
         <!-- Logo -->
         <div class="p-2 bg-white">
-          <img src="../../../assets/images/logo.png" alt="logo" class="max-w-10" />
+          <img src="../../../assets/images/robologo.png" alt="logo" class="max-w-10" />
         </div>
         <!-- Menu Items -->
         <div class="hidden space-x-8 pr-16 md:flex">
@@ -100,7 +99,7 @@
       <!-- Mobile Menu -->
      
 
-      <div class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 transition ease-in-out bg-primary w-72 h-72" 
+      <div class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 md:z-50 transition ease-in-out bg-primary w-72 h-72" 
       id="menu" [ngClass]="{'hidden': !menuOpen}">
         <ul class="list-none text-white">
             <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">Home</a></li>
