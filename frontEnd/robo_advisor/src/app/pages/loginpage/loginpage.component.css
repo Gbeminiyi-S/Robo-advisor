@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Poppins', sans-serif, Roboto, -apple-system;
+  font-family:
+    "Poppins",
+    sans-serif,
+    Roboto,
+    -apple-system;
   position: absolute;
-  background-image: url('https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
+  background-image: url("https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais");
   background-size: cover;
   background-repeat: no-repeat;
-  background-color:#002146;
+  background-color: #002146;
 }
 
 .write-ups {
@@ -20,7 +24,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  color:aliceblue;
+  color: aliceblue;
 }
 #break {
   height: 3px;
@@ -42,11 +46,11 @@ body {
   padding: 20px;
   font-size: 20px;
 }
+
 #head2 {
   padding: 20px;
   font-size: 25px;
 }
-
 
 #login-form {
   border: 0px transparent transparent;
@@ -62,7 +66,8 @@ body {
   margin-bottom: auto;
   position: relative;
 }
-#username, #password{
+#username,
+#password {
   width: 80%;
   padding: 12px 20px;
   margin: 8px 0px;
@@ -75,9 +80,10 @@ body {
 #mylabel {
   margin: 20px 20px 10px 20px;
 }
-#fgt-usr, #fgt-pwd {
+#fgt-usr,
+#fgt-pwd {
   font-size: 2vh !important;
-  color:rgb(3, 3, 79) !important;
+  color: rgb(3, 3, 79) !important;
 }
 #fgt-usr {
   text-align: left;
@@ -93,7 +99,7 @@ body {
 }
 #crt-acct {
   font-size: 2vh !important;
-  color:rgb(3, 3, 79) !important;
+  color: rgb(3, 3, 79) !important;
   margin-left: 20px;
   padding-top: 8px;
   padding-bottom: 25px !important;
@@ -132,13 +138,14 @@ input[type="password"] {
   border-radius: 2px;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   outline: none;
   border: 2px solid whitesmoke;
 }
 
 #login {
-  background-color:rgb(3, 3, 79);
+  background-color: rgb(3, 3, 79);
   border: none;
   color: whitesmoke;
   padding: 10px 20px;
@@ -167,7 +174,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 @media screen and (max-width: 600px) {
   body {
     max-width: 100%;
-    background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais');
+    background-image: url("https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais");
   }
   table {
     overflow-x: auto;
@@ -184,23 +191,23 @@ input[type="text"]:focus, input[type="password"]:focus {
   }
 }
 
-  @media screen and (max-width: 768px) {
-    body {
-      max-width: 100%;
-      background-image: url('https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais');
-      /* background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais'); */
-    }
-    table {
-      overflow-x: auto;
-      width: 100%;
-      top: 5%;
-    }
-    td {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    #login-form {
-      float: none;
-    }
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 100%;
+    background-image: url("https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais");
+    /* background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais'); */
+  }
+  table {
+    overflow-x: auto;
+    width: 100%;
+    top: 5%;
+  }
+  td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #login-form {
+    float: none;
+  }
 }
