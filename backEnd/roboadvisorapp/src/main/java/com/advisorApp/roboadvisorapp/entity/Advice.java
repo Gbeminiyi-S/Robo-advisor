@@ -8,23 +8,19 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name="advice")
-//@Data -- Known bug
 @Getter
 @Setter
 public class Advice {
-
-    // to add dto package
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Long id;
 
-    @Column(name="recommendation")
+    @Column(name="recommendation", nullable = false)
     private String recommendation;
 
-    @Column(name="questionnaire_id")
-    private int questionnaireId; // to make foreign key
-//    private Questionnaire questionnaire;
+    @OneToOne(mappedBy = "advice", cascade = CascadeType.ALL, optional = true)
+    private Questionnaire questionnaire;
 
     @Column(name="date_created")
     @CreationTimestamp

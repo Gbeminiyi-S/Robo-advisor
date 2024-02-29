@@ -6,39 +6,45 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
 @Table(name="questionnaire")
+@Data
 public class Questionnaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
-    @Column(name="investment_horizon")
+    @Column(name="investment_horizon", nullable = false)
     private int investmentHorizon;
 
-    @Column(name="risk_tolerance")
+    @Column(name="risk_tolerance", nullable = false)
     private String riskTolerance;
 
-    @Column(name="investment_purpose")
+    @Column(name="amount", nullable = false)
+    private float amount;
+
+    @Column(name="currency", nullable = false)
+    private String currency;
+
+    @Column(name="investment_purpose", nullable = false)
     private String investmentPurpose;
 
-    @Column(name="location")
+    @Column(name="location", nullable = false)
     private String location;
+
+    @Column(name="investment_knowledge", nullable = false)
+    private String investmentKnowledge;
 
     @Column(name="date_created", columnDefinition = "TIMESTAMP")
     @CreationTimestamp
     private LocalDateTime dateCreated;
 
-//    @Column(name="user_id")
-//    private int userId;
-////    private User user;
+    @ManyToOne(cascade=CascadeType.ALL, optional = true)
+    @JoinColumn(name="user_id")
+    private User user;
 
-//    @Column(name="advice_id")
-    //@ForeignKey()
-//    @OneToOne
-//    @JoinColumn()
-//    private int adviceId;
-//    private Advice advice;
+    @OneToOne(cascade=CascadeType.ALL, optional = true)
+    @JoinColumn(name="advice_id")
+    private Advice advice;
 }

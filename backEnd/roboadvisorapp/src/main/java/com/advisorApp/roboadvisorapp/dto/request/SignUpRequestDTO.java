@@ -1,7 +1,5 @@
-package com.advisorApp.roboadvisorapp.dto;
+package com.advisorApp.roboadvisorapp.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class  Request {
+public class SignUpRequestDTO {
     private String email;
     private String password;
     private String firstName;

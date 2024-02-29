@@ -1,4 +1,4 @@
-package com.advisorApp.roboadvisorapp.dto;
+package com.advisorApp.roboadvisorapp.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

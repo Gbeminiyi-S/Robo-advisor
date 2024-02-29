@@ -4,44 +4,41 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Getter
 @Setter
-@Data
 @Builder
 @Table(name="user")
 public class User {
-//    public User() {
-//
-//        userQuestions = new ArrayList<Questionnaire>();
-//    }
+
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="email")
+    @Column(name="email", nullable = false)
     private String email;
 
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     private String password;
 
-    @Column(name="first_name")
+    @Column(name="first_name", nullable = false)
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
-    @Column(name="age")
+    @Column(name="age", nullable = false)
     private int age;
 
     @Column(name="signup_date")
     @CreationTimestamp
     private LocalDateTime signupDate;
 
-//    private Collection<Questionnaire> userQuestions;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Questionnaire> userQuestions;
 }
