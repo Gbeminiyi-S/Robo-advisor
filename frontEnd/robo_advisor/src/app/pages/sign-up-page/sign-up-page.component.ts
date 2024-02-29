@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
 import { response } from 'express';
 import { error } from 'console';
@@ -20,7 +20,7 @@ export class SignUpPageComponent {
     email: new FormControl(''),
   });
 
-  constructor(private signUpService: SignUpService) {}
+  constructor(private signUpService: SignUpService, private router: Router) {}
 
   onSubmit(): void {
     this.isLoading=true;
@@ -30,6 +30,7 @@ export class SignUpPageComponent {
         (response) => {
           this.isLoading=false;
           console.log(response.message);
+          this.router.navigate(['/login'])
         },
         (error) => {
           this.isLoading=false;

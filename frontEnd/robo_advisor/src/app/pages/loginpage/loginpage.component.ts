@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginService } from '../../services/login/login.service';
 import { response } from 'express';
 import { error } from 'console';
@@ -20,7 +20,7 @@ export class LoginpageComponent {
     password: new FormControl(''),
   });
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   onSubmit(): void {
     this.isLoading = true;
@@ -29,6 +29,7 @@ export class LoginpageComponent {
       this.loginService.login(loginData).subscribe(
         (response) => {
           this.isLoading = false;
+          this.router.navigate(['/formspage'])
           console.log(response);
         },
         (error) => {
