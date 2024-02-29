@@ -11,7 +11,7 @@
     <!-- Menu Items -->
     <div class="hidden space-x-8 pr-16 md:flex">
       <a
-        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-lightprimary text-base"
         [routerLink]="['']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -19,7 +19,7 @@
       >
 
       <a
-        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-lightprimary text-base"
         [routerLink]="['/formspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -27,7 +27,7 @@
       >
 
       <a
-        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
+        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-lightprimary text-base"
         [routerLink]="['/aboutuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -35,8 +35,8 @@
       >
 
       <a
-        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
-        [routerLink]="['contact']"
+        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-lightprimary text-base"
+        [routerLink]="['/contactuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >Contact Us</a
@@ -45,7 +45,7 @@
 
     <!-- Hamburger Icon -->
     <button
-      class="block hamburger pr-16 md:pr-0 md:hidden focus:outline-none"
+      class="block hamburger mr-4 sm:mr-4 md:mr-0 md:hidden focus:outline-none"
       (click)="toggleMenu()"
       [class.open]="isMenuOpen"
     >
@@ -58,22 +58,47 @@
   <!-- Mobile Menu -->
 
   <div
-    class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 transition ease-in-out bg-primary w-72 h-72"
+    class="desktop_menu md:mt-24 md:hidden fixed top-12 right-0 z-50 transition ease-in-out bg-primary w-5/6 h-72"
     id="menu"
     [ngClass]="{ hidden: !menuOpen }"
   >
     <ul class="list-none text-white">
       <li class="block text-left py-4 pl-6 border-b border-gray-300">
-        <a href="#">Home</a>
+        <a class="hover:text-firstgold "
+         [routerLink]="['']"
+        routerLinkActive="active  active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+
+
       </li>
       <li class="block text-left py-4 pl-6 border-b border-gray-300">
-        <a href="#">About</a>
+        <a class="hover:text-firstgold "
+         [routerLink]="['/formspage']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Get Started</a
+      >
+
+
+      </li>
+      <li class="block text-left py-4 pl-6 border-b  border-gray-300">
+      <a class="hover:text-firstgold "
+        [routerLink]="['/aboutuspage']"
+      routerLinkActive="active active-style"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >About Us</a
+    >
+
       </li>
       <li class="block text-left py-4 pl-6 border-b border-gray-300">
-        <a href="#">Contact</a>
-      </li>
-      <li class="block text-left py-4 pl-6 border-b border-gray-300">
-        <a href="#">Contact</a>
+        <a class="hover:text-firstgold "
+        [routerLink]="['/contactuspage']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Contact Us</a
+      >
       </li>
     </ul>
   </div>

@@ -6,13 +6,15 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', title: 'Landing Page', component: AboutUsComponent },
+  { path: '', title: 'Landing Page', component: LandingPageComponent},
   { path: 'login', title: 'Log-in Page', component: LoginpageComponent },
   { path: 'signup', title: 'Sign-up Page', component: SignUpPageComponent },
   { path: 'formspage', title: 'User form', component: FormComponent },
   { path: 'homepage', title: 'Homepage', component: HomepageComponent },
   { path: 'aboutuspage', title: 'AboutUspage', component: AboutUsComponent },
+  { path: 'contactuspage', title: 'ContactUspage', component: ContactComponent },
   { path: '**', title: 'error404', component: Error404Component },
 ];
