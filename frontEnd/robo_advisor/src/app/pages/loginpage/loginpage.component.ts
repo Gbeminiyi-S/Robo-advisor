@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginService } from '../../services/login/login.service';
 import { response } from 'express';
 import { error } from 'console';
+import { UserDetailsService } from '../../services/user-details/user-details.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -20,7 +21,11 @@ export class LoginpageComponent {
     password: new FormControl(''),
   });
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private userDetails: UserDetailsService,
+  ) {}
 
   onSubmit(): void {
     this.isLoading = true;
@@ -29,7 +34,8 @@ export class LoginpageComponent {
       this.loginService.login(loginData).subscribe(
         (response) => {
           this.isLoading = false;
-          this.router.navigate(['/formspage'])
+          this.userDetails.setUsername(response.username);
+          this.router.navigate(['/homepage']);
           console.log(response);
         },
         (error) => {
