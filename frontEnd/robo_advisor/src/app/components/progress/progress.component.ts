@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
-import { FormQuestions } from '../../models/interfaces/formQuestions';
 
 @Component({
   selector: 'app-progress',

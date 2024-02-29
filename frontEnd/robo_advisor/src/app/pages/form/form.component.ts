@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormQuestionsData } from '../../models/FormQuestionsData';
 import { FormQuestions } from '../../models/interfaces/formQuestions';
 import { NgClass } from '@angular/common';
-import { ProgressComponent } from '../progress/progress.component';
-import { NavigationComponent } from '../navigation/navigation.component';
-import { SubmitComponent } from '../submit/submit.component';
-import { InputValMessageComponent } from '../input-val-message/input-val-message.component';
+import { InputValMessageComponent } from '../../components/input-val-message/input-val-message.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
+import { ProgressComponent } from '../../components/progress/progress.component';
+import { SubmitComponent } from '../../components/submit/submit.component';
 
 @Component({
   selector: 'app-form',

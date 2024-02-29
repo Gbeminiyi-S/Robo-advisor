@@ -1,57 +1,16 @@
-<!-- <header class="text-gray-400 bg-[#463f3f] body-font shadow-2xl">
-  <div
-    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
-  >
-    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-        ></path>
-      </svg>
-      <span class="ml-1 text-xl">Robo-App</span>
-    </a>
-    <nav
-      class="md:ml-auto flex flex-wrap items-center text-base justify-center"
-    >
+<!-- Navbar -->
+<nav class="fixed top-0 container mx-auto z-10">
+  <!-- Flex container -->
+  <div class="flex items-center bg-primary justify-between md:h-12 md:w-screen">
+    <!-- Logo -->
+    <div class="p-2 bg-white">
+      <a [routerLink]="['']">
+        <img src="../../../assets/images/logo.png" alt="logo" class="max-w-10" />
+      </a>
+    </div>
+    <!-- Menu Items -->
+    <div class="hidden space-x-8 pr-16 md:flex">
       <a
-        class="mr-5 hover:text-white text-lg"
-        [routerLink]="['']"
-        routerLinkActive="active  active-style"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Home</a
-      >
-      <a
-        class="mr-5 hover:text-white text-lg"
-        [routerLink]="['formspage']"
-        routerLinkActive="active active-style"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >GET STARTED</a
-      >
-    </nav>
-  </div>
-</header> -->
-
-
-    <!-- Navbar -->
-    <nav class="fixed top-0 container mx-auto">
-      <!-- Flex container -->
-      <div class="flex items-center  bg-primary justify-between  md:h-12 md:w-screen">
-        <!-- Logo -->
-        <div class="p-2 bg-white">
-          <img src="../../../assets/images/logo.png" alt="logo" class="max-w-10" />
-        </div>
-        <!-- Menu Items -->
-        <div class="hidden space-x-8 pr-16 md:flex">
-           <a
         class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
         [routerLink]="['']"
         routerLinkActive="active  active-style"
@@ -60,54 +19,62 @@
       >
 
       <a
-      class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
-      [routerLink]="['formspage']"
-      routerLinkActive="active active-style"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >Get Started</a
-    >
+        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+        [routerLink]="['formspage']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Get Started</a
+      >
 
-    <a
-    class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
-    [routerLink]="['formspage']"
-    routerLinkActive="active active-style"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >About Us</a
-  >
+      <a
+        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
+        [routerLink]="['about']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >About Us</a
+      >
 
-
-  <a
-  class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
-  [routerLink]="['formspage']"
-  routerLinkActive="active active-style"
-  [routerLinkActiveOptions]="{ exact: true }"
-  >Contact Us</a
->
-        </div>
-
-        <!-- Hamburger Icon -->
-        <button
-
-          class="block hamburger pr-16 md:pr-0 md:hidden focus:outline-none" (click)="toggleMenu()"
-          [class.open]="isMenuOpen"
-        >
-          <span class="hamburger-top"></span>
-          <span class="hamburger-middle"></span>
-          <span class="hamburger-bottom"></span>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-     
-
-      <div class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 transition ease-in-out bg-primary w-72 h-72" 
-      id="menu" [ngClass]="{'hidden': !menuOpen}">
-        <ul class="list-none text-white">
-            <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">Home</a></li>
-            <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">About</a></li>
-            <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">Contact</a></li>
-            <li class="block text-left py-4 pl-6 border-b border-gray-300"><a href="#">Contact</a></li>
-        </ul>
+      <a
+        class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
+        [routerLink]="['contact']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Contact Us</a
+      >
     </div>
 
-    </nav>
+    <!-- Hamburger Icon -->
+    <button
+      class="block hamburger pr-16 md:pr-0 md:hidden focus:outline-none"
+      (click)="toggleMenu()"
+      [class.open]="isMenuOpen"
+    >
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+
+  <div
+    class="desktop_menu md:mt-24 md:hidden fixed top-16 right-0 z-50 transition ease-in-out bg-primary w-72 h-72"
+    id="menu"
+    [ngClass]="{ hidden: !menuOpen }"
+  >
+    <ul class="list-none text-white">
+      <li class="block text-left py-4 pl-6 border-b border-gray-300">
+        <a href="#">Home</a>
+      </li>
+      <li class="block text-left py-4 pl-6 border-b border-gray-300">
+        <a href="#">About</a>
+      </li>
+      <li class="block text-left py-4 pl-6 border-b border-gray-300">
+        <a href="#">Contact</a>
+      </li>
+      <li class="block text-left py-4 pl-6 border-b border-gray-300">
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
