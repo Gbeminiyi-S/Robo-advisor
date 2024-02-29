@@ -15,5 +15,4 @@ export class SignUpService {
     return this.http.post(`${USER_BASE_URL}/users/register`, signUpData)
   }
 
-  
 }
