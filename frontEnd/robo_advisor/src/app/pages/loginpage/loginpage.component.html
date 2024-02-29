@@ -1,54 +1,73 @@
 <body>
   <div>
-  <table class="log-page">
-    <tr>
-      <td id="first">
-        <div class="write-ups">
-          <h1 id="head1">
-            Transact Easily
-          </h1>
-          <button id="break"></button>
-          <h1 id="head2">
-            Flexible and Reliable Business<br>
-            Banking
-          </h1>
-          <button id="started">GET STARTED</button>
-        </div>
-      </td>
+    <table class="log-page">
+      <tr>
+        <td id="first">
+          <div class="write-ups">
+            <h1 id="head1">Transact Easily</h1>
+            <button id="break"></button>
+            <h1 id="head2">
+              Flexible and Reliable Business<br />
+              Banking
+            </h1>
+            <button id="started">GET STARTED</button>
+          </div>
+        </td>
 
-      <td id="second">
-        <div>
-          <form id="login-form">
-            <section id="mylabel">
-              <p id="sign">Sign in with your details</p>
-              <input type="text" id="username" name="username" required placeholder="Username">
-              <br>
-              <input type="password" id="password" name="password" required placeholder="Password">
-              <br>
-              <button id="login" type="submit" >LOG IN</button>
-              <br>
-            </section>
-            
-            <section style="overflow-x:auto;">
-              <table style="overflow-x: auto;">
-                <tr>
-                  <td id="fgt-usr"><a href="">Forgot Username</a></td>
-                  <td id="fgt-pwd"><a href="">Forgot/Change Password</a></td>
-                </tr>
-              </table>
-              <p id="par">Is this your first time here? For full access, you need to sign-up.</p>
-              <a id="crt-acct" href="#">CREATE NEW ACCOUNT</a>
-              <br>
-            </section>
-          </form><br><br>
-        </div>
-      </td>
-    </tr>
-  </table>
+        <td id="second">
+          <div>
+            <form id="login-form">
+              <section id="mylabel">
+                <p id="sign">Sign in with your details</p>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  placeholder="Username"
+                />
+                <br />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  placeholder="Password"
+                />
+                <br />
+                <button id="login" type="submit">LOG IN</button>
+                <br />
+              </section>
+
+              <section style="overflow-x: auto">
+                <table style="overflow-x: auto">
+                  <tr>
+                    <td id="fgt-usr"><a href="">Forgot Username</a></td>
+                    <td id="fgt-pwd"><a href="">Forgot/Change Password</a></td>
+                  </tr>
+                </table>
+                <p id="par">
+                  Is this your first time here? For full access, you need to
+                  sign-up.
+                </p>
+                <a
+                  id="crt-acct"
+                  [routerLink]="['/signup']"
+                  routerLinkActive="active active-style"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >CREATE NEW ACCOUNT</a
+                >
+                <br />
+              </section>
+            </form>
+            <br /><br />
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
-
 </body>
-  <!-- <link
+<!-- <link
   rel="icon"
   href="https://www.firstbanknigeria.com/wp-content/uploads/2020/08/First-Bank-Logo_Symbol.svg"
   sizes="32x32"
