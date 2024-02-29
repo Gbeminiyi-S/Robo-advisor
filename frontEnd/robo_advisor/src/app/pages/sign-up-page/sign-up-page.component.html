@@ -1,31 +1,43 @@
 <body>
-    <div class="container">
-        <section id="one">
-            <form class="col-6">
-                <h1 id="title">Create a new account</h1><br>
-                <label>Last name</label><br>
-                <input type="text" id="lastname" name="lastName" required><br>
-                <label>First name</label><br>
-                <input type="text" id="firstname" name="firstName" required><br>
-                <label>Username</label><br>
-                <input type="text" id="username" name="userName" required><br>
-                <label>Password</label><br>
-                <input type="password" id="pwd" name="password" required><br>
-                <label>Password(again)</label><br>
-                <input type="password" id="pwd" name="password" required><br>
-                <label>Country</label><br>
-                <input type="text" id="country" name="country"><br>
-                <button id="create">Create</button>
-                <button id="cancel">Cancel</button>
-                <p id="write">Got an Account?<br>
-                <a href="" id="login">Log-in</a></p>
-                <br>
-            </form>
-        </section>
+  <div class="container">
+    <section id="one">
+      <form class="col-6">
+        <h1 id="title">Create a new account</h1>
+        <br />
+        <label>Last name</label><br />
+        <input type="text" id="lastname" name="lastName" required /><br />
+        <label>First name</label><br />
+        <input type="text" id="firstname" name="firstName" required /><br />
+        <label>Username</label><br />
+        <input type="text" id="username" name="userName" required /><br />
+        <label>Password</label><br />
+        <input type="password" id="pwd" name="password" required /><br />
+        <label>Password(again)</label><br />
+        <input type="password" id="pwd" name="password" required /><br />
+        <label>Country</label><br />
+        <input type="text" id="country" name="country" /><br />
+        <button id="create">Create</button>
+        <button id="cancel">Cancel</button>
+        <p id="write">
+          Got an Account?<br />
+          <a
+            [routerLink]="['/login']"
+            routerLinkActive="active active-style"
+            [routerLinkActiveOptions]="{ exact: true }"
+            id="login"
+            >Log-in</a
+          >
+        </p>
+        <br />
+      </form>
+    </section>
 
-        <section id="two">
-            <img id="image" src="https://img.freepik.com/free-photo/robot-hand-finger-pointing-technology-artificial-intelligence_53876-129777.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais" alt="">
-        </section>
-    </div>
-    
+    <section id="two">
+      <img
+        id="image"
+        src="https://img.freepik.com/free-photo/robot-hand-finger-pointing-technology-artificial-intelligence_53876-129777.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais"
+        alt=""
+      />
+    </section>
+  </div>
 </body>
