@@ -1,11 +1,9 @@
 body {
-    background-image: url(../../../assets/images/backpicc.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-   background-color: #d9e9fa;
-   background-blend-mode:overlay;
-
-
+  background-image: url(../../../assets/images/backpicc.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #d9e9fa;
+  background-blend-mode: overlay;
 }
 
 /* 
@@ -14,6 +12,8 @@ fill:#002146;
 } */
 
 .fourcontainer:hover .item {
-color:#002146;
-fill:#002146;
+  color: #002146;
+  fill: #002146;
 }
+
+/*   w-52 h-52 sm:p-6 space-y-12 md:space-y-0 md:mx-6 */
