@@ -1,4 +1,4 @@
-<body>
+<main>
   <div class="container">
     <section id="one">
       <form class="col-6" [formGroup]="signUpForm" (submit)="onSubmit()">
@@ -15,17 +15,41 @@
           name="userName"
           required
           formControlName="username"
-        /><br />
-        <label>Password</label><br />
-        <input
-          type="password"
-          id="pwd"
-          name="password"
-          required
-          formControlName="password"
-        /><br />
-        <label>Password(again)</label><br />
-        <input type="password" id="pwd" name="password" required /><br />
+        />
+        <br />
+        <div class="pass relative">
+          <label>Password</label><br />
+          <input
+            [type]="isShowPassword ? 'text' : 'password'"
+            id="pwd"
+            name="password"
+            required
+            formControlName="password"
+          />
+          <span class="absolute top-1/2 right-3 cursor-pointer">
+            @if (isShowPassword) {
+              <fa-icon [icon]="faEyeSlash" (click)="toggleShowPassword()" />
+            } @else {
+              <fa-icon [icon]="faEye" (click)="toggleShowPassword()" />
+            }
+          </span>
+        </div>
+        <div class="relative">
+          <label>Password(again)</label><br />
+          <input
+            [type]="isConfirmPassword ? 'text' : 'password'"
+            id="pwd"
+            name="password"
+            required
+          />
+          <span class="absolute top-1/2 right-3 cursor-pointer">
+            @if (isConfirmPassword) {
+              <fa-icon [icon]="faEyeSlash" (click)="toggleConfirmPassword()" />
+            } @else {
+              <fa-icon [icon]="faEye" (click)="toggleConfirmPassword()" />
+            }
+          </span>
+        </div>
         <label>Email</label><br />
         <input
           type="text"
@@ -33,7 +57,7 @@
           name="email"
           formControlName="email"
         /><br />
-        <button id="create" >{{isLoading?'Creating': 'Create'}} </button>
+        <button id="create">{{ isLoading ? "Creating" : "Create" }}</button>
         <button id="cancel">Cancel</button>
         <p id="write">
           Got an Account?<br />
@@ -57,4 +81,4 @@
       />
     </section>
   </div>
-</body>
+</main>

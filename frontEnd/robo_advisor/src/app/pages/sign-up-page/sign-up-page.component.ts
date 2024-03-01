@@ -4,42 +4,65 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
 import { response } from 'express';
 import { error } from 'console';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './sign-up-page.component.html',
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
-  isLoading: boolean= false;
+  isLoading: boolean = false;
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
     email: new FormControl(''),
   });
 
-  constructor(private signUpService: SignUpService, private router: Router) {}
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  isShowPassword: boolean = false;
+  isConfirmPassword: boolean = false;
+
+  toggleShowPassword(): void {
+    this.isShowPassword = !this.isShowPassword;
+  }
+
+  toggleConfirmPassword(): void {
+    this.isConfirmPassword = !this.isConfirmPassword;
+  }
+
+  constructor(
+    private signUpService: SignUpService,
+    private router: Router,
+  ) {}
 
   onSubmit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
     if (this.signUpForm.valid) {
       const signUpData = this.signUpForm.value;
       this.signUpService.signUp(signUpData).subscribe(
         (response) => {
-          this.isLoading=false;
+          this.isLoading = false;
           console.log(response.message);
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
         },
         (error) => {
-          this.isLoading=false;
+          this.isLoading = false;
           console.log(error);
         },
-        );
-      } else {
-        console.error('Form is invalid');
-        this.isLoading=false;
+      );
+    } else {
+      console.error('Form is invalid');
+      this.isLoading = false;
     }
   }
 }

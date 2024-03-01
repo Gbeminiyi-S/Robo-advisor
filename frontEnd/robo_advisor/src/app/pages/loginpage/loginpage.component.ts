@@ -15,11 +15,16 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
 })
 export class LoginpageComponent {
   isLoading: boolean = false;
+  isShowPassword: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
+  
+  onShowPassword(): void {
+    this.isShowPassword=!this.isShowPassword
+  }
 
   constructor(
     private loginService: LoginService,
