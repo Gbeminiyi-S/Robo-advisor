@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
 import { response } from 'express';
@@ -8,11 +9,18 @@ import { error } from 'console';
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './sign-up-page.component.html',
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
+  switchIcon: boolean = true;
+  showPassword: boolean = true;
+  // this takes password value
+  password: string = '';
+  // this stores the confirmation password value
+  confirmPassword: string = '';
+
   isLoading: boolean= false;
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -42,4 +50,18 @@ export class SignUpPageComponent {
         this.isLoading=false;
     }
   }
+
+  togglePasswordVisibility(field: 'password' | 'confirmPassword'): void {
+    this.switchIcon = !this.switchIcon;    
+
+    // Toggle the showPassword only for the specified field
+    if (field === 'password') {
+        this.showPassword = !this.showPassword;
+    }
 }
+
+  // to see if the passwords match...
+  confirmPasswordMatch(): boolean {
+    return this.password === this.confirmPassword;
+  }
+} 

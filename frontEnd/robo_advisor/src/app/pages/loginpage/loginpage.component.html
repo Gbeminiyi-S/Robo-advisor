@@ -1,76 +1,87 @@
 <main>
   <div>
     <table class="log-page">
-      <tr>
-        <td id="first">
-          <div class="write-ups">
-            <h1 id="head1">Transact Easily</h1>
-            <button id="break"></button>
-            <h1 id="head2">
-              Flexible and Reliable Business<br />
-              Banking
-            </h1>
-            <button id="started">GET STARTED</button>
-          </div>
-        </td>
+      <tbody>
+        <tr>
+          <td id="first">
+            <div class="write-ups">
+              <h1 id="head1">Transact Easily</h1>
+              <button id="break"></button>
+              <h1 id="head2">
+                Your Personalized Robo-Advisor<br />
+                for Investment<br />
+                Recommendations<br />
+              </h1>
+              <button id="started">GET STARTED</button>
+            </div>
+          </td>
 
-        <td id="second">
-          <div>
-            <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
-              <section id="mylabel">
-                <p id="sign">Sign in with your details</p>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  required
-                  placeholder="Username"
-                  formControlName="email"
-                />
-                <br />
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  placeholder="Password"
-                  formControlName="password"
-                />
-                <br />
-                <button id="login" type="submit">{{isLoading?'Logging in...': 'Log In'}}</button>
-                <br />
-              </section>
+          <td id="second">
+            <div>
+              <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
+                <section id="mylabel">
+                  <p id="sign">Sign in with your details</p>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    placeholder="Username"
+                    formControlName="email"
+                  />
+                  <br />
+                  <div class="password-container">
+                    <input
+                      [type]="showPassword ? 'password' : 'text'"
+                      placeholder="Password"
+                      id="pwd"
+                      required
+                    />
+                    <span
+                      class="eyeicon"
+                      (click)="togglePasswordVisibility()"
+                    >
+                      <i
+                        [ngClass]="
+                          switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'
+                        "></i>
+                    </span>
+                  </div>
+                  <br />
 
-              <section style="overflow-x: auto">
-                <table style="overflow-x: auto">
-                  <tr>
-                    <td id="fgt-usr"><a href="">Forgot Username</a></td>
-                    <td id="fgt-pwd"><a href="">Forgot/Change Password</a></td>
-                  </tr>
-                </table>
-                <p id="par">
-                  Is this your first time here? For full access, you need to
-                  sign-up.
-                </p>
-                <a
-                  id="crt-acct"
-                  [routerLink]="['/signup']"
-                  routerLinkActive="active active-style"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  >CREATE NEW ACCOUNT</a
-                >
-                <br />
-              </section>
-            </form>
-            <br /><br />
-          </div>
-        </td>
-      </tr>
+                  <button id="login" type="submit">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
+                  <br />
+                </section>
+
+                <section>
+                  <table style="overflow-x: auto">
+                    <tbody>
+                      <tr>
+                        <td id="fgt-usr"><a href="">Forgot Username</a></td>
+                        <td id="fgt-pwd">
+                          <a href="">Forgot/Change Password</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p id="par">
+                    Is this your first time here? For full access, you need to
+                    sign-up.
+                  </p>
+                  <a
+                    id="crt-acct"
+                    [routerLink]="['/signup']"
+                    routerLinkActive="active active-style"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >CREATE NEW ACCOUNT</a
+                  >
+                  <br /><br /><br />
+                </section>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </main>
-<!-- <link
-  rel="icon"
-  href="https://www.firstbanknigeria.com/wp-content/uploads/2020/08/First-Bank-Logo_Symbol.svg"
-  sizes="32x32"
-/> -->
