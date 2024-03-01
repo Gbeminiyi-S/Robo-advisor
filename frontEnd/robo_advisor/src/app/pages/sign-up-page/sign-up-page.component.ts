@@ -11,7 +11,7 @@ import { error } from 'console';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './sign-up-page.component.html',
-  styleUrl: './sign-up-page.component.css'
+  styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
   switchIcon: boolean = true;

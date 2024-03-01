@@ -13,7 +13,7 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
   standalone: true,
   imports: [RouterLinkActive, RouterLink, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './loginpage.component.html',
-  styleUrl: './loginpage.component.css'
+  styleUrl: './loginpage.component.css',
 })
 export class LoginpageComponent {
   switchIcon: boolean = true;

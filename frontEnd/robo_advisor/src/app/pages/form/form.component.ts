@@ -7,8 +7,6 @@ import { InputValMessageComponent } from '../../components/input-val-message/inp
 import { NavigationComponent } from '../../components/navigation/navigation.component';
 import { ProgressComponent } from '../../components/progress/progress.component';
 import { SubmitComponent } from '../../components/submit/submit.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form',
@@ -20,7 +18,6 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
     ProgressComponent,
     NavigationComponent,
     SubmitComponent,
-    FontAwesomeModule
   ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
@@ -34,7 +31,7 @@ export class FormComponent {
     false
   );
   ageVal: number = 0;
-  faArrowRight= faArrowRight;
+
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({});
