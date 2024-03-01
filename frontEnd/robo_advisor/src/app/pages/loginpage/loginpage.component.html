@@ -18,7 +18,7 @@
 
           <td id="second">
             <div>
-              <form id="login-form">
+              <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
                 <section id="mylabel">
                   <p id="sign">Sign in with your details</p>
                   <input
@@ -28,6 +28,7 @@
                     ngModel
                     required
                     placeholder="Username"
+                    formControlName="email"
                   />
                   <br />
 
@@ -36,7 +37,7 @@
                       [type]="showPassword ? 'password' : 'text'"
                       placeholder="Password"
                       id="pwd"
-                      required
+                      required formControlName="password"
                     />
                     <span
                       class="eyeicon"
@@ -51,7 +52,7 @@
                   </div>
                   <br />
 
-                  <button id="login" type="submit">LOG IN</button>
+                  <button id="login" type="submit">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
                   <br />
                 </section>
 

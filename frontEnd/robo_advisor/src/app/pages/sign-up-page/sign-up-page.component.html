@@ -1,7 +1,7 @@
 <main>
   <div class="container">
     <section id="one">
-      <form class="col-6" #myForm="ngForm">
+      <form class="col-6" [formGroup]="signUpForm" (submit)="onSubmit()">
         <h1 id="title">Create a new account</h1>
         <br />
         <label>Last name:</label><br />
@@ -29,9 +29,11 @@
 
         <div *ngIf="!confirmPasswordMatch()">Passwords do not match!</div>
         <label>Country:</label><br />
-        <input type="text" id="country" name="country" ngModel/><br />
-        <button id="create" [disabled]="!confirmPasswordMatch()">Create</button>
-        <button id="cancel">Cancel</button>
+        <input type="text" id="email" name="email" formControlName="email"/><br />
+        <button id="create" [disabled]="!confirmPasswordMatch()">{{isLoading?'CREATING': 'CREATE'}}</button>
+        <button id="cancel" [routerLink]="['/login']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }">CANCEL</button>
         <p id="write">
           Got an Account?<br />
           <a
