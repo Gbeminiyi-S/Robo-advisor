@@ -43,6 +43,7 @@
             [type]="isConfirmPassword ? 'text' : 'password'"
             id="pwd"
             name="password"
+            formControlName="Cpassword"
             required
           />
           <span class="absolute top-1/2 right-3 cursor-pointer">
@@ -52,8 +53,9 @@
               <fa-icon [icon]="faEye" (click)="toggleConfirmPassword()" />
             }
           </span>
+          <small class="text-red-800 text-[.8rem] absolute -bottom-1 left-0">{{passError? passError: ''}}</small>
         </div>
-        <label>Email</label><br />
+        <label >Email</label><br />
         <input
           type="text"
           id="country"

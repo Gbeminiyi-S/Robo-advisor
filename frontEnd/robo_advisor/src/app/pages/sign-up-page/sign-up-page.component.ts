@@ -24,6 +24,7 @@ export class SignUpPageComponent {
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
+    confirmPassword: new FormControl(''),
     email: new FormControl(''),
   });
 
@@ -31,6 +32,10 @@ export class SignUpPageComponent {
   faEyeSlash = faEyeSlash;
   isShowPassword: boolean = false;
   isConfirmPassword: boolean = false;
+
+  passInput = '';
+  confirmPassInput = '';
+  passError: string = '';
 
   errorMessage: string = '';
   toggleShowPassword(): void {
@@ -48,6 +53,13 @@ export class SignUpPageComponent {
 
   onSubmit(): void {
     this.isLoading = true;
+    this.passInput = this.signUpForm.get('password')?.value;
+    this.confirmPassInput = this.signUpForm.get('Cpassword')?.value;
+    if (this.passInput !== this.confirmPassInput) {
+      this.passError = 'passwords do not match';
+      this.isLoading=false;
+      return;
+    }
     if (this.signUpForm.valid) {
       const signUpData = this.signUpForm.value;
       this.signUpService.signUp(signUpData).subscribe(
@@ -55,17 +67,20 @@ export class SignUpPageComponent {
           this.isLoading = false;
           console.log(response.message);
           this.router.navigate(['/login']);
-          this.errorMessage = '';          
+          this.errorMessage = '';
+          this.passError = '';
         },
         (error) => {
-          this.errorMessage = error.error.message;          
+          this.errorMessage = error.error.message;
+          this.passError = '';
           this.isLoading = false;
           console.log(error);
         },
       );
     } else {
       console.error('Form is invalid');
-      this.errorMessage = 'Form is invalid';          
+      this.errorMessage = 'Form is invalid';
+      this.passError = '';
       this.isLoading = false;
     }
   }
