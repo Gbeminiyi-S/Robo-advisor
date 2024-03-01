@@ -26,17 +26,24 @@
                   required
                   placeholder="Username"
                   formControlName="email"
-                />
-                <br />
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  placeholder="Password"
-                  formControlName="password"
-                />
-                <br />
+                /> <br>
+                <div class="relative">
+                  <input
+                    [type]="isShowPassword?'text':'password'"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                  <span class="absolute top-6 right-3 cursor-pointer">
+                    @if (isShowPassword) {
+                      <fa-icon [icon]="faEyeSlash" (click)="toggleShowPassword()" />
+                    } @else {
+                      <fa-icon [icon]="faEye" (click)="toggleShowPassword()" />
+                    }
+                  </span>
+                </div>
                 <button id="login" type="submit">{{isLoading?'Logging in...': 'Log In'}}</button>
                 <br />
               </section>
