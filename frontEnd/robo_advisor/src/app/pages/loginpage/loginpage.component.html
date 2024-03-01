@@ -18,6 +18,9 @@
           <div>
             <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
               <section id="mylabel">
+                @if (errorMessage) {
+                  <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
+                }
                 <p id="sign">Sign in with your details</p>
                 <input
                   type="text"

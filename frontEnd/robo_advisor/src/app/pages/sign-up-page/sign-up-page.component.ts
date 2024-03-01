@@ -32,6 +32,7 @@ export class SignUpPageComponent {
   isShowPassword: boolean = false;
   isConfirmPassword: boolean = false;
 
+  errorMessage: string = '';
   toggleShowPassword(): void {
     this.isShowPassword = !this.isShowPassword;
   }
@@ -54,14 +55,17 @@ export class SignUpPageComponent {
           this.isLoading = false;
           console.log(response.message);
           this.router.navigate(['/login']);
+          this.errorMessage = '';          
         },
         (error) => {
+          this.errorMessage = error.error.message;          
           this.isLoading = false;
           console.log(error);
         },
       );
     } else {
       console.error('Form is invalid');
+      this.errorMessage = 'Form is invalid';          
       this.isLoading = false;
     }
   }

@@ -3,6 +3,9 @@
     <section id="one">
       <form class="col-6" [formGroup]="signUpForm" (submit)="onSubmit()">
         <h1 id="title">Create a new account</h1>
+        @if (errorMessage) {
+          <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
+        }
         <br />
         <label>Last name</label><br />
         <input type="text" id="lastname" name="lastName" required /><br />

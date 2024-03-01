@@ -21,6 +21,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 export class LoginpageComponent {
   isLoading: boolean = false;
   isShowPassword: boolean = false;
+  errorMessage: string = '';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -48,9 +49,11 @@ export class LoginpageComponent {
           this.isLoading = false;
           this.userDetails.setUsername(response.username);
           this.router.navigate(['/homepage']);
+          this.errorMessage = '';
           console.log(response);
         },
         (error) => {
+          this.errorMessage = error.error.message;
           console.log(error);
           this.isLoading = false;
         },
@@ -58,6 +61,7 @@ export class LoginpageComponent {
     } else {
       this.isLoading = false;
       console.log('Invalid form');
+      this.errorMessage='Invalid form'
     }
   }
 }
