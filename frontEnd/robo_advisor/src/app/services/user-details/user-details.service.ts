@@ -4,14 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserDetailsService {
-  private username: string | null = null;
+  private readonly STORAGE_KEY: string  = 'user_username';
   constructor() { }
 
   setUsername(username: string): void{
-    this.username=username;
+    localStorage.setItem(this.STORAGE_KEY, username)
   }
   
   getUsername(): string | null {
-    return this.username;
+    return localStorage.getItem(this.STORAGE_KEY);
+  }
+
+  clearUsername(): void {
+    localStorage.removeItem(this.STORAGE_KEY);
   }
 }
