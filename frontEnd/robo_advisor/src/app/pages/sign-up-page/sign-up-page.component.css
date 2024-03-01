@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body {
+main {
     width: 100%;
     height: 100%;
     font-family: 'Poppins', sans-serif, Roboto, -apple-system;
@@ -93,7 +93,7 @@ input:focus {
 }
 
 @media screen and (max-width: 600px) {
-    body {
+    main {
         width: 100%;
         margin: 0;
         padding: 0;
@@ -113,7 +113,7 @@ input:focus {
     }
 }
 @media screen and (max-width: 768px) {
-    body {
+    main {
         width: 100%;
         margin: 0;
         padding: 0;
