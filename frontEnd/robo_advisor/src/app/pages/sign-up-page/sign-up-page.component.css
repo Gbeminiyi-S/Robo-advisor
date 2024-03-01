@@ -66,14 +66,8 @@ input:focus {
     font-weight: bolder;
     font-size: 3vh;
 }
-#lastname, #firstname, #username, #pwd, #confirmPwd { 
+#lastname, #firstname, #username, #pwd, #confirmPwd, #email { 
     width: 100%;
-    border-radius: 3px;
-    margin: 10px auto;
-    padding: 10px 20px;
-}
-#country {
-    width: 60%;
     border-radius: 3px;
     margin: 10px auto;
     padding: 10px 20px;

@@ -30,20 +30,6 @@
                     formControlName="email"
                   />
                   <br />
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    placeholder="Password"
-                    formControlName="password"
-                  />
-                  <br />
-                  <button id="login" type="submit">{{isLoading?'Logging in...': 'Log In'}}</button>
-                  <br />
-                </section>
-
-                <section>
                   <div class="password-container">
                     <input
                       [type]="showPassword ? 'password' : 'text'"
@@ -63,7 +49,7 @@
                   </div>
                   <br />
 
-                  <button id="login" type="submit">LOG IN</button>
+                  <button id="login" type="submit">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
                   <br />
                 </section>
 
