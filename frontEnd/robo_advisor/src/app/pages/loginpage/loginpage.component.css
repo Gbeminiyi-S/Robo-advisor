@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-body {
+main {
   width: 100%;
   height: 100%;
   font-family:
@@ -192,7 +192,7 @@ input[type="password"]:focus {
 }
 
 @media screen and (max-width: 768px) {
-  body {
+main {
     max-width: 100%;
     background-image: url("https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais");
     /* background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais'); */
