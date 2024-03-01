@@ -4,7 +4,6 @@
       <form class="col-6" #myForm="ngForm">
         <h1 id="title">Create a new account</h1>
         <br />
-<<<<<<< HEAD
         <label>Last name:</label><br />
         <input type="text" id="lastname" name="lastName" ngModel required /><br />
         <label>First name:</label><br />
@@ -35,39 +34,6 @@
         <button id="cancel" [routerLink]="['/login']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }">CANCEL</button>
-=======
-        <label>Last name</label><br />
-        <input type="text" id="lastname" name="lastName" required /><br />
-        <label>First name</label><br />
-        <input type="text" id="firstname" name="firstName" required /><br />
-        <label>Username</label><br />
-        <input
-          type="text"
-          id="username"
-          name="userName"
-          required
-          formControlName="username"
-        /><br />
-        <label>Password</label><br />
-        <input
-          type="password"
-          id="pwd"
-          name="password"
-          required
-          formControlName="password"
-        /><br />
-        <label>Password(again)</label><br />
-        <input type="password" id="pwd" name="password" required /><br />
-        <label>Email</label><br />
-        <input
-          type="text"
-          id="country"
-          name="email"
-          formControlName="email"
-        /><br />
-        <button id="create" >{{isLoading?'Creating': 'Create'}} </button>
-        <button id="cancel">Cancel</button>
->>>>>>> f2a3dcc298fec245fec579c6bc56fff8a2e715f0
         <p id="write">
           Got an Account?<br />
           <a
