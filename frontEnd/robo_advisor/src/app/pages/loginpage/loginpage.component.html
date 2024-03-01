@@ -16,50 +16,34 @@
             </div>
           </td>
 
-<<<<<<< HEAD
           <td id="second">
             <div>
-              <form id="login-form">
+              <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
                 <section id="mylabel">
                   <p id="sign">Sign in with your details</p>
                   <input
                     type="text"
                     id="username"
                     name="username"
-                    ngModel
                     required
                     placeholder="Username"
+                    formControlName="email"
                   />
                   <br />
-=======
-        <td id="second">
-          <div>
-            <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
-              <section id="mylabel">
-                <p id="sign">Sign in with your details</p>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  required
-                  placeholder="Username"
-                  formControlName="email"
-                />
-                <br />
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  placeholder="Password"
-                  formControlName="password"
-                />
-                <br />
-                <button id="login" type="submit">{{isLoading?'Logging in...': 'Log In'}}</button>
-                <br />
-              </section>
->>>>>>> f2a3dcc298fec245fec579c6bc56fff8a2e715f0
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                  <br />
+                  <button id="login" type="submit">{{isLoading?'Logging in...': 'Log In'}}</button>
+                  <br />
+                </section>
 
+                <section>
                   <div class="password-container">
                     <input
                       [type]="showPassword ? 'password' : 'text'"
@@ -74,8 +58,7 @@
                       <i
                         [ngClass]="
                           switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'
-                        "
-                      ></i>
+                        "></i>
                     </span>
                   </div>
                   <br />
