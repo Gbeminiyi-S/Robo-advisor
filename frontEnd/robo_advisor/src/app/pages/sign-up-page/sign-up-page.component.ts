@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
@@ -9,7 +9,7 @@ import { error } from 'console';
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, ReactiveFormsModule],
   templateUrl: './sign-up-page.component.html',
   styleUrl: './sign-up-page.component.css',
 })
@@ -17,7 +17,7 @@ export class SignUpPageComponent {
   switchIcon: boolean = true;
   showPassword: boolean = true;
   // this takes password value
-  password: string = '';
+  userPassword: string = '';
   // this stores the confirmation password value
   confirmPassword: string = '';
 
@@ -62,6 +62,6 @@ export class SignUpPageComponent {
 
   // to see if the passwords match...
   confirmPasswordMatch(): boolean {
-    return this.password === this.confirmPassword;
+    return this.userPassword === this.confirmPassword;
   }
 } 
