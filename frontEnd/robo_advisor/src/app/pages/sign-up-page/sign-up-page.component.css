@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body {
+main {
     width: 100%;
     height: 100%;
     font-family: 'Poppins', sans-serif, Roboto, -apple-system;
-    color: rgb(3, 3, 79);
-    background-color:lightskyblue;
+    color: #002146;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    box-shadow: 0 0 10px rgba(241, 207, 19, 0.823);
     margin: 0;
   padding: 0;
 }
 .container {
-    /* top: 10%; */
     height: 100%;
-    margin-top: 5rem;
+    margin-top: 3rem;
     width: 100%;
     /* position: absolute; */
     display: flex;
@@ -25,27 +28,33 @@ body {
     border: 0px transparent transparent;
 }
 #image {
-    height:100%;
+    height:100vh;
     width:100%;
-    margin: auto;
+    margin: 5% auto;
 }
 #one {
-    top: 10%;
+    margin-top: 2rem;
     width: 60%;
     height: auto;
     box-sizing: border-box;
     padding: auto;
 }
 #two {
-    top: 10%;
+    top: 0;
     width: 40%;
     height: 100%;
     box-sizing: border-box;
     padding: auto;
 }
 
+.eyeicon {
+    position: absolute;
+    margin-top: 22px;
+    right: 50%;
+}
 input {
     border: 2px solid rgb(195, 221, 230);
+    position: relative;
 }
 input:focus {
     outline: none;
@@ -57,7 +66,7 @@ input:focus {
     font-weight: bolder;
     font-size: 3vh;
 }
-#lastname, #firstname, #username, #pwd { 
+#lastname, #firstname, #username, #pwd, #confirmPwd { 
     width: 100%;
     border-radius: 3px;
     margin: 10px auto;
@@ -76,16 +85,16 @@ input:focus {
 #create {
     width: 95px;
     color: white;
-    background-color:rgb(3, 3, 79);
+    background-color:#002146;
     margin: 10px 2px 10px 0px;
 }
 #cancel {
     width: 80px;
-    border: 2px solid rgb(3, 3, 79);
+    border: 2px solid #002146;
     margin: 10px 10px 10px 0px;
 }
 #write {
-    margin: 20px auto;
+    margin: 10px auto;
     text-align: left;
 }
 #login {
@@ -93,42 +102,41 @@ input:focus {
 }
 
 @media screen and (max-width: 600px) {
-    body {
+    main {
+        height: 100%;
         width: 100%;
         margin: 0;
         padding: 0;
     }
-    #one, #two {
+    /* #one, #two {
         width: 100%;
         border-right: none;
-        margin: auto;
+        margin: 0;
     }
     #two {
         order: 2;
-    }
-    #image {
-        height:100%;
-        width:100%;
-        margin: 0;
-    }
+    } */
+    /* .eyeicon {
+        right: 10%;
+    } */
 }
 @media screen and (max-width: 768px) {
-    body {
+    main {
+        height: 100%;
         width: 100%;
         margin: 0;
         padding: 0;
     }
-    #one, #two {
-        width: 100%;
-        border-right: none;
+    .col-6 {
+        width: 90%;
         margin: auto;
     }
-    #two {
-        order: 2;
+}
+@media screen and (max-width: 1000px) {
+    .eyeicon {
+        right: 55%;
     }
     #image {
-        height:100%;
-        width:100%;
-        margin: 0;
+        margin-left: auto !important;
     }
 }
