@@ -5,7 +5,11 @@
     <!-- Logo -->
     <div class="p-2 bg-white">
       <a [routerLink]="['']">
-        <img src="../../../assets/images/logo.png" alt="logo" class="max-w-10" />
+        <img
+          src="../../../assets/images/logo.png"
+          alt="logo"
+          class="max-w-10"
+        />
       </a>
     </div>
     <!-- Menu Items -->
@@ -17,14 +21,36 @@
         [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
       >
+      <!-- @if (isLoggedIn$ | async) {
+        <a
+          class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+          [routerLink]="['/login']"
+          routerLinkActive="active active-style"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="logOut()"
+          >Logout</a
+        >
+      } @else {
+        <a
+          class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+          [routerLink]="['/login']"
+          routerLinkActive="active active-style"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Login</a
+        >
+      } -->
 
-      <a
-        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
-        [routerLink]="['/login']"
-        routerLinkActive="active active-style"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Login</a
-      >
+      <div *ngIf="isLoggedIn$ | async; else loggedOutLinks">
+        <a
+          [routerLink]="['/login']"
+          class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+          (click)="logOut()"
+          >Logout</a
+        >
+      </div>
+      <ng-template #loggedOutLinks>
+        <a [routerLink]="['/login']" class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base">Login</a>
+      </ng-template>
 
       <a
         class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
