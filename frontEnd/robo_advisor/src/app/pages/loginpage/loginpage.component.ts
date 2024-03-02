@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
-import { response } from 'express';
-import { error } from 'console';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 
 @Component({
@@ -17,9 +15,6 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
 export class LoginpageComponent {
   switchIcon: boolean = true;
   showPassword: boolean = true;
-  // this takes password value
-  password: string = '';
-
   isLoading: boolean = false;
 
   loginForm: FormGroup = new FormGroup({
@@ -58,7 +53,6 @@ export class LoginpageComponent {
   togglePasswordVisibility(): void {
     this.switchIcon = !this.switchIcon
     this.showPassword = !this.showPassword
-
 }
 
 }

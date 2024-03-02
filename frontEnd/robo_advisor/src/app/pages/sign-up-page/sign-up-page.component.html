@@ -5,15 +5,15 @@
         <h1 id="title">Create a new account</h1>
         <br />
         <label>Last name:</label><br />
-        <input type="text" id="lastname" name="lastName" ngModel required /><br />
+        <input type="text" id="lastname" formControlName="lastName" required /><br />
         <label>First name:</label><br />
-        <input type="text" id="firstname" name="firstName" ngModel required /><br />
+        <input type="text" id="firstname" formControlName="firstName" required /><br />
         <label>Username:</label><br />
-        <input type="text" id="username" name="userName" ngModel required /><br />
+        <input type="text" id="username" formControlName="userName" required /><br />
         <label>Password:</label><br />
         
         <div class="password-container">
-          <input [type]="showPassword ? 'password' : 'text'" id="pwd" name="password" required ngModel minlength="6">
+          <input [type]="showPassword ? 'password' : 'text'" id="pwd" formControlName="password" required ngModel minlength="6">
           <span class="eyeicon" (click)="togglePasswordVisibility('password')">
               <i [ngClass]="switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'"></i>
           </span>
@@ -21,7 +21,7 @@
 
         <label>Confirm password:</label><br />
         <div class="password-container">
-          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" name="password" required ngModel minlength="6">
+          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" formControlName="password" required ngModel minlength="6">
           <span class="eyeicon" (click)="togglePasswordVisibility('password')">
           <i [ngClass]="switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'"></i>
         </span>
@@ -29,7 +29,8 @@
 
         <div *ngIf="!confirmPasswordMatch()">Passwords do not match!</div>
         <label>Email:</label><br />
-        <input type="text" id="email" name="email" formControlName="email"/><br />
+        <input type="text" id="email" formControlName="email" formControlName="email"/><br />
+        
         <button id="create" type="submit" [disabled]="!confirmPasswordMatch()">{{isLoading?'CREATING': 'CREATE'}}</button>
         <button id="cancel" [routerLink]="['/login']"
         routerLinkActive="active active-style"
