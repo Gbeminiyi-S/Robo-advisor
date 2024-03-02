@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Validators , FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
@@ -16,10 +16,10 @@ export class LoginpageComponent {
   switchIcon: boolean = true;
   showPassword: boolean = true;
   isLoading: boolean = false;
-
+  
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
 
   constructor(

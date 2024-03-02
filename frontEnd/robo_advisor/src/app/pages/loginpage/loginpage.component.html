@@ -26,11 +26,16 @@
                   <input
                     type="text"
                     id="username"
-                    name="username"
                     required
                     placeholder="Username"
-                    formControlName="email"
+                    formControlName="username"
                   />
+                  <div *ngIf="loginForm.get('username')!.hasError('required') && loginForm.get('username')!.touched">
+                    Username is required.
+                  </div>
+                  <div *ngIf="loginForm.get('username')!.hasError('minlength') && loginForm.get('username')!.touched">
+                    Username must be at least 5 characters long.
+                  </div>
                   <br />
                   <div class="password-container">
                     <input
@@ -38,7 +43,14 @@
                       placeholder="Password"
                       id="pwd"
                       required
+                      formControlName="password"
                     />
+                    <div *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched">
+                      Password is required.
+                    </div>
+                    <div *ngIf="loginForm.get('password')!.hasError('minlength') && loginForm.get('password')!.touched">
+                      Password must be at least 5 characters long.
+                    </div>
                     <span
                       class="eyeicon"
                       (click)="togglePasswordVisibility()"
@@ -51,7 +63,8 @@
                   </div>
                   <br />
 
-                  <button id="login" type="submit">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
+                  <button id="login" type="submit" [disabled]="loginForm.invalid">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
+                  <!-- <button id="login" type="submit" [disabled]="loginForm.invalid || loginForm.pristine">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button> -->
                   <br />
                 </section>
 

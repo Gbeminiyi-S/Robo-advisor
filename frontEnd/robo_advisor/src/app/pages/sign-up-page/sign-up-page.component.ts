@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControlOptions, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
@@ -16,17 +16,23 @@ import { error } from 'console';
 export class SignUpPageComponent {
   switchIcon: boolean = true;
   showPassword: boolean = true;
-  // this takes password value
-  // userPassword: string = '';
-  // // this stores the confirmation password value
-  // confirmPassword: string = '';
-
+  
   isLoading: boolean= false;
   signUpForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    email: new FormControl(''),
-  });
+    lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    firstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    email: new FormControl('', [Validators.required, Validators.email])
+  }, {validators: this.passwordMatchValidator} as AbstractControlOptions);
+
+  passwordMatchValidator(group: FormGroup) {
+    const password = group.get('password')?.value;
+    const confirmPassword = group.get('confirmPassword')?.value;
+
+    return password === confirmPassword ? null : {mismatch: true};
+  }
 
   constructor(private signUpService: SignUpService, private router: Router) {}
 
@@ -58,10 +64,6 @@ export class SignUpPageComponent {
     if (field === 'password') {
         this.showPassword = !this.showPassword;
     }
-}
+  }
 
-  // to see if the passwords match...
-  // confirmPasswordMatch(): boolean {
-  //   return this.userPassword === this.confirmPassword;
-  // }
 } 

@@ -4,32 +4,70 @@
       <form class="col-6" [formGroup]="signUpForm" (submit)="onSubmit()">
         <h1 id="title">Create a new account</h1>
         <br />
+
         <label>Last name:</label><br />
-        <input type="text" id="lastname" required /><br />
+        <input type="text" id="lastname" formControlName="lastname" required /><br />
+        <div *ngIf="signUpForm.get('lastname')!.hasError('required') && signUpForm.get('lastname')!.touched">
+          Last name is required.
+        </div>
+        <div *ngIf="signUpForm.get('lastname')!.hasError('minlength') && signUpForm.get('lastname')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+
         <label>First name:</label><br />
-        <input type="text" id="firstname" required /><br />
+        <input type="text" id="firstname" formControlName="firstname" required /><br />
+        <div *ngIf="signUpForm.get('firstname')!.hasError('required') && signUpForm.get('firstname')!.touched">
+          First name is required.
+        </div>
+        <div *ngIf="signUpForm.get('firstname')!.hasError('minlength') && signUpForm.get('firstname')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+
         <label>Username:</label><br />
-        <input type="text" id="username" required /><br />
+        <input type="text" id="username" formControlName="username" required /><br />
+        <div *ngIf="signUpForm.get('username')!.hasError('required') && signUpForm.get('username')!.touched">
+          Username is required.
+        </div>
+        <div *ngIf="signUpForm.get('username')!.hasError('minlength') && signUpForm.get('username')!.touched">
+          Name must be at least 5 characters long.
+        </div>
+
         <label>Password:</label><br />
-        
         <div class="password-container">
-          <input [type]="showPassword ? 'password' : 'text'" id="pwd" required minlength="6">
+          <input [type]="showPassword ? 'password' : 'text'" id="pwd" formControlName="password" required>
           <span class="eyeicon" (click)="togglePasswordVisibility('password')">
               <i [ngClass]="switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'"></i>
           </span>
         </div>
+        <div *ngIf="signUpForm.get('password')!.hasError('required') && signUpForm.get('password')!.touched">
+          Password is required.
+        </div>
+        <div *ngIf="signUpForm.get('password')!.hasError('minlength') && signUpForm.get('password')!.touched">
+          Password must be at least 5 characters long.
+        </div>
 
         <label>Confirm password:</label><br />
         <div class="password-container">
-          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" required minlength="6">
+          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" formControlName="confirmPassword" required>
           <span class="eyeicon" (click)="togglePasswordVisibility('password')">
           <i [ngClass]="switchIcon ? 'fa-solid fa-eye' : 'fa-regular fa-eye'"></i>
         </span>
         </div>
+        <div *ngIf="signUpForm.get('confirmPassword')!.hasError('required') && signUpForm.get('confirmPassword')!.touched">
+          Password is required.
+        </div>
+        <div *ngIf="signUpForm.get('confirmPassword')!.hasError('minlength') && signUpForm.get('confirmPassword')!.touched">
+          Password must be at least 5 characters long.
+        </div>
+        <div *ngIf="signUpForm.hasError('mismatch') && signUpForm.get('confirmPassword')!.touched">
+          Passwords do not match.
+        </div>        
 
-        <!-- <div *ngIf="!confirmPasswordMatch()">Passwords do not match!</div> -->
         <label>Email:</label><br />
-        <input type="text" id="email"/><br />
+        <input type="text" id="email" formControlName="email" required/><br />
+        <div *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched">
+          Invalid email address.
+        </div>
         
         <button id="create" type="submit">{{isLoading?'CREATING': 'CREATE'}}</button>
         <button id="cancel" [routerLink]="['/login']"
