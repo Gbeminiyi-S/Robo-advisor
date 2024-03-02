@@ -5,13 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class SignUpResponseDTO {
-    private int statusCode;
-    private String responseMessage;
-    private UserInfo userInfo;
-
+public class UserInfo {
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private int age;
 }

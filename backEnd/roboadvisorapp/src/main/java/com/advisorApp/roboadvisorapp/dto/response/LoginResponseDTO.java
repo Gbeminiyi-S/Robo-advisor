@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class SignUpResponseDTO {
+public class LoginResponseDTO {
     private int statusCode;
     private String responseMessage;
-    private UserInfo userInfo;
-
+    private String userName;
 }
