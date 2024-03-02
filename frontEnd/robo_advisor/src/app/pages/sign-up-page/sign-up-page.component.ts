@@ -54,13 +54,15 @@ export class SignUpPageComponent {
   onSubmit(): void {
     this.isLoading = true;
     this.passInput = this.signUpForm.get('password')?.value;
-    this.confirmPassInput = this.signUpForm.get('Cpassword')?.value;
+    this.confirmPassInput = this.signUpForm.get('confirmPassword')?.value;
+    
     if (this.passInput !== this.confirmPassInput) {
       this.passError = 'passwords do not match';
       this.isLoading=false;
       return;
     }
     if (this.signUpForm.valid) {
+      this.passError = '';
       const signUpData = this.signUpForm.value;
       this.signUpService.signUp(signUpData).subscribe(
         (response) => {
@@ -68,7 +70,6 @@ export class SignUpPageComponent {
           console.log(response.message);
           this.router.navigate(['/login']);
           this.errorMessage = '';
-          this.passError = '';
         },
         (error) => {
           this.errorMessage = error.error.message;
