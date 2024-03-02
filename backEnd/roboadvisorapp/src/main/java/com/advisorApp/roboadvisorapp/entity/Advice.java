@@ -1,30 +1,37 @@
 package com.advisorApp.roboadvisorapp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name="advice")
-//@Data -- Known bug
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Advice {
 
-    // to add dto package
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Long id;
 
-    @Column(name="recommendation")
+    @Column(name="recommendation", nullable = false)
     private String recommendation;
 
-    @Column(name="questionnaire_id")
-    private int questionnaireId; // to make foreign key
-//    private Questionnaire questionnaire;
+
+    @OneToOne
+    @JoinColumn(name = "questionnaire_id")
+    @RestResource(path = "questionnaire", rel="questionnaire")
+    private Questionnaire questionnaire;
 
     @Column(name="date_created")
     @CreationTimestamp
