@@ -17,9 +17,9 @@ export class SignUpPageComponent {
   switchIcon: boolean = true;
   showPassword: boolean = true;
   // this takes password value
-  userPassword: string = '';
-  // this stores the confirmation password value
-  confirmPassword: string = '';
+  // userPassword: string = '';
+  // // this stores the confirmation password value
+  // confirmPassword: string = '';
 
   isLoading: boolean= false;
   signUpForm: FormGroup = new FormGroup({
@@ -61,7 +61,7 @@ export class SignUpPageComponent {
 }
 
   // to see if the passwords match...
-  confirmPasswordMatch(): boolean {
-    return this.userPassword === this.confirmPassword;
-  }
+  // confirmPasswordMatch(): boolean {
+  //   return this.userPassword === this.confirmPassword;
+  // }
 } 

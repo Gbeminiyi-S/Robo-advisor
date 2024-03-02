@@ -10,8 +10,10 @@ main {
     -apple-system;
   position: absolute;
   background-image: url("https://img.freepik.com/free-photo/futuristic-robotic-arm-working-complex-machinery-generated-by-ai_188544-31072.jpg?size=626&ext=jpg&uid=R139746190&ga=GA1.1.1081711293.1694664522&semt=ais");
+  background-color: 002146;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow:scroll;
 }
 
 .write-ups {
@@ -32,13 +34,13 @@ main {
   background-color: orange;
   margin-left: 20px;
 }
-#started {
+#home {
   padding: 10px 10px;
   border: 1px solid orange;
   border-radius: 10px;
   font-size: 11px;
   color: white;
-  width: 100px;
+  width: 140px;
   margin: 15px;
 }
 #head1 {
