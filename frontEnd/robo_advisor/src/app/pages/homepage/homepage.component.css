@@ -1,8 +1,8 @@
-
-main {
+body {
     background-image: url(../../../assets/images/backpicc.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+   /* background-color: #d9e9fa; */
    background-blend-mode:overlay;
    background: linear-gradient(45deg, #d9e9fa, #3F5EFB);
 
@@ -14,7 +14,10 @@ fill:#002146;
 } */
 
 /* $white: rgba(255,255,255,0.3); */
-
+.fourcontainer:hover .item {
+color:#002146;
+fill:#002146;
+}
 
 .container {
     background: rgba(255,255,255,0.3);
@@ -28,7 +31,4 @@ fill:#002146;
     transition: all 0.2s ease-in-out;
     margin-bottom: 5%;
 }
-
-
-
 

@@ -1,23 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-main {
+body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   font-family:
     "Poppins",
     sans-serif,
     Roboto,
     -apple-system;
   position: absolute;
-  background-image: url("https://img.freepik.com/free-photo/futuristic-robotic-arm-working-complex-machinery-generated-by-ai_188544-31072.jpg?size=626&ext=jpg&uid=R139746190&ga=GA1.1.1081711293.1694664522&semt=ais");
+  background-image: url("https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #002146;
 }
 
 .write-ups {
   border: 0px transparent transparent;
-  width: 65%;
-  height: 70%;
+  width: 55%;
+  height: 60%;
   display: grid;
   flex-wrap: wrap;
   margin-left: auto;
@@ -53,20 +54,20 @@ main {
 
 #login-form {
   border: 0px transparent transparent;
-  background: #ADA996;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  background-color: white;
   border-radius: 4px;
   width: 55%;
-  height: 80%;
+  height: 50%;
   float: left;
   display: grid;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
   position: relative;
 }
 #username,
-#pwd {
+#password {
   width: 80%;
   padding: 12px 20px;
   margin: 8px 0px;
@@ -74,7 +75,7 @@ main {
 }
 #sign {
   margin: 5px 20px 8px 8px;
-  color: #002146;
+  color: rgb(3, 3, 79);
 }
 #mylabel {
   margin: 20px 20px 10px 20px;
@@ -82,7 +83,7 @@ main {
 #fgt-usr,
 #fgt-pwd {
   font-size: 2vh !important;
-  color: #002146 !important;
+  color: rgb(3, 3, 79) !important;
 }
 #fgt-usr {
   text-align: left;
@@ -98,8 +99,10 @@ main {
 }
 #crt-acct {
   font-size: 2vh !important;
-  color: #002146 !important;
-  margin: 8px auto 25px 20px;
+  color: rgb(3, 3, 79) !important;
+  margin-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 25px !important;
 }
 table {
   width: 100%;
@@ -116,7 +119,7 @@ input[type="text"] {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>');
   background-position: 5px center;
   background-repeat: no-repeat;
-  background-size: 9px;
+  background-size: 8px;
   padding-left: 40px;
   border: 2px solid rgb(195, 221, 230);
   border-radius: 2px;
@@ -129,7 +132,7 @@ input[type="password"] {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>');
   background-position: 5px center;
   background-repeat: no-repeat;
-  background-size: 9px;
+  background-size: 8px;
   padding-left: 40px;
   border: 2px solid rgb(195, 221, 230);
   border-radius: 2px;
@@ -142,7 +145,7 @@ input[type="password"]:focus {
 }
 
 #login {
-  background-color: #002146;
+  background-color: rgb(3, 3, 79);
   border: none;
   color: whitesmoke;
   padding: 10px 20px;
@@ -162,22 +165,16 @@ input[type="password"]:focus {
 
 #first {
   align-content: right;
-  height: 100%;
+  height: 70%;
 }
 #second {
-  height: 100% !important;
-}
-.eyeicon {
-  position: absolute;
-  margin-top: 22px;
-  right: 10%;
-  cursor: pointer;
+  height: 70%;
 }
 
 @media screen and (max-width: 600px) {
-  main {
-    height: 100vh;
-    width: 100%;
+  body {
+    max-width: 100%;
+    background-image: url("https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais");
   }
   table {
     overflow-x: auto;
@@ -191,16 +188,14 @@ input[type="password"]:focus {
   }
   #login-form {
     float: none;
-  }
-  .eyeicons {
-    right: 15%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  main {
+  body {
     max-width: 100%;
-    height: 100vh;
+    background-image: url("https://img.freepik.com/free-photo/still-life-seat-gamers_23-2149746571.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais");
+    /* background-image: url('https://img.freepik.com/free-photo/futuristic-robot-listening-music-headphones_23-2151072966.jpg?size=626&ext=jpg&ga=GA1.2.1081711293.1694664522&semt=ais'); */
   }
   table {
     overflow-x: auto;
@@ -215,9 +210,4 @@ input[type="password"]:focus {
   #login-form {
     float: none;
   }
-}
-@media screen and (max-width: 1024px) {
-  #login-form {
-    width: 85%;
-  } 
 }
