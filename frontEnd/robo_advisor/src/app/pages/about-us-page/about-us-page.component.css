@@ -1,9 +1,0 @@
-main {
-    background-image: url(../../../assets/images/backpicc.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-   /* background-color: #d9e9fa; */
-   background-blend-mode:overlay;
-   background: linear-gradient(45deg, #d9e9fa, #3F5EFB);
-
-}
