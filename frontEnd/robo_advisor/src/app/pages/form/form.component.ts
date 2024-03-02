@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormQuestionsData } from '../../models/FormQuestionsData';
 import { FormQuestions } from '../../models/interfaces/formQuestions';
@@ -7,6 +7,7 @@ import { InputValMessageComponent } from '../../components/input-val-message/inp
 import { NavigationComponent } from '../../components/navigation/navigation.component';
 import { ProgressComponent } from '../../components/progress/progress.component';
 import { SubmitComponent } from '../../components/submit/submit.component';
+import { UserDetailsService } from '../../services/user-details/user-details.service';
 
 @Component({
   selector: 'app-form',
@@ -22,7 +23,7 @@ import { SubmitComponent } from '../../components/submit/submit.component';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
   currentQuestion = 0;
   questions: FormQuestions[] = FormQuestionsData;
   myForm: FormGroup;
@@ -31,13 +32,19 @@ export class FormComponent {
     false
   );
   ageVal: number = 0;
+  username: string | null = null;
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userDetails: UserDetailsService) {
     this.myForm = this.fb.group({});
     this.questions.forEach((_question, i) => {
       this.myForm.addControl(`question${i}`, this.fb.control(''));
+      
     });
+  }
+
+  ngOnInit(): void {
+    this.username =this.userDetails.getUsername()
   }
 
   onChange(event: Event) {
@@ -46,16 +53,38 @@ export class FormComponent {
     this.isChecked[this.currentQuestion] = newVal;
   }
 
+  // nextQuestion() {
+  //   if (this.currentQuestion === 0) {
+  //     if (this.isChecked[this.currentQuestion] || this.ageVal) {
+  //       this.attemptedToNavigateFlags[this.currentQuestion] = false;
+  //       this.currentQuestion++;
+  //     } else {
+  //       this.attemptedToNavigateFlags[this.currentQuestion] = true;
+  //     }
+  //   } else {
+  //     if (this.isChecked[this.currentQuestion]) {
+  //       this.attemptedToNavigateFlags[this.currentQuestion] = false;
+  //       this.currentQuestion++;
+  //     } else {
+  //       this.attemptedToNavigateFlags[this.currentQuestion] = true;
+  //     }
+  //   }
+  // }
   nextQuestion() {
-    if (this.currentQuestion === 0) {
-      if (this.isChecked[this.currentQuestion] || this.ageVal) {
+    const currentQuestionData = this.questions[this.currentQuestion];
+    const formControl = this.myForm.get(`question${this.currentQuestion}`);
+
+    if (currentQuestionData.id === 3 || currentQuestionData.id === 6 || currentQuestionData.id === 8) {
+      // Validate input fields
+      if (formControl?.valid) {
         this.attemptedToNavigateFlags[this.currentQuestion] = false;
         this.currentQuestion++;
       } else {
         this.attemptedToNavigateFlags[this.currentQuestion] = true;
       }
     } else {
-      if (this.isChecked[this.currentQuestion]) {
+      // Handle navigation for radio button questions
+      if (formControl?.value) {
         this.attemptedToNavigateFlags[this.currentQuestion] = false;
         this.currentQuestion++;
       } else {
@@ -63,17 +92,24 @@ export class FormComponent {
       }
     }
   }
-
   previousQuestion() {
     this.currentQuestion--;
   }
 
+  // submitForm() {
+  //   if (this.isChecked[this.currentQuestion]) {
+  //     this.attemptedToNavigateFlags[this.currentQuestion] = false;
+  //     console.log(this.myForm.value);
+  //   } else {
+  //     this.attemptedToNavigateFlags[this.currentQuestion] = true;
+  //   }
+  // }
   submitForm() {
-    if (this.isChecked[this.currentQuestion]) {
-      this.attemptedToNavigateFlags[this.currentQuestion] = false;
+    if (this.myForm.valid) {
       console.log(this.myForm.value);
     } else {
-      this.attemptedToNavigateFlags[this.currentQuestion] = true;
+      // Handle form validation errors
+      console.log('Form is invalid');
     }
   }
 }
