@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Validators , FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+// import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-loginpage',
@@ -12,6 +13,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
   imports: [
     RouterLinkActive,
     RouterLink,
+    CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
   ],
@@ -19,19 +21,27 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './loginpage.component.css',
 })
 export class LoginpageComponent {
+  switchIcon: boolean = true;
+  showPassword: boolean = true;
   isLoading: boolean = false;
-  isShowPassword: boolean = false;
   errorMessage: string = '';
 
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
-  faEyeSlash = faEyeSlash;
-  faEye = faEye;
+  // loginForm: FormGroup = new FormGroup({
+  //   email: new FormControl(''),
+  //   password: new FormControl(''),
+  // });
 
-  toggleShowPassword(): void {
-    this.isShowPassword = !this.isShowPassword;
+  togglePasswordVisibility(): void {
+    this.switchIcon = !this.switchIcon
+    this.showPassword = !this.showPassword
+}
+
+  clearErrorMessage() {
+  this.errorMessage = '';
   }
 
   constructor(
@@ -56,12 +66,20 @@ export class LoginpageComponent {
           this.errorMessage = error.error.message;
           console.log(error);
           this.isLoading = false;
+
+          setTimeout(() => {
+            this.clearErrorMessage();
+          }, 3000);
         },
       );
     } else {
       this.isLoading = false;
       console.log('Invalid form');
-      this.errorMessage='Invalid form'
+      this.errorMessage='Invalid form';
+
+      setTimeout(() => {
+        this.clearErrorMessage();
+      }, 3000);
     }
   }
 }
