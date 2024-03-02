@@ -1,67 +1,88 @@
 import { Component } from '@angular/core';
-import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
 import { response } from 'express';
 import { error } from 'console';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './sign-up-page.component.html',
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
-  switchIcon: boolean = true;
-  showPassword: boolean = true;
-  // this takes password value
-  password: string = '';
-  // this stores the confirmation password value
-  confirmPassword: string = '';
-
-  isLoading: boolean= false;
+  isLoading: boolean = false;
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
+    confirmPassword: new FormControl(''),
     email: new FormControl(''),
   });
 
-  constructor(private signUpService: SignUpService, private router: Router) {}
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  isShowPassword: boolean = false;
+  isConfirmPassword: boolean = false;
+
+  passInput = '';
+  confirmPassInput = '';
+  passError: string = '';
+
+  errorMessage: string = '';
+  toggleShowPassword(): void {
+    this.isShowPassword = !this.isShowPassword;
+  }
+
+  toggleConfirmPassword(): void {
+    this.isConfirmPassword = !this.isConfirmPassword;
+  }
+
+  constructor(
+    private signUpService: SignUpService,
+    private router: Router,
+  ) {}
 
   onSubmit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
+    this.passInput = this.signUpForm.get('password')?.value;
+    this.confirmPassInput = this.signUpForm.get('confirmPassword')?.value;
+    
+    if (this.passInput !== this.confirmPassInput) {
+      this.passError = 'passwords do not match';
+      this.isLoading=false;
+      return;
+    }
     if (this.signUpForm.valid) {
+      this.passError = '';
       const signUpData = this.signUpForm.value;
       this.signUpService.signUp(signUpData).subscribe(
         (response) => {
-          this.isLoading=false;
+          this.isLoading = false;
           console.log(response.message);
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
+          this.errorMessage = '';
         },
         (error) => {
-          this.isLoading=false;
+          this.errorMessage = error.error.message;
+          this.passError = '';
+          this.isLoading = false;
           console.log(error);
         },
-        );
-      } else {
-        console.error('Form is invalid');
-        this.isLoading=false;
+      );
+    } else {
+      console.error('Form is invalid');
+      this.errorMessage = 'Form is invalid';
+      this.passError = '';
+      this.isLoading = false;
     }
   }
-
-  togglePasswordVisibility(field: 'password' | 'confirmPassword'): void {
-    this.switchIcon = !this.switchIcon;    
-
-    // Toggle the showPassword only for the specified field
-    if (field === 'password') {
-        this.showPassword = !this.showPassword;
-    }
 }
-
-  // to see if the passwords match...
-  confirmPasswordMatch(): boolean {
-    return this.password === this.confirmPassword;
-  }
-} 

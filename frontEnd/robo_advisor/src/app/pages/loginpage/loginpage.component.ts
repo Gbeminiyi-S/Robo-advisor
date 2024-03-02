@@ -1,31 +1,38 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
-import { response } from 'express';
-import { error } from 'console';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-loginpage',
   standalone: true,
-  imports: [RouterLinkActive, RouterLink, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    RouterLinkActive,
+    RouterLink,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './loginpage.component.html',
   styleUrl: './loginpage.component.css',
 })
 export class LoginpageComponent {
-  switchIcon: boolean = true;
-  showPassword: boolean = true;
-  // this takes password value
-  password: string = '';
-
   isLoading: boolean = false;
+  isShowPassword: boolean = false;
+  errorMessage: string = '';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
+  faEyeSlash = faEyeSlash;
+  faEye = faEye;
+
+  toggleShowPassword(): void {
+    this.isShowPassword = !this.isShowPassword;
+  }
 
   constructor(
     private loginService: LoginService,
@@ -42,9 +49,11 @@ export class LoginpageComponent {
           this.isLoading = false;
           this.userDetails.setUsername(response.username);
           this.router.navigate(['/homepage']);
+          this.errorMessage = '';
           console.log(response);
         },
         (error) => {
+          this.errorMessage = error.error.message;
           console.log(error);
           this.isLoading = false;
         },
@@ -52,13 +61,7 @@ export class LoginpageComponent {
     } else {
       this.isLoading = false;
       console.log('Invalid form');
+      this.errorMessage='Invalid form'
     }
   }
-
-  togglePasswordVisibility(): void {
-    this.switchIcon = !this.switchIcon
-    this.showPassword = !this.showPassword
-
-}
-
 }
