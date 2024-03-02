@@ -1,0 +1,496 @@
+<!-- <div>
+    <h1>{{ title }}</h1>
+    <p>Landing page content will be rendered here. However, I'd be adding a submit button here for routing to the forms page.</p>
+    <button>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">NEXT</a>
+    </button>
+    <br><br>
+</div> -->
+
+<!doctype html>
+<html lang="en">
+  <head> </head>
+  <body class="font-primary text-primary">
+    <!-- Hero Section -->
+    <section id="hero" class="h-screen">
+      <!-- Flex Container -->
+      <div
+        class="container flex flex-col-reverse items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 md:flex-row"
+      >
+        <!-- Left item -->
+        <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+          <h1
+            class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left"
+          >
+            Your Personalized Robo-Advisor for Investment Recommendations
+          </h1>
+          <p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
+            Let our AI-powered robo-advisor find the right investments for you.
+            Empowering Your Financial Future with AI-driven Investment Solutions
+          </p>
+          <div class="flex justify-center md:justify-start">
+            <a
+              class="p-3 px-6 pt-2 w-48 text-white bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-72 text-center text-xl border-2 border-solid border-primary font-semibold hover:bg-white"
+              [routerLink]="['/homepage']"
+              routerLinkActive="active active-style"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Get Started</a
+            >
+          </div>
+        </div>
+        <!-- Image -->
+        <div class="md:w-1/2">
+          <img
+            class="h-2/5 mb-0 md:mb-32 pb-0 pt-16 pr-16 pl-16"
+            src="../../../assets/images/robot.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-primary w-full" id="features">
+      <!-- Flex container -->
+
+      <div
+        class="container flex flex-col-reverse items-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row"
+      >
+        <!-- Left item -->
+        <div class="text-white md:w-1/2 mb-32 space-y-12">
+          <h2 class="text-4xl font-bold text-center pt-4 md:text-left">
+            What's different about Robo-Advisor?
+          </h2>
+          <p class="text-center md:text-left">
+            At First Bank, we're on a mission to democratize investing by
+            providing accessible, personalized investment solutions powered by
+            cutting-edge technology.Our cutting-edge robo-advisor revolutionizes
+            investment management by harnessing advanced artificial intelligence
+            and machine learning algorithms.
+          </p>
+
+          <p class="text-center md:text-left">
+            Tailored for bank customers, our system meticulously assesses
+            individual risk tolerance, financial goals, and preferences,
+            ensuring precision in crafting personalized investment plans.
+            Through sophisticated analysis, it optimizes returns while
+            mitigating risks, guaranteeing portfolios aligned with each client's
+            unique profile.
+          </p>
+
+          <p class="text-center md:text-left">
+            Key features include dynamic portfolio rebalancing, which maintains
+            optimal asset allocation over time. Automatic dividend reinvestment
+            maximizes growth potential, while tax-loss harvesting minimizes tax
+            liabilities. Our robo-advisor operates seamlessly, empowering users
+            with effortless yet sophisticated investment strategies. Experience
+            the future of finance with our intuitive platform, where innovation
+            meets personalized wealth management.
+          </p>
+        </div>
+        <!-- Image -->
+        <div class="md:w-1/2 pt-4 md:pt-0 h-full">
+          <img
+            class="md:pb-96"
+            src="../../../assets/images/blackw.jpg"
+            alt="picture of a woman"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Key features -->
+    <section class="mx-16 mb-16">
+      <div
+        class="grid items-center justify-center grid-rows-1 grid-cols-1 sm:grid-cols-2 sm:gap-2 md:grid-cols-4 mt-16 gap-4"
+      >
+        <div
+          class="bg-primary hover:bg-lightprimary transition duration-300 hover:scale-105 fourcontainer p-4 rounded-lg"
+        >
+          <div>
+            <svg
+              class="fill-white w-24 mx-auto p-1.5 item leading-10 align-middle md:text-left"
+              id="Layer_1"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+            >
+              <path
+                d="M24,5A19,19,0,1,0,43,24,19.021,19.021,0,0,0,24,5ZM14,37.717V36a5.006,5.006,0,0,1,5-5h1a4,4,0,0,0,8,0h1a5.006,5.006,0,0,1,5,5v1.717a16.871,16.871,0,0,1-20,0Zm4.9-22.669a5.135,5.135,0,0,0,.706,1.8,4.178,4.178,0,0,0-1.186,1.544l-.068-.134a2.615,2.615,0,0,1-.193-2.2A2.8,2.8,0,0,1,18.9,15.048ZM20.866,13h5.389A3.64,3.64,0,0,1,29.3,14.648a4.036,4.036,0,0,1,.415,3.77l-.06.152A3.953,3.953,0,0,0,26,16H22a3.761,3.761,0,0,0-.5.044A3.877,3.877,0,0,1,20.866,13Zm-1.841,8a1,1,0,0,0,1-.923A2.13,2.13,0,0,1,22,18h4a2.13,2.13,0,0,1,1.978,2.077,1,1,0,0,0,1,.923H29a1,1,0,1,1-.021,2,1,1,0,0,0-1,.924A4.22,4.22,0,0,1,24,28a4.22,4.22,0,0,1-3.982-4.076A1.019,1.019,0,0,0,19,23a1,1,0,1,1,.025-2ZM22,29.622a5.48,5.48,0,0,0,4,0V31a2,2,0,0,1-4,0Zm14,6.407V36a7.008,7.008,0,0,0-7-7H28v-.687a6.556,6.556,0,0,0,1.868-3.441A2.985,2.985,0,0,0,31.23,20.01l.339-.849a6.04,6.04,0,0,0-.615-5.634A5.612,5.612,0,0,0,26.255,11H20.081a1,1,0,0,0-.941.661,6.3,6.3,0,0,0-.244.984A5.236,5.236,0,0,0,16.3,15.321a4.588,4.588,0,0,0,.261,3.831l.349.7a2.993,2.993,0,0,0,1.217,5.019A6.563,6.563,0,0,0,20,28.313V29H19a7.008,7.008,0,0,0-7,7v.029a17,17,0,1,1,24,0Z"
+              ></path>
+              <path
+                d="M24,3a1,1,0,0,0,1-1V1a1,1,0,0,0-2,0V2A1,1,0,0,0,24,3Z"
+              ></path>
+              <path
+                d="M24,45a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V46A1,1,0,0,0,24,45Z"
+              ></path>
+              <path d="M2,23H1a1,1,0,0,0,0,2H2a1,1,0,0,0,0-2Z"></path>
+              <path d="M47,23H46a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Z"></path>
+              <path
+                d="M7.737,9.151A1,1,0,0,0,9.151,7.737l-.708-.708A1,1,0,0,0,7.029,8.443Z"
+              ></path>
+              <path
+                d="M40.263,38.849a1,1,0,0,0-1.414,1.414l.708.708a1,1,0,0,0,1.414-1.414Z"
+              ></path>
+              <path
+                d="M7.736,38.849l-.707.708a1,1,0,0,0,1.415,1.414l.707-.708a1,1,0,1,0-1.415-1.414Z"
+              ></path>
+              <path
+                d="M39.556,9.444a1,1,0,0,0,.708-.293l.707-.708a1,1,0,0,0-1.415-1.414l-.707.708a1,1,0,0,0,.707,1.707Z"
+              ></path>
+            </svg>
+            <div
+              class="desc p-4 text-base font-semibold item text-center text-white"
+            >
+              Personalized Investment Recommendations
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-primary hover:bg-lightprimary transition duration-300 hover:scale-105 fourcontainer p-4 rounded-lg"
+        >
+          <div>
+            <svg
+              class="fill-white item w-24 mx-auto p-1.5 leading-10 align-middle md:text-left"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 64 64"
+            >
+              <g id="Layer_18" data-name="Layer 18">
+                <path
+                  d="M37.47,39.21H26.53a.75.75,0,0,0,0,1.5H37.47a.75.75,0,0,0,0-1.5Z"
+                ></path>
+                <path
+                  d="M29.25,31.79v-6a.76.76,0,0,0-.75-.75H23.07a.76.76,0,0,0-.75.75v6a.75.75,0,0,0,.75.75H28.5A.75.75,0,0,0,29.25,31.79ZM27.75,31H23.82V26.57h3.93Z"
+                ></path>
+                <path
+                  d="M40.93,25.07H35.5a.76.76,0,0,0-.75.75v6a.75.75,0,0,0,.75.75h5.43a.75.75,0,0,0,.75-.75v-6A.76.76,0,0,0,40.93,25.07Zm-.75,6H36.25V26.57h3.93Z"
+                ></path>
+                <path
+                  d="M51.87,29.57a.75.75,0,0,0-.75.75V33H48V18.44a.74.74,0,0,0-.75-.75H32.75V15.38a3.61,3.61,0,1,0-1.5,0v2.31H16.72a.74.74,0,0,0-.75.75V33H12.88V30.32a.75.75,0,0,0-1.5,0v6.79a.75.75,0,0,0,1.5,0V34.47H16V49a.75.75,0,0,0,.75.75H47.28A.75.75,0,0,0,48,49V34.47h3.09v2.64a.75.75,0,0,0,1.5,0V30.32A.76.76,0,0,0,51.87,29.57Zm-22-17.71A2.11,2.11,0,1,1,32,14,2.12,2.12,0,0,1,29.89,11.86ZM46.53,48.25H17.47V19.19H46.53Z"
+                ></path>
+                <path
+                  d="M32,60.75A28.75,28.75,0,1,1,60.75,32,28.79,28.79,0,0,1,32,60.75Zm0-56A27.25,27.25,0,1,0,59.25,32,27.28,27.28,0,0,0,32,4.75Z"
+                ></path>
+              </g>
+            </svg>
+            <div
+              class="desc p-4 text-base font-semibold item text-center text-white"
+            >
+              Automated Portfolio Management
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-primary hover:bg-lightprimary transition duration-300 hover:scale-105 fourcontainer p-4 rounded-lg"
+        >
+          <div>
+            <svg
+              class="fill-white item w-24 mx-auto p-1.5 leading-10 align-middle md:text-left"
+              version="1.1"
+              id="Layer_1_1_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 64 64"
+              style="enable-background: new 0 0 64 64"
+              xml:space="preserve"
+            >
+              <path
+                d="M31.658,43.795C34.744,43.039,37,40.225,37,37c0-0.336-0.026-0.679-0.079-1.022C38.249,34.665,39,32.883,39,31
+              s-0.751-3.665-2.079-4.978C36.974,25.679,37,25.336,37,25c0-3.226-2.256-6.04-5.342-6.794C30.927,16.289,29.095,15,27,15
+              c-1.087,0-2.138,0.363-3,1.019C23.138,15.363,22.087,15,21,15c-2.095,0-3.927,1.289-4.658,3.206C13.256,18.96,11,21.774,11,25
+              c0,0.336,0.026,0.679,0.079,1.022C9.751,27.335,9,29.117,9,31s0.751,3.665,2.079,4.978C11.026,36.321,11,36.664,11,37
+              c0,3.225,2.256,6.039,5.342,6.795C17.074,45.711,18.905,47,21,47c1.087,0,2.138-0.363,3-1.019C24.862,46.637,25.913,47,27,47
+              C29.095,47,30.926,45.711,31.658,43.795z M29.908,19.305c0.01,0.043,0.033,0.08,0.049,0.121C29.748,20.877,28.509,22,27,22v2
+              c2.285,0,4.195-1.55,4.79-3.646C33.674,21.084,35,22.916,35,25c0,0.373-0.047,0.762-0.14,1.154
+              c-0.088,0.369,0.041,0.757,0.333,0.999C36.342,28.108,37,29.511,37,31c0,1.095-0.359,2.142-1.004,3h-1.139c-2.757,0-5,2.243-5,5h2
+              c0-1.654,1.346-3,3-3h0.031C34.958,36.34,35,36.676,35,37c0,2.457-1.834,4.58-4.266,4.939c-0.404,0.06-0.731,0.359-0.826,0.757
+              C29.584,44.053,28.389,45,27,45c-0.752,0-1.445-0.294-2-0.808V33.399c2.279-0.465,4-2.484,4-4.899h-2c0,1.302-0.839,2.402-2,2.816
+              V17.808C25.555,17.294,26.248,17,27,17C28.389,17,29.584,17.947,29.908,19.305z M18.092,42.696c-0.01-0.043-0.033-0.08-0.049-0.121
+              C18.251,41.123,19.491,40,21,40v-2c-2.285,0-4.196,1.55-4.79,3.647C14.326,40.915,13,39.084,13,37c0-0.373,0.047-0.762,0.14-1.154
+              c0.088-0.369-0.041-0.757-0.333-0.999C11.658,33.892,11,32.489,11,31s0.658-2.892,1.807-3.847c0.028-0.023,0.047-0.053,0.072-0.079
+              c1.855,0.347,3.264,1.971,3.264,3.926h2c0-3.015-2.238-5.511-5.138-5.931C13.004,25.046,13,25.023,13,25
+              c0-2.457,1.834-4.58,4.265-4.938c0.405-0.06,0.732-0.359,0.827-0.757C18.416,17.947,19.611,17,21,17c0.752,0,1.445,0.294,2,0.808
+              v7.008c-1.161-0.414-2-1.514-2-2.816h-2c0,2.414,1.721,4.434,4,4.899v17.294C22.445,44.706,21.752,45,21,45
+              C19.611,45,18.416,44.053,18.092,42.696z"
+              ></path>
+              <path
+                d="M20.938,53.798c0.674,0.091,1.366,0.151,2.056,0.181l0.086-1.998c-0.63-0.027-1.261-0.082-1.876-0.165L20.938,53.798z"
+              ></path>
+              <path
+                d="M26.843,51.809c-0.622,0.084-1.254,0.141-1.878,0.169l0.092,1.998c0.682-0.031,1.373-0.094,2.052-0.185L26.843,51.809z"
+              ></path>
+              <path
+                d="M16.918,52.889c0.648,0.21,1.318,0.395,1.992,0.546l0.439-1.951c-0.613-0.139-1.224-0.306-1.814-0.497L16.918,52.889z"
+              ></path>
+              <path
+                d="M13.123,51.27c0.598,0.322,1.224,0.624,1.863,0.896l0.783-1.84c-0.582-0.248-1.152-0.522-1.695-0.816L13.123,51.27z"
+              ></path>
+              <path
+                d="M9.686,49.004c0.535,0.426,1.097,0.833,1.67,1.211l1.1-1.67c-0.522-0.345-1.035-0.717-1.523-1.105L9.686,49.004z"
+              ></path>
+              <path
+                d="M6.702,46.16c0.453,0.517,0.934,1.018,1.429,1.488l1.379-1.447c-0.451-0.431-0.89-0.888-1.304-1.359L6.702,46.16z"
+              ></path>
+              <path
+                d="M5.988,41.803l-1.715,1.029c0.354,0.588,0.737,1.167,1.141,1.719l1.615-1.18C6.66,42.867,6.311,42.339,5.988,41.803z"
+              ></path>
+              <path
+                d="M4.348,38.416l-1.871,0.707c0.243,0.645,0.518,1.282,0.815,1.896l1.799-0.873C4.82,39.587,4.57,39.005,4.348,38.416z"
+              ></path>
+              <path
+                d="M3.341,34.791L1.374,35.15c0.123,0.676,0.278,1.353,0.461,2.012l1.928-0.535C3.596,36.026,3.454,35.408,3.341,34.791z"
+              ></path>
+              <path
+                d="M3,31.044l-2,0.004c0.001,0.68,0.033,1.372,0.095,2.059l1.992-0.18C3.03,32.299,3.001,31.665,3,31.044z"
+              ></path>
+              <path
+                d="M1.087,28.988l1.992,0.174c0.055-0.622,0.138-1.251,0.247-1.868l-1.969-0.35C1.237,27.619,1.146,28.308,1.087,28.988z"
+              ></path>
+              <path
+                d="M1.809,24.933l1.93,0.525c0.164-0.601,0.358-1.204,0.577-1.792l-1.873-0.699C2.201,23.611,1.988,24.272,1.809,24.933z"
+              ></path>
+              <path
+                d="M46.151,24.789c-0.186-0.66-0.402-1.319-0.646-1.958l-1.869,0.709c0.222,0.585,0.42,1.187,0.589,1.79L46.151,24.789z"
+              ></path>
+              <path
+                d="M3.249,21.068l1.803,0.865c0.269-0.561,0.568-1.119,0.89-1.66l-1.719-1.021C3.87,19.844,3.543,20.455,3.249,21.068z"
+              ></path>
+              <path
+                d="M41.99,20.16c0.321,0.532,0.624,1.089,0.9,1.653l1.797-0.877c-0.302-0.618-0.633-1.227-0.984-1.81L41.99,20.16z"
+              ></path>
+              <path
+                d="M6.977,18.7c0.37-0.511,0.765-1.007,1.173-1.476l-1.51-1.312c-0.445,0.513-0.877,1.056-1.282,1.614L6.977,18.7z"
+              ></path>
+              <path
+                d="M39.765,17.126c0.415,0.472,0.812,0.965,1.18,1.466l1.613-1.182c-0.402-0.55-0.838-1.09-1.293-1.606L39.765,17.126z"
+              ></path>
+              <path
+                d="M10.863,14.617l-1.25-1.561c-0.53,0.424-1.052,0.883-1.55,1.361l1.385,1.441C9.903,15.423,10.379,15.005,10.863,14.617z"
+              ></path>
+              <path
+                d="M37.033,14.533c0.492,0.391,0.971,0.806,1.422,1.235l1.379-1.449c-0.495-0.471-1.019-0.926-1.557-1.353L37.033,14.533z"
+              ></path>
+              <path
+                d="M13.042,10.773c-0.599,0.325-1.192,0.683-1.766,1.063l1.107,1.666c0.523-0.348,1.066-0.675,1.613-0.972L13.042,10.773z"
+              ></path>
+              <path
+                d="M36.605,11.759c-0.566-0.372-1.163-0.727-1.774-1.054l-0.943,1.764c0.558,0.299,1.103,0.622,1.618,0.962L36.605,11.759z"
+              ></path>
+              <path
+                d="M15.69,11.708c0.573-0.247,1.165-0.472,1.76-0.667l-0.623-1.9c-0.652,0.214-1.301,0.46-1.93,0.731L15.69,11.708z"
+              ></path>
+              <path
+                d="M32.97,9.816c-0.628-0.268-1.279-0.51-1.937-0.721L30.422,11c0.6,0.192,1.193,0.413,1.765,0.656L32.97,9.816z"
+              ></path>
+              <path
+                d="M20.843,8.214c-0.681,0.094-1.363,0.219-2.028,0.372l0.449,1.949c0.607-0.14,1.23-0.255,1.853-0.341L20.843,8.214z"
+              ></path>
+              <path
+                d="M29.043,8.556c-0.67-0.15-1.354-0.271-2.031-0.359l-0.26,1.982c0.619,0.081,1.243,0.191,1.855,0.328L29.043,8.556z"
+              ></path>
+              <path
+                d="M24.874,10.018l0.084-1.998C24.641,8.006,24.32,8,24.003,8c-0.377-0.004-0.74,0.008-1.106,0.025l0.094,1.998
+              C23.308,10.008,23.627,10,23.949,10C24.265,10.003,24.567,10.005,24.874,10.018z"
+              ></path>
+              <path
+                d="M45.883,29.531c-0.346-0.654-1.42-0.654-1.766,0l-17,32c-0.165,0.31-0.155,0.684,0.025,0.984C27.324,62.816,27.649,63,28,63
+              h34c0.351,0,0.676-0.184,0.857-0.484c0.181-0.301,0.19-0.675,0.025-0.984L45.883,29.531z M29.664,61L45,32.132L60.336,61H29.664z"
+              ></path>
+              <path
+                d="M41.197,42.403c-0.188,0.253-0.246,0.581-0.155,0.884l3,10C44.17,53.712,44.561,54,45,54c0.016,0,0.031,0,0.047-0.001
+              c0.459-0.021,0.844-0.353,0.934-0.803l2-10c0.059-0.294-0.018-0.599-0.207-0.83C47.583,42.135,47.3,42,47,42h-5
+              C41.684,42,41.387,42.149,41.197,42.403z M45.78,44l-0.975,4.872L43.344,44H45.78z"
+              ></path>
+              <path
+                d="M45,55.5L45,55.5c-1.105,0-2,0.895-2,2v0c0,1.105,0.895,2,2,2h0c1.105,0,2-0.895,2-2v0C47,56.395,46.105,55.5,45,55.5z"
+              ></path>
+              <path
+                d="M54,1c-4.963,0-9,4.037-9,9s4.037,9,9,9s9-4.037,9-9S58.963,1,54,1z M54,17c-3.859,0-7-3.141-7-7s3.141-7,7-7s7,3.141,7,7
+              S57.859,17,54,17z"
+              ></path>
+              <polygon
+                points="56.828,5.758 54,8.586 51.172,5.758 49.758,7.172 52.586,10 49.758,12.828 51.172,14.242 54,11.414 56.828,14.242 
+              58.242,12.828 55.414,10 58.242,7.172 "
+              ></polygon>
+            </svg>
+            <div
+              class="desc p-4 text-base font-semibold text-center text-white item"
+            >
+              Intelligent <br> Risk <br> Assessment
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-primary hover:bg-lightprimary transition duration-300 hover:scale-105 fourcontainer p-4 rounded-lg"
+        >
+          <div>
+            <svg
+              class="fill-white item w-24 mx-auto p-1.5 leading-10 align-middle md:text-left"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 50 50"
+              style="enable-background: new 0 0 50 50"
+              xml:space="preserve"
+            >
+              <g id="Layer_1">
+                <path
+                  d="M48.779,9.635L42.77,7.23l-2.404-6.01L37.22,4.365C33.521,2.17,29.318,1,25,1C11.767,1,1,11.767,1,25s10.767,24,24,24
+            s24-10.767,24-24c0-4.318-1.17-8.521-3.365-12.22L48.779,9.635z M41.23,8.77l3.99,1.596l-2.462,2.461L38.77,11.23l-1.596-3.989
+            l2.461-2.462L41.23,8.77z M47,25c0,12.131-9.869,22-22,22S3,37.131,3,25S12.869,3,25,3c3.788,0,7.485,0.971,10.767,2.818
+            l-0.941,0.941l2,5.001l-1.259,1.259C32.746,10.526,29.052,9,25,9C16.178,9,9,16.178,9,25s7.178,16,16,16s16-7.178,16-16
+            c0-4.052-1.526-7.746-4.018-10.568l1.259-1.259l5.001,2l0.941-0.941C46.029,17.515,47,21.212,47,25z M31,25c0,3.309-2.691,6-6,6
+            s-6-2.691-6-6s2.691-6,6-6c1.294,0,2.49,0.416,3.471,1.115l-2.959,2.959C25.347,23.031,25.178,23,25,23c-1.104,0-2,0.895-2,2
+            c0,1.105,0.896,2,2,2s2-0.895,2-2c0-0.178-0.031-0.347-0.074-0.512l2.959-2.959C30.584,22.51,31,23.706,31,25z M29.898,18.688
+            C28.542,17.634,26.846,17,25,17c-4.411,0-8,3.589-8,8s3.589,8,8,8s8-3.589,8-8c0-1.846-0.634-3.542-1.688-4.898l4.257-4.257
+            C37.7,18.303,39,21.499,39,25c0,7.72-6.28,14-14,14s-14-6.28-14-14s6.28-14,14-14c3.5,0,6.697,1.3,9.154,3.432L29.898,18.688z"
+                ></path>
+              </g>
+              <g></g>
+            </svg>
+            <div
+              class="desc p-4 text-base font-semibold text-center text-white item"
+            >
+              Goal- <br>based <br> Investing
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </section>
+    <br />
+    <br />
+
+    <!-- <section>
+  <div class="flex flex-col w-full mt-32">
+    <h2 class="text-4xl font-bold text-center">
+      Our Approach
+    </h2>
+  </div>
+
+</section> -->
+
+    <br />
+    <br />
+    <!-- Testimonials -->
+    <section class="mt-8 w-full" id="testimonials">
+      <!-- Container to heading and testm blocks -->
+      <div class="max-w-6xl px-5 mx-auto text-center">
+        <!-- Heading -->
+        <h2 class="text-4xl font-bold text-center">
+          What's Different About Robo-Advisor?
+        </h2>
+        <!-- Testimonials Container -->
+        <div
+          class="flex flex-col mt-8 space-y-8 md:space-y-0 md:flex-row md:space-x-6"
+        >
+          <!-- Testimonial 1 -->
+          <div
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+          >
+            <!-- Heading -->
+            <div class="rounded-l-full md:bg-transparent">
+              <div
+                class="px-4 py-2 text-white w-24 mx-auto mb-8 rounded-lg md:py-1 bg-primary"
+              >
+                01
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:text-lg">
+                Data-driven Decision Making
+              </h3>
+            </div>
+            <p class="text-primary text-justify">
+              By collecting robust client data, our robo-advisor utilizes
+              machine learning to create customized portfolios optimized for
+              returns and risk tolerance. Continuous data analysis enables
+              adjustments for maximum gains. Our data-based methodology removes
+              bias and subjectivity, providing tailored guidance through smarter
+              decisions in clients' best interests.
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+          >
+            <!-- Heading -->
+            <div class="rounded-l-full md:bg-transparent">
+              <div
+                class="px-4 py-2 text-white w-24 mx-auto mb-8 rounded-lg md:py-1 bg-primary"
+              >
+                02
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:text-lg">
+                Customer-Centric Solutions
+              </h3>
+            </div>
+            <p class="text-primary text-justify">
+              Our robo-advisor is designed around the customer. We first develop
+              comprehensive financial profiles of each individual client to
+              deeply understand their personal risk appetites, goals and
+              preferences. Equipped with this granular knowledge, our AI
+              generates optimal, bespoke portfolios tailored to each customer’s
+              unique needs. As clients evolve, so do our adaptive algorithms,
+              continuously ingesting new customer data to adjust allocations
+              accordingly with flexibility.
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="flex flex-col bg-cyan-100 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+          >
+            <!-- Heading -->
+            <div class="rounded-l-full md:bg-transparent">
+              <div
+                class="px-4 py-2 text-white w-24 mx-auto mb-8 rounded-lg md:py-1 bg-primary"
+              >
+                03
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:text-lg">
+                Transparency and Trust
+              </h3>
+            </div>
+            <p class="text-primary text-justify">
+              By openly sharing our algorithms, data sources, and portfolio
+              adjustment logic, we enable full visibility into our AI-based
+              investing methodology. Combined with our commitment to objective
+              advice based solely on maximizing returns for the individual
+              client's risk tolerance, we build trust and assurance that each
+              recommendation serves their best interest.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="bg-brightRed">
+      <!-- Flex Container -->
+      <div
+        class="container flex flex-col items-center justify-between px-6 py-24 mx-auto space-y-12 md:py-12 md:flex-row md:space-y-0"
+      >
+        <!-- Heading -->
+        <h2
+          class="text-5xl font-bold text-center text-primary md:text-4xl md:max-w-xl md:text-left"
+        >
+          Don't waste anymore time, get Personalized Investment Guidance today.
+        </h2>
+        <!-- Button -->
+        <div>
+          <a
+            class="p-3 px-6 pt-2 w-48 text-white bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-80 text-center text-xl border-2 border-solid border-primary font-semibold hover:bg-white"
+            [routerLink]="['formspage']"
+            routerLinkActive="active active-style"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<small
+  class="text-red-600"
+  [class.visible]="
+    attemptedToNavigate &&
+    (!formControlValue || (currentQuestion === 0 && formControlValue === 0))
+  "
+  [class.invisible]="
+    !attemptedToNavigate ||
+    (formControlValue && !(currentQuestion === 0 && formControlValue === 0))
+  "
+>
+  {{ currentQuestion === 0 ? 'Please enter age' : 'Please select an option' }}
+</small>

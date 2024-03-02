@@ -1,6 +1,0 @@
-I am [age] years old and I live in [location]. I  consider myself a [investmentKnowledge grade] and I wish to invest 
-for the purpose of [investmentPurpose] over a [investmentHorizon]-year horizon, and have a [riskTolerance] risk tolerance.
-I have a sum of [amount] in [currency] to invest. Which specific financial products ( including ticker and provider 
-would a typical financial advisor recommend for investment
-given my circumstances? Environmental factors are not important to me when I am investing. Which composition 
-(as a percentage) would he recommend for each financial product? I will not consider your response personalized advice.
