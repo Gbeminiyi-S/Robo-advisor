@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
   ) {
     this.myForm = this.fb.group({});
     this.questions.forEach((_question, i) => {
-      this.myForm.addControl(`question${i}`, this.fb.control(''));
+      this.myForm.addControl(`${_question.name}`, this.fb.control(''));
     });
   }
 

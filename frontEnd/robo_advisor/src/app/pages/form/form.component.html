@@ -38,10 +38,10 @@
           @if (currentQuestion === 0) {
             <input
               type="number"
-              name="question{{ currentQuestion }}"
+              name="{{questions[currentQuestion].name}}"
               id="option-{{ option.value }}"
               class="border-2 w-[90%] ms-auto"
-              formControlName="question{{ currentQuestion }}"
+              formControlName="{{questions[currentQuestion].name}}"
               (change)="onChange($event)"
               placeholder="enter age"
             />
@@ -49,10 +49,10 @@
             
             <input
               [type]="currentQuestion === 7 ? 'text':'number' "
-              name="question{{ currentQuestion }}"
+              name="{{questions[currentQuestion].name}}"
               id="option-{{ option.value }}"
               class="border-2 w-[90%] ms-auto"
-              formControlName="question{{ currentQuestion }}"
+              formControlName="{{questions[currentQuestion].name}}"
               (change)="onChange($event)"
               placeholder="{{option.label}}"
             />
@@ -63,9 +63,9 @@
               [ngClass]="{
                 'border-red-600 border':
                   attemptedToNavigateFlags[currentQuestion] &&
-                  !myForm.get('question' + currentQuestion)?.value,
+                  !myForm.get(questions[currentQuestion].name)?.value,
                 'border-blue-600 border':
-                  myForm.get('question' + currentQuestion)?.value ===
+                  myForm.get(questions[currentQuestion].name)?.value ===
                   option.value
               }"
               for="option-{{ option.value }}"
@@ -74,8 +74,8 @@
                 class="mb-2 text-start"
                 type="radio"
                 id="option-{{ option.value }}"
-                name="question{{ currentQuestion }}"
-                formControlName="question{{ currentQuestion }}"
+                name="{{questions[currentQuestion].name}}"
+                formControlName="{{questions[currentQuestion].name}}"
                 value="{{ option.value }}"
                 (change)="onChange($event)"
               />
@@ -87,7 +87,7 @@
         <app-input-val-message
           [attemptedToNavigate]="attemptedToNavigateFlags[currentQuestion]"
           [currentQuestion]="currentQuestion"
-          [formControlValue]="myForm.get('question' + currentQuestion)?.value"
+          [formControlValue]="myForm.get(questions[currentQuestion].name)?.value"
         />
       </form>
       <app-navigation
