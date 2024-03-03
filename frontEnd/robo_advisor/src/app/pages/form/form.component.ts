@@ -8,6 +8,9 @@ import { NavigationComponent } from '../../components/navigation/navigation.comp
 import { ProgressComponent } from '../../components/progress/progress.component';
 import { SubmitComponent } from '../../components/submit/submit.component';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
+import { QuestionnaireService } from '../../services/questionnaire/questionnaire.service';
+import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-form',
@@ -34,11 +37,11 @@ export class FormComponent implements OnInit {
   inputNumValue: number = 0;
   inputStrValue: string = '';
   username: string | null = null;
-  lastPageVal: string = '';
 
   constructor(
     private fb: FormBuilder,
     private userDetails: UserDetailsService,
+    private questionnaireService: QuestionnaireService,
   ) {
     this.myForm = this.fb.group({});
     this.questions.forEach((_question, i) => {
@@ -91,7 +94,19 @@ export class FormComponent implements OnInit {
 
   submitForm() {
     if (this.inputStrValue) {
-      console.log(this.myForm.value);
+      if (this.myForm.valid) {
+        this.questionnaireService.submitQuestions(this.myForm.value).subscribe(
+          (response) => {
+            console.log('posted succesfully', response);
+          },
+          (error) => {
+            console.log('error', error);
+          },
+        );
+      } else {
+        console.log('invalid form');
+        
+      }
     } else {
       this.attemptedToNavigateFlags[this.currentQuestion] = true;
     }
