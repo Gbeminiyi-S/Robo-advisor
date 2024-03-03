@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+main {
+    color: #002146;
+    font-family: "Poppins", sans-serif, Roboto, -apple-system;
+    font-size: 2vh;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+.page {
+    margin: 1% 10% 4% 10%;
+}
+h1, h2 {
+    font-weight: bold !important;
+}
+h1 {
+    border: transparent !important;
+    background-color: yellow;
+    background: linear-gradient(to bottom, #ffd700, #ffc107);
+    color: #002146;
+    width: 100%;
+    margin: 5% 0 2% 0;
+    padding: 2.5% 0 2.5% 10%;
+    font-size: 6vh;
+}
+h2 {
+    text-transform: uppercase;
+    font-size: 2.5vh;
+    margin: 2% 5px 0 5px;
+}
+p {
+    margin: 0.5% 5px 0 5px;
+}
+#first {
+    font-size: 2.1vh;
+    margin: 1% 0 1.5% 5px;
+}
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+.list {
+    margin: auto 10px;
+}
+.link {
+    color: blue;
+    transition: font-size 0.3s ease;
+}
+.link:hover, .link:focus {
+    font-size: 2.1vh; 
+}
+button {
+    width: 190px;
+    border: 2px solid #002146;
+    border-radius: 5px;
+    font-size: 2.2vh;
+    padding: 7.5px 7px;
+    text-align: center;
+    justify-content: center;
+    margin: 35px 15px 15px 0;
+    transition: transform 0.3s ease;
+}
+button:hover, button:focus, button:active{
+    transform: scale(1.05); 
+}
+#continue {
+    background-color: #002146;
+    color: white;
+}
+@media screen and (max-width:600px) {
+    main {
+        margin: 10% auto;
+        font-size: 1.7vh;
+    }
+    button {
+        display: flex;
+        width: 185px;
+    }
+    h1 {
+        margin: 10% 0 7% 0;
+    }
+    #continue {
+        background-color: #002146;
+        color: white;
+        margin: 35px 15px 0 0;
+    }
+    #back {
+        margin: 10px 15px 35px 0;
+    }
+}
+@media screen and (max-width:1024px) {
+    main {
+        margin: 10% auto;
+    }
+    h1 {
+        margin: 7% 0 4% 0;
+    }
+    button {
+        font-size: 1.8vh;
+        width: 200px;
+        padding: 7.5px 0;
+    }
+}

@@ -7,7 +7,7 @@
           <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
         } -->
         <br />
-        <label>Last name</label><br />
+        <label>Last name:</label><br />
         <input type="text" id="lastname" name="lastName" formControlName="lastname" required /><br />
         <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('required') && signUpForm.get('lastname')!.touched">
           Last name is required.
@@ -16,7 +16,7 @@
           Name must be at least 3 characters long.
         </div>
 
-        <label>First name</label><br />
+        <label>First name:</label><br />
         <input type="text" id="firstname" name="firstName" formControlName="firstname" required /><br />
         <div class="ngIf" *ngIf="signUpForm.get('firstname')!.hasError('required') && signUpForm.get('firstname')!.touched">
           First name is required.
@@ -25,7 +25,7 @@
           Name must be at least 3 characters long.
         </div>
 
-        <label>Username</label><br />
+        <label>Username:</label><br />
         <input
           type="text"
           id="username"
@@ -73,7 +73,7 @@
         </div>        
 
 
-        <label >Email</label><br />
+        <label >Email:</label><br />
         <input
           type="text"
           id="email"

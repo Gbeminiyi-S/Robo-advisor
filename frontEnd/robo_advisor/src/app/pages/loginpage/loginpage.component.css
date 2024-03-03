@@ -142,6 +142,7 @@ input[type="text"] {
   padding-left: 40px;
   border: 2px solid rgb(195, 221, 230);
   border-radius: 2px;
+  transition: transform 0.3s ease;
 }
 
 input[type="password"] {
@@ -155,14 +156,21 @@ input[type="password"] {
   padding-left: 40px;
   border: 2px solid rgb(195, 221, 230);
   border-radius: 2px;
+  transition: transform 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus, input[type="text"]:hover,
+input[type="password"]:focus, input[type="password"]:hover {
   outline: none;
-  border: 2px solid whitesmoke;
+  border: 2px solid #002146;
+  transform: scale(1.01);
 }
-
+button {
+  transition: transform 0.3s ease;
+}
+button:hover, button:focus, button:active {
+  transform: scale(1.03);
+}
 #login {
   background-color: #002146;
   border: none;
@@ -198,10 +206,10 @@ input[type="password"]:focus {
 button {
   transition: transform 0.3s ease;
 }
-button:hover {
+button:hover, button:focus, button:active {
   transform: scale(1.03);
 }
-#crt-acct:hover {
+#crt-acct:hover, #crt-acct:focus {
   font-size: 2.1vh;
 }
 

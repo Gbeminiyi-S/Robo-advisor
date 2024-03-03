@@ -6,10 +6,15 @@ main {
     font-family: 'Poppins', sans-serif, Roboto, -apple-system;
     font-size: 2vh;
     color: #002146;
-    background: #373B44;
-    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
-    background: linear-gradient(to right, #4286f4, #373B44);
-    box-shadow: 0 0 10px rgba(241, 207, 19, 0.823);
+    background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  ), #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     overflow: scroll;
     margin: 0;
     padding: 0;
@@ -23,8 +28,8 @@ main {
 }
 .col-6 {
     width: 80%;
-    height: auto;
-    margin: auto 10%;
+    height: 70%;
+    margin: 0 10%;
     border: 0px transparent transparent;
 }
 #image {
@@ -33,14 +38,16 @@ main {
     margin: 5% auto;
 }
 #one {
-    margin-top: 2rem;
-    width: 60%;
-    height: auto;
+    margin: 0.5rem 0 0.5rem 5%;
+    width: 55%;
+    height: 70%;
     box-sizing: border-box;
     padding: auto;
+    border: transparent transparent;
+    overflow:auto !important;
 }
 #two {
-    top: 0;
+    margin-top: 3rem;
     width: 40%;
     height: 100%;
     box-sizing: border-box;
@@ -50,19 +57,22 @@ main {
 .eyeicon {
     position: absolute;
     margin-top: 22px;
-    right: 50%;
+    right: 47%;
 }
 input {
     border: 2px solid rgb(195, 221, 230);
     position: relative;
-    height: 40px;
+    height: 50px;
+    transition: transform 0.3s ease;
 }
-input:focus {
+input:hover, input:focus {
     outline: none;
-    border: 2px solid whitesmoke;
-  }
+    border: 2px solid #002146;
+    transform: scale(1.03);
+}
 /* rgb(3, 3, 79) */
 #title {
+    margin-top: 5%;
     text-align: center;
     font-weight: bolder;
     font-size: 5vh;
@@ -88,14 +98,14 @@ label {
     color: white;
     background-color:#002146;
     padding: auto;
-    margin: 10px 10px 10px 0px;
+    margin: 10px 25px 10px 0px;
     transition: transform 0.3s ease;
 }
 #cancel {
     width: 140px;
     border: 2px solid #002146;
     padding: auto;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 0px;
     transition: transform 0.3s ease;
 }
 #create:hover {
@@ -103,7 +113,6 @@ label {
 }
 #cancel:hover {
     transform: scale(1.05); 
-
 }
 #write {
     margin: 10px auto;
@@ -137,16 +146,20 @@ padding: 10px 20px;
         margin: 0;
         padding: 0;
     }
-    #one, #two {
-        width: 50%;
+    #one {
+        width: 90%;
+        margin: auto;
         border-right: none;
     }
     #title {
-        text-align: left;
+        text-align: center;
     }
     #image {
-        margin: 10% auto;
+        display: none;
     }
+    .eyeicon {
+        left: 80%;
+    } 
 }
 @media screen and (max-width: 768px) {
     main {
@@ -159,12 +172,15 @@ padding: 10px 20px;
         width: 90%;
         margin: auto;
     }
+    /* .eyeicon {
+        right: 40%;
+    } */
 }
 @media screen and (max-width: 912px) {
     .eyeicon {
         right: 55%;
     }
     #image {
-        margin-left: auto !important;
+        margin-left: 15% !important;
     }
 }

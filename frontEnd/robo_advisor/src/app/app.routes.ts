@@ -5,6 +5,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { AgreementComponent } from './pages/agreement/agreement.component';
+import { FAQPageComponent } from './pages/faq-page/faq-page.component';
 
 export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
@@ -12,5 +14,7 @@ export const routes: Routes = [
   { path: 'signup', title: 'Sign-up Page', component: SignUpPageComponent },
   { path: 'formspage', title: 'User form', component: FormComponent },
   { path: 'homepage', title: 'Homepage', component: HomepageComponent },
-  { path: '**', title: 'error404', component: Error404Component },
+  { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent },
+  { path: 'faq', title: 'FAQ', component: FAQPageComponent},
+  { path: '**', title: 'error404', component: Error404Component }
 ];
