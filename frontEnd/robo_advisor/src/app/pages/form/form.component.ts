@@ -23,68 +23,59 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit{
+export class FormComponent implements OnInit {
   currentQuestion = 0;
   questions: FormQuestions[] = FormQuestionsData;
   myForm: FormGroup;
   isChecked: boolean[] = Array(this.questions.length).fill(false);
   attemptedToNavigateFlags: boolean[] = Array(this.questions.length).fill(
-    false
+    false,
   );
-  ageVal: number = 0;
+  inputNumValue: number = 0;
+  inputStrValue: string = '';
   username: string | null = null;
 
-
-  constructor(private fb: FormBuilder, private userDetails: UserDetailsService) {
+  constructor(
+    private fb: FormBuilder,
+    private userDetails: UserDetailsService,
+  ) {
     this.myForm = this.fb.group({});
     this.questions.forEach((_question, i) => {
       this.myForm.addControl(`question${i}`, this.fb.control(''));
-      
     });
   }
 
   ngOnInit(): void {
-    this.username =this.userDetails.getUsername()
+    this.username = this.userDetails.getUsername();
   }
 
   onChange(event: Event) {
     const newVal = (event.target as HTMLInputElement).checked;
-    this.ageVal = Number((event.target as HTMLInputElement).value);
-    this.isChecked[this.currentQuestion] = newVal;
+    this.inputNumValue = Number((event.target as HTMLInputElement).value);
+    if ((event.target as HTMLInputElement).type === 'text') {
+      this.inputStrValue = String((event.target as HTMLInputElement).value);
+    }    this.isChecked[this.currentQuestion] = newVal;
   }
 
-  // nextQuestion() {
-  //   if (this.currentQuestion === 0) {
-  //     if (this.isChecked[this.currentQuestion] || this.ageVal) {
-  //       this.attemptedToNavigateFlags[this.currentQuestion] = false;
-  //       this.currentQuestion++;
-  //     } else {
-  //       this.attemptedToNavigateFlags[this.currentQuestion] = true;
-  //     }
-  //   } else {
-  //     if (this.isChecked[this.currentQuestion]) {
-  //       this.attemptedToNavigateFlags[this.currentQuestion] = false;
-  //       this.currentQuestion++;
-  //     } else {
-  //       this.attemptedToNavigateFlags[this.currentQuestion] = true;
-  //     }
-  //   }
-  // }
   nextQuestion() {
-    const currentQuestionData = this.questions[this.currentQuestion];
-    const formControl = this.myForm.get(`question${this.currentQuestion}`);
-
-    if (currentQuestionData.id === 3 || currentQuestionData.id === 6 || currentQuestionData.id === 8) {
-      // Validate input fields
-      if (formControl?.valid) {
+    if (
+      this.currentQuestion === 0 ||
+      this.currentQuestion === 2 ||
+      this.currentQuestion === 5 ||
+      this.currentQuestion === 7
+    ) {
+      if (
+        this.isChecked[this.currentQuestion] ||
+        this.inputNumValue ||
+        this.inputStrValue
+      ) {
         this.attemptedToNavigateFlags[this.currentQuestion] = false;
         this.currentQuestion++;
       } else {
         this.attemptedToNavigateFlags[this.currentQuestion] = true;
       }
     } else {
-      // Handle navigation for radio button questions
-      if (formControl?.value) {
+      if (this.isChecked[this.currentQuestion]) {
         this.attemptedToNavigateFlags[this.currentQuestion] = false;
         this.currentQuestion++;
       } else {
@@ -92,24 +83,16 @@ export class FormComponent implements OnInit{
       }
     }
   }
+
   previousQuestion() {
     this.currentQuestion--;
   }
 
-  // submitForm() {
-  //   if (this.isChecked[this.currentQuestion]) {
-  //     this.attemptedToNavigateFlags[this.currentQuestion] = false;
-  //     console.log(this.myForm.value);
-  //   } else {
-  //     this.attemptedToNavigateFlags[this.currentQuestion] = true;
-  //   }
-  // }
   submitForm() {
-    if (this.myForm.valid) {
+    if (this.inputStrValue) {
       console.log(this.myForm.value);
     } else {
-      // Handle form validation errors
-      console.log('Form is invalid');
+      console.log('nahh');
     }
   }
 }
