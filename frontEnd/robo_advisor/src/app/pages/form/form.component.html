@@ -10,7 +10,7 @@
       </div>
     }
     <div
-      class="w-4/5 sm:w-1/2 mx-auto relative bg-white rounded-sm shadow-lg text-center p-6"
+      class="w-[90%] sm:w-[75%] md:[70%] text-sm sm:text-[1rem] mx-auto relative bg-white rounded-sm shadow-lg text-center p-4 sm:p-6"
     >
       <div class="relative flex items-center justify-center">
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
@@ -22,7 +22,7 @@
         />
       </div>
       @if (currentQuestion === 0) {
-        <label for="question1" class="font-bold text-start p-2 mb-2 rounded-full"
+        <label for="age" class="font-bold text-start p-2 mb-2 rounded-full"
           >{{ questions[currentQuestion].text }} </label>
           <span class="font-mono absolute mt-10 left-[0.7rem] sm:left-[1rem] ">Under: </span>
       } @else {
