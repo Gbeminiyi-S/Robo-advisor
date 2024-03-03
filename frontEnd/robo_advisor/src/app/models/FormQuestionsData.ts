@@ -5,7 +5,7 @@ export const FormQuestionsData: FormQuestions[] = [
       id:1,
       text: "Now, to personalize your investment journey, tell me, what age group do you belong to?",
       options: [
-        { label: "Under 25", value: "under25" },
+        { label: "Under 25", value: "under25", name: 'age'},
       ]
     },
     {

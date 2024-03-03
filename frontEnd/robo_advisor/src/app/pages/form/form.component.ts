@@ -34,6 +34,7 @@ export class FormComponent implements OnInit {
   inputNumValue: number = 0;
   inputStrValue: string = '';
   username: string | null = null;
+  lastPageVal: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -52,9 +53,9 @@ export class FormComponent implements OnInit {
   onChange(event: Event) {
     const newVal = (event.target as HTMLInputElement).checked;
     this.inputNumValue = Number((event.target as HTMLInputElement).value);
-    if ((event.target as HTMLInputElement).type === 'text') {
+    if ((event.target as HTMLInputElement).type === 'text')
       this.inputStrValue = String((event.target as HTMLInputElement).value);
-    }    this.isChecked[this.currentQuestion] = newVal;
+    this.isChecked[this.currentQuestion] = newVal;
   }
 
   nextQuestion() {
@@ -92,7 +93,7 @@ export class FormComponent implements OnInit {
     if (this.inputStrValue) {
       console.log(this.myForm.value);
     } else {
-      console.log('nahh');
+      this.attemptedToNavigateFlags[this.currentQuestion] = true;
     }
   }
 }
