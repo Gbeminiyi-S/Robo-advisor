@@ -3,95 +3,78 @@ import { FormQuestions } from "./interfaces/formQuestions";
 export const FormQuestionsData: FormQuestions[] = [
     {
       id:1,
-      text: "Age",
+      text: "Now, to personalize your investment journey, tell me, what age group do you belong to?",
+      name:'age',
       options: [
-        { label: "Under 25", value: "under25" },
+        { label: "Under 25", value: "under25"},
       ]
     },
     {
       id:2,
-      text: "How would you describe your investment knowledge?",
+      text: "What's your primary goal for this investment?",
+      name:'investmentPurpose',
       options: [
-        { label: "Beginner", value: "Beginner" },
-        { label: "Intermediate", value: "Intermediate" },
-        { label: "Advanced", value: "Advanced" },
+        { label: "Grow my capital over time (Capital Growth)", value: "Capital Growth" },
+        { label: "Generate income to supplement my lifestyle (Income generation)", value: "Income Generation" },
+        { label: "Protect my savings and minimize risk (Capital Preservation)", value: "Capital Preservation" },
       ]
     },
     {
       id:3,
-      text: "What is your primary investment goal?",
+      text: "How long do you plan to hold onto this investment?",
+      name:'investmentHorizon',
       options: [
-        { label: "Capital preservation", value: "CapitalPreservation" },
-        { label: "Capital growth", value: "CapitalGrowth" },
-        { label: "Income generation", value: "IncomeGeneration" },
+        { label: "enter your investment horizon", value: "" },
       ]
     },
     {
       id:4,
-      text: "How would you react to a significant decline in the value of your investment portfolio?",
+      text: "How comfortable are you with investing?",
+      name:'investmentKnowledge',
       options: [
-        { label: "Sell all investments", value: "sellAll" },
-        { label: "Sell some investments", value: "sellSome" },
-        { label: "Hold onto investments", value: "holdOn" },
-        { label: "Buy more investments", value: "buyMore" },
+        { label: '"Investing newbie" (Beginner)', value: "Beginner" },
+        { label: '"I\'ve dabbled a bit" (Intermediate)', value: "Intermediate" },
+        { label: '"Seasoned investor" (Advanced)', value: "Advanced" },
       ]
     },
     {
       id:5,
-      text: "What is your time horizon for this investment?",
+      text: "Imagine you're on a rollercoaster. How will you categorize your risk appetite?",
+      name:'riskTolerance',
       options: [
-        { label: "Less than 1 year", value: "LessThanOne" },
-        { label: "1-3 years", value: "1-3Years" },
-        { label: "3-5 years", value: "3-5Years" },
-        { label: "5 -10 years", value: "5-10Years" },
-        { label: "More Than 10 years", value: "MoreThan10Years" },
+        { label: "Thrill-seeker (High risk)", value: "High" },
+        { label: "Moderate ride, please (Moderate risk)", value: "Moderate" },
+        { label: "Safety first (Low risk)", value: "Low" },
       ]
     },
     {
       id:6,
-      text: "What percentage of your total investments are you comfortable allocating to high-risk assets (e.g., stocks)?",
+      text: "To get started, how much are you considering investing?",
+      name:'amount',
       options: [
-        { label: "0-20%", value: "0-20%" },
-        { label: "20-40%", value: "20-40%" },
-        { label: "40-60%", value: "40-60%" },
-        { label: "60-80%", value: "60-80%" },
-        { label: "80-100%", value: "80-100%" },
+        { label: "enter amount", value: "" },
+        
       ]
     },
     {
       id:7,
-      text: "Do you have any specific preferences for types of investments? (e.g., stocks, bonds, Exchange-Traded Fund - ETFs)?",
+      text: "What currency are you using?",
+      name:'currency',
       options: [
-        { label: "Yes", value: "Yes" },
-        { label: "No", value: "No" },
+        { label: "£ Pound", value: "Pound" },
+        { label: "$ Dollar", value: "Dollar" },
+        { label: "₦ Naira", value: "Naira" },
+        { label: "€ Euro", value: "Euro" },
+        { label: "₵ Cedi", value: "Cedi" },
       ]
     },
     {
       id:8,
-      text: "If answer to Question 7 is Yes, please specify",
+      text: "Where are you located? This helps me tailor recommendations to local regulations",
+      name:'location',
       options: [
-        { label: "Stocks", value: "Stocks" },
-        { label: "Bonds", value: "Bonds" },
-        { label: "ETFs", value: "ETFs" },
+        { label: "enter location", value: "" },
       ]
     },
-    {
-      id:9,
-      text: "How do you feel about the possibility of losing some or all of your investment principal in exchange for potentially higher returns?",
-      options: [
-        { label: "Extremely uncomfortable", value: "ExtremelyUncomfortable" },
-        { label: "Uncomfortable", value: "Uncomfortable" },
-        { label: "Neutral", value: "Neutral" },
-        { label: "Comfortable", value: "Comfortable" },
-        { label: "Extremely comfortable", value: "ExtremelyComfortable" },
-      ]
-    },
-    {
-      id:10,
-      text: "Have you experienced any major life events recently that could impact your financial goals or risk tolerance?",
-      options: [
-        { label: "Yes (e.g., marriage, divorce, birth of a child, job change)", value: "Yes" },
-        { label: "No", value: "No" },
-      ]
-    },
+    
   ];

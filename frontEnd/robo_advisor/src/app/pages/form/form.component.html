@@ -1,7 +1,16 @@
 <div class="questionairre h-screen p-4 bg-slate-300 mt-20">
   <div class="container">
+    @if (currentQuestion === 0) {
+      <div
+        class="username text-center font-mono text-pretty w-5/6 mx-auto my-4 text-[1rem] sm:text-[1.2rem]"
+      >
+        Hi <span class="font-bold capitalize">{{ username }}</span
+        >! I'm your friendly robo-advisor, here to help you reach your
+        investment goals.
+      </div>
+    }
     <div
-      class="w-4/5 sm:w-1/2 mx-auto relative bg-white rounded-sm shadow-lg text-center p-6"
+      class="w-[90%] sm:w-[75%] md:[70%] text-sm sm:text-[1rem] mx-auto relative bg-white rounded-sm shadow-lg text-center p-4 sm:p-6"
     >
       <div class="relative flex items-center justify-center">
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
@@ -12,56 +21,73 @@
           [totalQuestions]="questions.length"
         />
       </div>
-      @if (currentQuestion===0) {
-      <label for="question1" class="font-bold mt-4 absolute left-5"
-        >{{ questions[currentQuestion].text }}:</label
-      >
-      }@else {
-      <p class="font-bold my-2">
-        {{ questions[currentQuestion].text }}
-      </p>
+      @if (currentQuestion === 0) {
+        <label for="age" class="font-bold text-start p-2 mb-2 rounded-full"
+          >{{ questions[currentQuestion].text }} </label>
+          <span class="font-mono absolute mt-10 left-[0.7rem] sm:left-[1rem] ">Under: </span>
+      } @else {
+        <p class="font-bold my-2">
+          {{ questions[currentQuestion].text }}
+        </p>
       }
       <form [formGroup]="myForm" class="p-4 grid form-check">
-        @for (option of questions[currentQuestion].options; track option.label)
-        { @if (currentQuestion === 0) {
-        <input
-          type="number"
-          name="question{{ currentQuestion }}"
-          id="option-{{ option.value }}"
-          class="border-2 w-11/12 ms-auto"
-          formControlName="question{{ currentQuestion }}"
-          (change)="onChange($event)"
-          placeholder="enter age"
-        />
-        }@else {
-        <label
-          class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
-          [ngClass]="{
-            'border-red-600 border':
-              attemptedToNavigateFlags[currentQuestion] &&
-              !myForm.get('question' + currentQuestion)?.value,
-            'border-blue-600 border':
-              myForm.get('question' + currentQuestion)?.value === option.value
-          }"
-          for="option-{{ option.value }}"
-        >
-          <input
-            class="mb-2 text-start"
-            type="radio"
-            id="option-{{ option.value }}"
-            name="question{{ currentQuestion }}"
-            formControlName="question{{ currentQuestion }}"
-            value="{{ option.value }}"
-            (change)="onChange($event)"
-          />
+        @for (
+          option of questions[currentQuestion].options;
+          track option.label
+        ) {
+          @if (currentQuestion === 0) {
+            <input
+              type="number"
+              name="{{questions[currentQuestion].name}}"
+              id="option-{{ option.value }}"
+              class="border-2 w-[90%] ms-auto"
+              formControlName="{{questions[currentQuestion].name}}"
+              (change)="onChange($event)"
+              placeholder="enter age"
+            />
+          } @else if (questions[currentQuestion].id === 3 || questions[currentQuestion].id === 6 || questions[currentQuestion].id === 8) {
+            
+            <input
+              [type]="currentQuestion === 7 ? 'text':'number' "
+              name="{{questions[currentQuestion].name}}"
+              id="option-{{ option.value }}"
+              class="border-2 w-[90%] ms-auto"
+              formControlName="{{questions[currentQuestion].name}}"
+              (change)="onChange($event)"
+              placeholder="{{option.label}}"
+            />
+          }
+          @else {
+            <label
+              class="custom-radio text-start p-2 mb-2 rounded-full bg-slate-200"
+              [ngClass]="{
+                'border-red-600 border':
+                  attemptedToNavigateFlags[currentQuestion] &&
+                  !myForm.get(questions[currentQuestion].name)?.value,
+                'border-blue-600 border':
+                  myForm.get(questions[currentQuestion].name)?.value ===
+                  option.value
+              }"
+              for="option-{{ option.value }}"
+            >
+              <input
+                class="mb-2 text-start"
+                type="radio"
+                id="option-{{ option.value }}"
+                name="{{questions[currentQuestion].name}}"
+                formControlName="{{questions[currentQuestion].name}}"
+                value="{{ option.value }}"
+                (change)="onChange($event)"
+              />
 
-          {{ option.label }}
-        </label>
-        } }
+              {{ option.label }}
+            </label>
+          }
+        }
         <app-input-val-message
           [attemptedToNavigate]="attemptedToNavigateFlags[currentQuestion]"
           [currentQuestion]="currentQuestion"
-          [formControlValue]="myForm.get('question' + currentQuestion)?.value"
+          [formControlValue]="myForm.get(questions[currentQuestion].name)?.value"
         />
       </form>
       <app-navigation
@@ -71,7 +97,8 @@
         (nextClick)="nextQuestion()"
       />
       @if (currentQuestion === questions.length - 1) {
-      <app-submit (submit)="submitForm()" />}
+        <app-submit (submit)="submitForm()" />
+      }
     </div>
   </div>
 </div>
