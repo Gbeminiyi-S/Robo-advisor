@@ -17,6 +17,7 @@ export const FormQuestionsData: FormQuestions[] = [
         { label: "Grow my capital over time (Capital Growth)", value: "Capital Growth" },
         { label: "Generate income to supplement my lifestyle (Income generation)", value: "Income Generation" },
         { label: "Protect my savings and minimize risk (Capital Preservation)", value: "Capital Preservation" },
+        { label: "Retirement", value: "Retirement" },
       ]
     },
     {
