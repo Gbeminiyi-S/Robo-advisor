@@ -29,3 +29,18 @@
     transform: translate(-50%, -50%);
   }
   
+
+  /* #sidenav-nav-link {
+    position: relative;
+  }
+  
+  #sidenav-nav-text {
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  #sidenav-nav-link:hover .sidenav-nav-text{
+    display: block;
+  } */
+  
