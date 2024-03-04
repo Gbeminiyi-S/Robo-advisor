@@ -23,6 +23,7 @@ interface SideNavToggle {
 export class DashboardNavbarComponent {
   @Output() onToggleSiddeNav: EventEmitter<SideNavToggle> = new EventEmitter();
 collapsed = false;
+showLabel = true;
 screenWidth = 0;
 navData = navbarData;
 isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -32,7 +33,6 @@ toggleCollapse(): void {
   this.collapsed = !this.collapsed;
   this.onToggleSiddeNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
 }
-
 
 closeSidenav(): void {
   this.collapsed = false;
@@ -51,5 +51,6 @@ ngOnInit(): void {
 logOut(): void {
   this.userDetails.clearUsername();
 }
+
 
 }
