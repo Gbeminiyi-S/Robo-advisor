@@ -3,15 +3,29 @@
     <section id="one">
       <form class="col-6" [formGroup]="signUpForm" (submit)="onSubmit()">
         <h1 id="title">Create a new account</h1>
-        @if (errorMessage) {
+        <!-- @if (errorMessage) {
           <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
-        }
+        } -->
         <br />
-        <label>Last name</label><br />
-        <input type="text" id="lastname" name="lastName" required /><br />
-        <label>First name</label><br />
-        <input type="text" id="firstname" name="firstName" required /><br />
-        <label>Username</label><br />
+        <label>Last name:</label><br />
+        <input type="text" id="lastname" name="lastName" formControlName="lastname" required /><br />
+        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('required') && signUpForm.get('lastname')!.touched">
+          Last name is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('minlength') && signUpForm.get('lastname')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+
+        <label>First name:</label><br />
+        <input type="text" id="firstname" name="firstName" formControlName="firstname" required /><br />
+        <div class="ngIf" *ngIf="signUpForm.get('firstname')!.hasError('required') && signUpForm.get('firstname')!.touched">
+          First name is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('firstname')!.hasError('minlength') && signUpForm.get('firstname')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+
+        <label>Username:</label><br />
         <input
           type="text"
           id="username"
@@ -20,50 +34,66 @@
           formControlName="username"
         />
         <br />
-        <div class="pass relative">
-          <label>Password</label><br />
-          <input
-            [type]="isShowPassword ? 'text' : 'password'"
-            id="pwd"
-            name="password"
-            required
-            formControlName="password"
-          />
-          <span class="absolute top-1/2 right-3 cursor-pointer">
-            @if (isShowPassword) {
-              <fa-icon [icon]="faEyeSlash" (click)="toggleShowPassword()" />
-            } @else {
-              <fa-icon [icon]="faEye" (click)="toggleShowPassword()" />
-            }
+        <div class="ngIf" *ngIf="signUpForm.get('username')!.hasError('required') && signUpForm.get('username')!.touched">
+          Username is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('username')!.hasError('minlength') && signUpForm.get('username')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+
+        <label>Password:</label><br />
+        <div class="password-container">
+          <input [type]="showPassword ? 'password' : 'text'" id="pwd" formControlName="password" required>
+          <span class="eyeicon" (click)="togglePasswordVisibility('password')">
+              <i [ngClass]="switchIcon ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
           </span>
         </div>
-        <div class="relative">
-          <label>Password(again)</label><br />
-          <input
-            [type]="isConfirmPassword ? 'text' : 'password'"
-            id="pwd"
-            name="confirmPassword"
-            formControlName="confirmPassword"
-            required
-          />
-          <span class="absolute top-1/2 right-3 cursor-pointer">
-            @if (isConfirmPassword) {
-              <fa-icon [icon]="faEyeSlash" (click)="toggleConfirmPassword()" />
-            } @else {
-              <fa-icon [icon]="faEye" (click)="toggleConfirmPassword()" />
-            }
-          </span>
-          <small class="text-red-800 text-[.8rem] absolute -bottom-1 left-0">{{passError? passError: ''}}</small>
+        <div class="ngIf" *ngIf="signUpForm.get('password')!.hasError('required') && signUpForm.get('password')!.touched">
+          Password is required.
         </div>
-        <label >Email</label><br />
+        <div class="ngIf" *ngIf="signUpForm.get('password')!.hasError('minlength') && signUpForm.get('password')!.touched">
+          Password must be at least 5 characters long.
+        </div>
+
+        <label>Confirm password:</label><br />
+        <div class="password-container">
+          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" formControlName="confirmPassword" required>
+          <span class="eyeicon" (click)="togglePasswordVisibility('password')">
+          <i [ngClass]="switchIcon ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+        </span>
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('confirmPassword')!.hasError('required') && signUpForm.get('confirmPassword')!.touched">
+          Password is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('confirmPassword')!.hasError('minlength') && signUpForm.get('confirmPassword')!.touched">
+          Password must be at least 5 characters long.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.hasError('mismatch') && signUpForm.get('confirmPassword')!.touched">
+          Passwords do not match.
+        </div>        
+
+
+        <label >Email:</label><br />
         <input
           type="text"
-          id="country"
+          id="email"
           name="email"
-          formControlName="email"
+          formControlName="email" required
         /><br />
-        <button id="create">{{ isLoading ? "Creating" : "Create" }}</button>
-        <button id="cancel">Cancel</button>
+        <div class="ngIf" *ngIf="signUpForm.get('email')!.hasError('required') && signUpForm.get('email')!.touched">
+          Valid email address is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched">
+          Invalid email address.
+        </div>
+
+        <button id="create">{{ isLoading ? "CREATING" : "CREATE" }}</button>
+        <button id="cancel" [routerLink]="['/login']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }">CANCEL</button><br>
+        <div class="ngIfError" *ngIf="errorMessage">
+          {{errorMessage}}
+        </div>
         <p id="write">
           Got an Account?<br />
           <a
@@ -81,7 +111,7 @@
     <section id="two">
       <img
         id="image"
-        src="https://img.freepik.com/free-photo/robot-hand-finger-pointing-technology-artificial-intelligence_53876-129777.jpg?size=626&ext=jpg&ga=GA1.1.1081711293.1694664522&semt=ais"
+        src="assets/images/robot1.png"
         alt=""
       />
     </section>

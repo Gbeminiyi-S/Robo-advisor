@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControlOptions, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
-import { response } from 'express';
-import { error } from 'console';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -13,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     RouterLink,
     RouterLinkActive,
+    CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
   ],
@@ -20,49 +19,62 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
-  isLoading: boolean = false;
+  switchIcon: boolean = true;
+  showPassword: boolean = true;
+  isLoading: boolean= false;
+
   signUpForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    email: new FormControl(''),
-  });
+    lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    firstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    email: new FormControl('', [Validators.required, Validators.email])
+  }, {validators: this.passwordMatchValidator} as AbstractControlOptions);
 
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
-  isShowPassword: boolean = false;
-  isConfirmPassword: boolean = false;
+  passwordMatchValidator(group: FormGroup) {
+    const password = group.get('password')?.value;
+    const confirmPassword = group.get('confirmPassword')?.value;
 
-  passInput = '';
-  confirmPassInput = '';
-  passError: string = '';
+    return password === confirmPassword ? null : {mismatch: true};
+  }
+
+  togglePasswordVisibility(field: 'password' | 'confirmPassword'): void {
+    this.switchIcon = !this.switchIcon;    
+
+    // Toggle the showPassword only for the specified field
+    if (field === 'password') {
+        this.showPassword = !this.showPassword;
+    }
+  }
+
+  // passInput = '';
+  // confirmPassInput = '';
+  // passError: string = '';
 
   errorMessage: string = '';
-  toggleShowPassword(): void {
-    this.isShowPassword = !this.isShowPassword;
-  }
-
-  toggleConfirmPassword(): void {
-    this.isConfirmPassword = !this.isConfirmPassword;
-  }
-
+  
   constructor(
     private signUpService: SignUpService,
     private router: Router,
   ) {}
 
+  clearErrorMessage() {
+    this.errorMessage = '';
+  }
+
   onSubmit(): void {
     this.isLoading = true;
-    this.passInput = this.signUpForm.get('password')?.value;
-    this.confirmPassInput = this.signUpForm.get('confirmPassword')?.value;
+    // this.passInput = this.signUpForm.get('password')?.value;
+    // this.confirmPassInput = this.signUpForm.get('confirmPassword')?.value;
     
-    if (this.passInput !== this.confirmPassInput) {
-      this.passError = 'passwords do not match';
-      this.isLoading=false;
-      return;
-    }
+    // if (this.passInput !== this.confirmPassInput) {
+    //   this.passError = 'passwords do not match';
+    //   this.isLoading=false;
+    //   return;
+    // }
     if (this.signUpForm.valid) {
-      this.passError = '';
+      // this.passError = '';
       const signUpData = this.signUpForm.value;
       this.signUpService.signUp(signUpData).subscribe(
         (response) => {
@@ -73,16 +85,24 @@ export class SignUpPageComponent {
         },
         (error) => {
           this.errorMessage = error.error.message;
-          this.passError = '';
+          // this.passError = '';
           this.isLoading = false;
           console.log(error);
+
+          setTimeout(() => {
+            this.clearErrorMessage();
+          }, 5000);
         },
       );
     } else {
       console.error('Form is invalid');
       this.errorMessage = 'Form is invalid';
-      this.passError = '';
+      // this.passError = '';
       this.isLoading = false;
-    }
+
+      setTimeout(() => {
+        this.clearErrorMessage();
+      }, 5000);
+    }  
   }
 }
