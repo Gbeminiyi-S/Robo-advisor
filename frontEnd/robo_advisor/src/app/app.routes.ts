@@ -10,6 +10,7 @@ import { FAQPageComponent } from './pages/faq-page/faq-page.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
+import { ChartBaseComponent } from './components/chart-base/chart-base.component';
 
 export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'contactuspage', title: 'ContactUspage', component: ContactusComponent },
   { path: 'sidebar', title: 'Sidebar', component: DashboardNavbarComponent },
   { path: 'faq', title: "FAQ's", component: FAQPageComponent},
+  { path: 'chart', title: "chart", component: ChartBaseComponent},
   { path: '**', title: 'error404', component: Error404Component }
 ];
