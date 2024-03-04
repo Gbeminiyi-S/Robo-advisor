@@ -20,48 +20,37 @@ main {
     padding: 0;
 }
 .container {
-    height: 100%;
     margin-top: 3rem;
     width: 100%;
+    padding: 1rem 4rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
 }
 .col-6 {
-    width: 80%;
-    height: 70%;
-    margin: 0 10%;
-    border: 0px transparent transparent;
+    width: 100%;
 }
 #image {
     height:100vh;
     width:100%;
-    margin: 5% auto;
 }
 #one {
-    margin: 0.5rem 0 0.5rem 5%;
-    width: 55%;
-    height: 70%;
-    box-sizing: border-box;
-    padding: auto;
-    border: transparent transparent;
-    overflow:auto !important;
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 #two {
-    margin-top: 3rem;
-    width: 40%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: auto;
+    flex: 0.75;
 }
-
+.password-container {
+    position: relative;
+}
 .eyeicon {
     position: absolute;
     margin-top: 22px;
-    right: 47%;
+    right: 10%;
 }
 input {
     border: 2px solid rgb(195, 221, 230);
-    position: relative;
     height: 50px;
     transition: transform 0.3s ease;
 }
@@ -72,7 +61,6 @@ input:hover, input:focus {
 }
 /* rgb(3, 3, 79) */
 #title {
-    margin-top: 5%;
     text-align: center;
     font-weight: bolder;
     font-size: 5vh;
@@ -139,45 +127,39 @@ width: 100%;
 padding: 10px 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 912px) {
     main {
         height: 100%;
         width: 100%;
-        margin: 0;
-        padding: 0;
     }
-    #one {
-        width: 90%;
+    .col-6 {
+        width: 100%;
         margin: auto;
-        border-right: none;
     }
     #title {
         text-align: center;
+    } 
+    .container {
+        padding: 1rem;
+        flex-direction: column;
     }
     #image {
         display: none;
     }
-    .eyeicon {
-        left: 80%;
-    } 
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     main {
         height: 100%;
         width: 100%;
-        margin: 0;
-        padding: 0;
     }
     .col-6 {
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
-}
-@media screen and (max-width: 912px) {
-    .eyeicon {
-        right: 55%;
-    }
-    #image {
-        margin-left: 15% !important;
+    #title {
+        text-align: center;
+    } 
+    .container {
+        padding: 1rem 1.5rem;
     }
 }

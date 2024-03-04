@@ -7,15 +7,7 @@
           <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
         } -->
         <br />
-        <label>Last name:</label><br />
-        <input type="text" id="lastname" name="lastName" formControlName="lastname" required /><br />
-        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('required') && signUpForm.get('lastname')!.touched">
-          Last name is required.
-        </div>
-        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('minlength') && signUpForm.get('lastname')!.touched">
-          Name must be at least 3 characters long.
-        </div>
-
+        
         <label>First name:</label><br />
         <input type="text" id="firstname" name="firstName" formControlName="firstname" required /><br />
         <div class="ngIf" *ngIf="signUpForm.get('firstname')!.hasError('required') && signUpForm.get('firstname')!.touched">
@@ -24,7 +16,16 @@
         <div class="ngIf" *ngIf="signUpForm.get('firstname')!.hasError('minlength') && signUpForm.get('firstname')!.touched">
           Name must be at least 3 characters long.
         </div>
-
+        
+        <label>Last name:</label><br />
+        <input type="text" id="lastname" name="lastName" formControlName="lastname" required /><br />
+        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('required') && signUpForm.get('lastname')!.touched">
+          Last name is required.
+        </div>
+        <div class="ngIf" *ngIf="signUpForm.get('lastname')!.hasError('minlength') && signUpForm.get('lastname')!.touched">
+          Name must be at least 3 characters long.
+        </div>
+        
         <label>Username:</label><br />
         <input
           type="text"
@@ -45,7 +46,7 @@
         <div class="password-container">
           <input [type]="showPassword ? 'password' : 'text'" id="pwd" formControlName="password" required>
           <span class="eyeicon" (click)="togglePasswordVisibility('password')">
-              <i [ngClass]="switchIcon ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+              <i [ngClass]="switchIcon1 ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
           </span>
         </div>
         <div class="ngIf" *ngIf="signUpForm.get('password')!.hasError('required') && signUpForm.get('password')!.touched">
@@ -57,9 +58,9 @@
 
         <label>Confirm password:</label><br />
         <div class="password-container">
-          <input [type]= "showPassword ? 'password':'text'" id="confirmPwd" formControlName="confirmPassword" required>
-          <span class="eyeicon" (click)="togglePasswordVisibility('password')">
-          <i [ngClass]="switchIcon ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+          <input [type]= "showConfirmPassword ? 'password':'text'" id="confirmPwd" formControlName="confirmPassword" required>
+          <span class="eyeicon" (click)="toggleConfirmPasswordVisibility('confirmPassword')">
+          <i [ngClass]="switchIcon2 ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
         </span>
         </div>
         <div class="ngIf" *ngIf="signUpForm.get('confirmPassword')!.hasError('required') && signUpForm.get('confirmPassword')!.touched">
