@@ -155,7 +155,7 @@ button:hover, button:focus, button:active {
 #login {
   background-color: #002146;
   border: none;
-  color: whitesmoke;
+  color: rgb(224 194 18);
   padding: 10px 20px;
   text-decoration: none;
   margin: 5px 5px 5px 0px;
