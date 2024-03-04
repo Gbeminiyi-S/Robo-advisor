@@ -2,12 +2,22 @@
   class="text-red-600"
   [class.visible]="
     attemptedToNavigate &&
-    (!formControlValue || (currentQuestion === 0 && formControlValue === 0))
+    (!formControlValue || (currentQuestion === 0 && formControlValue === 0  ) || (currentQuestion === 7 && formControlValue === '' ))
   "
   [class.invisible]="
     !attemptedToNavigate ||
-    (formControlValue && !(currentQuestion === 0 && formControlValue === 0))
+    (formControlValue && !(currentQuestion === 0 && formControlValue === 0 ) && !(currentQuestion === 7 && formControlValue === '' ))
   "
 >
-  {{ currentQuestion === 0 ? 'Please enter age' : 'Please select an option' }}
+  @if (currentQuestion === 0) {
+    Please enter age
+  } @else if (currentQuestion === 2) {
+    please enter an appriopriate number
+  } @else if (currentQuestion === 5) {
+    kindly enter investment amount
+  } @else if (currentQuestion === 7) {
+    kindly tell me your desired location
+  } @else {
+    please select an option
+  }
 </small>
