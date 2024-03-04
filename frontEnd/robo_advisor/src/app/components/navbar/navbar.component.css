@@ -53,6 +53,9 @@
 
   /* Hamburger Menu */
 
+.desktop_menu {
+  width: 100%;
+}
 .hamburger {
   cursor: pointer;
   width: 24px;
