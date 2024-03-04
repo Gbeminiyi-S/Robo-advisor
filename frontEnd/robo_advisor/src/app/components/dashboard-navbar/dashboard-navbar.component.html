@@ -49,18 +49,48 @@
       <a
         [routerLink]="[data.RouterLink]"
         class="sidenav-nav-link flex align-items-center h-12 text-white rounded-md list-none transition-all duration-300 ease-in-out hover:bg-white hover:text-primary"
+        id="sidenav-nav-link"
       >
         <i
           class="sidenav-link-icon text-base w-8 m-3 text-center"
           [class]="data.icon"
+          id="sidenav-nav-icon"
         ></i>
         <span
           class="sidenav-link-text font-bold ml-3 pt-2.5"
           *ngIf="collapsed"
+          id="sidenav-nav-text"
           >{{ data.label }}</span
         >
       </a>
     </li>
+
+    <!-- <li class="sidenav-nav-item w-full mb-3" *ngFor="let data of navData">
+        <a
+        [routerLink]="[data.RouterLink]"
+          class="sidenav-nav-link flex align-items-center h-12 text-white rounded-md list-none transition-all duration-300 ease-in-out hover:bg-white hover:text-primary"
+          id="sidenav-nav-link"
+        >
+        <i  id="sidenav-nav-icon" [class]="data.icon"
+        (mouseenter)="showLabel = true" (mouseleave)="showLabel = false"
+        >
+</i>
+        <span
+        class="sidenav-link-text label font-bold ml-3 pt-2.5"
+        *ngIf="(showLabel && !collapsed) || (!collapsed && !showLabel)"
+        >{{ data.label }}</span
+      >    
+      
+      <span
+      class="sidenav-link-text label font-bold ml-3 pt-2.5"
+      *ngIf="(!showLabel && collapsed) || (collapsed && showLabel)"
+      >{{ data.label }}</span
+    > 
+
+    
+        </a>
+      </li> -->
+
   </ul>
 
 
