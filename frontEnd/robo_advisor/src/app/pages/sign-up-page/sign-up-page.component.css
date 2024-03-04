@@ -63,6 +63,7 @@ input:hover, input:focus {
 #title {
     text-align: center;
     font-weight: bolder;
+    padding-top: 2rem;
     font-size: 5vh;
 }
 label {
@@ -151,6 +152,7 @@ padding: 10px 20px;
     main {
         height: 100%;
         width: 100%;
+        font-size: 1.7vh;
     }
     .col-6 {
         width: 100%;
@@ -158,6 +160,8 @@ padding: 10px 20px;
     }
     #title {
         text-align: center;
+        padding-top: 3rem;
+        font-size: 3.5vh;
     } 
     .container {
         padding: 1rem 1.5rem;
