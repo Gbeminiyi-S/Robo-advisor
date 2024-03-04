@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+main {
+    margin: 5% auto;
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif, Roboto, -apple-system;
+    font-size: 1.8vh;
+    color: #002146;
+    background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  ), #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+    margin: auto;
+    height: 85%;
+    width: 60%;
+}
+section {
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 25px 15px;
+    margin: 1% 0.5%;
+    font-size: 1.5vh;
+    float: left;
+    width: 32%;
+    height: 250px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+section:hover, section:focus {
+    transform: scale(1.03);
+    border: 2px solid #002146;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+h1 {
+    color: rgb(224 194 18);
+    font-weight: bolder;
+    font-size: 4.5vh;
+    text-align: center;
+    justify-content: center;
+    padding: 25px 0 25px 0;
+    margin: 5% auto 3% auto;
+    background-color: #002146;
+}  
+h2 {
+    font-weight: bold;
+    font-size: 2.5vh;
+}
+.link {
+    text-decoration: underline;
+    color: blue;
+}
+ul {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        margin: 10% auto;
+        height: 100%;
+        width: 100%;
+        font-size: 1.6vh;
+    }
+    .page {
+        margin: 0 auto;
+        width: 98%;
+    }
+    section {
+        height: fit-content;
+        width: 95%;
+        margin: 1% 0.5%;
+        padding: 25px 15px 25px 15px;
+    }
+    section:hover, section:focus {
+        transform: scale(1.02);
+    }
+}

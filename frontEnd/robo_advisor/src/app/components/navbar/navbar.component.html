@@ -19,8 +19,13 @@
         [routerLink]="['']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
-        >Home</a
-      >
+        >Home</a>
+        <a
+        class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
+        [routerLink]="['/faq']"
+        routerLinkActive="active  active-style"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >FAQ's</a>
       <!-- @if (isLoggedIn$ | async) {
         <a
           class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
@@ -91,6 +96,9 @@
     <ul class="list-none text-white">
       <li class="block text-left py-4 pl-6 border-b border-gray-300">
         <a href="#">Home</a>
+      </li>
+      <li class="block text-left py-4 pl-6 border-b border-gray-300">
+        <a href="#">FAQ's</a>
       </li>
       <li class="block text-left py-4 pl-6 border-b border-gray-300">
         <a href="#">Login</a>

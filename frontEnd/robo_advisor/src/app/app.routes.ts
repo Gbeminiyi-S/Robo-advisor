@@ -15,6 +15,6 @@ export const routes: Routes = [
   { path: 'formspage', title: 'User form', component: FormComponent },
   { path: 'homepage', title: 'Homepage', component: HomepageComponent },
   { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent },
-  { path: 'faq', title: 'FAQ', component: FAQPageComponent},
+  { path: 'faq', title: "FAQ's", component: FAQPageComponent},
   { path: '**', title: 'error404', component: Error404Component }
 ];

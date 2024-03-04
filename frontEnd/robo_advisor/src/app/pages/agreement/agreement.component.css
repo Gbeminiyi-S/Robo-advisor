@@ -45,6 +45,7 @@ ul {
 }
 .link {
     color: blue;
+    text-decoration: underline;
     transition: font-size 0.3s ease;
 }
 .link:hover, .link:focus {
