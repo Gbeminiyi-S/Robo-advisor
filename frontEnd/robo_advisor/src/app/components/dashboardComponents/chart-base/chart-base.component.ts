@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdviceService } from '../../services/advice/advice.service';
 import { DoughnutChartComponent } from '../doughnut-chart/doughnut-chart.component';
+import { AdviceService } from '../../../services/advice/advice.service';
 
 @Component({
   selector: 'app-chart-base',
@@ -28,14 +28,13 @@ export class ChartBaseComponent implements OnInit {
             this.realdata.push(this.chartInfo[i].composition);
           }
         }
-        const numArr = this.realdata.map(numStr => parseFloat(numStr))
-        this.converteData = [...numArr]
-        console.log(this.converteData);
-        
+        const numArr = this.realdata.map((numStr) => parseFloat(numStr));
+        this.converteData = [...numArr];
       },
       (error) => {
         console.log('error loading data', error);
       },
     );
   }
+  
 }

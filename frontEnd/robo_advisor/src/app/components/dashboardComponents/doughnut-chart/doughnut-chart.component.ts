@@ -27,7 +27,7 @@ export class DoughnutChartComponent implements OnInit {
           labels: this.labelData,
           datasets: [
             {
-              label: 'Sales Data',
+              label: 'Recommendations',
               data: this.realData,
               backgroundColor: [
                 'darkblue',

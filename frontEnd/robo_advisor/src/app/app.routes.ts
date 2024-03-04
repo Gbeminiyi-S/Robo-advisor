@@ -9,8 +9,8 @@ import { AgreementComponent } from './pages/agreement/agreement.component';
 import { FAQPageComponent } from './pages/faq-page/faq-page.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
-import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
-import { ChartBaseComponent } from './components/chart-base/chart-base.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { ChartBaseComponent } from './components/dashboardComponents/chart-base/chart-base.component';
 
 export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
@@ -21,8 +21,8 @@ export const routes: Routes = [
   { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent },
   { path: 'aboutuspage', title: 'AboutUspage', component: AboutusComponent},
   { path: 'contactuspage', title: 'ContactUspage', component: ContactusComponent },
-  { path: 'sidebar', title: 'Sidebar', component: DashboardNavbarComponent },
+  { path: 'dashboard', title: 'Dashboard', component: DashboardPageComponent },
+  { path: 'chart', title: 'Dashboard', component: ChartBaseComponent },
   { path: 'faq', title: "FAQ's", component: FAQPageComponent},
-  { path: 'chart', title: "chart", component: ChartBaseComponent},
   { path: '**', title: 'error404', component: Error404Component }
 ];

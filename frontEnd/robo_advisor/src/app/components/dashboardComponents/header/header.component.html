@@ -1,0 +1,13 @@
+<header class="bg-[#0b0500] pb-12 p-2">
+  <nav class="text-white flex justify-between items-center">
+    <p class="text-white">DashBoard</p>
+    <p class="capitalize">
+      {{ username }} <span><fa-icon [icon]="faUser" /> </span>
+    </p>
+  </nav>
+  <div class="grid gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+    @for (item of chartInfo; track item) {
+      <app-cards [item]="item"  />
+    }
+  </div>
+</header>

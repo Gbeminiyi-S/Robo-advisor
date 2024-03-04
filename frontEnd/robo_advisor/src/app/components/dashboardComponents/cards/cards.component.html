@@ -1,0 +1,24 @@
+<div class="card p-4 my-4 flex-1 h-full">
+  <div class="p-4 bg-white text-black rounded-sm flex flex-col">
+    <div class="top flex justify-between">
+      <p class="font-[poppins] text-[.8rem]">
+        Investment:
+        <span class="font-bold font-mono text-[1rem]">{{
+          item.financial_product
+        }}</span>
+      </p>
+      <p class="">
+        <span
+          class="text-sm font-bold bg-[gold] w-9 h-9 rounded-full text-white flex items-center justify-center"
+          >{{ item.composition }}</span
+        >
+      </p>
+    </div>
+    <div class="bottom mt-4 mb-2">
+      <span class="text-green-700"
+        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+        <small class="text-gray-500">expected returns</small></span
+      >
+    </div>
+  </div>
+</div>

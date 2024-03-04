@@ -1,9 +1,9 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { navbarData } from './nav-data';
-import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { BehaviorSubject } from 'rxjs';
+import { UserDetailsService } from '../../../services/user-details/user-details.service';
 
 
 interface SideNavToggle {
@@ -40,7 +40,7 @@ closeSidenav(): void {
 }
 
 
-constructor(private userDetails: UserDetailsService) {}
+constructor(private userDetails: UserDetailsService, private router: Router) {}
 @HostListener('document:click', ['$event'])
 
 ngOnInit(): void {
@@ -50,6 +50,7 @@ ngOnInit(): void {
 }
 logOut(): void {
   this.userDetails.clearUsername();
+  this.router.navigate(['/'])
 }
 
 
