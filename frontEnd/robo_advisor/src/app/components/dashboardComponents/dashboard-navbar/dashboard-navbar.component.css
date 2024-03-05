@@ -3,10 +3,20 @@
   font-size: 20px;
 }
 
+/* #fa-times1 {
+  color: #002146;
+  font-size: 18px;
+} */
+
 
 .sidenav-collaped {
-  width: 200px;
+  width: 250px;
 }
+
+/* #iconicon {
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+} */
 
 .logo {
   position: relative;
@@ -18,3 +28,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* #sidenav-nav-link {
+  position: relative;
+}
+
+#sidenav-nav-text {
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#sidenav-nav-link:hover .sidenav-nav-text{
+  display: block;
+} */
