@@ -8,5 +8,6 @@ export interface FinancialProduct {
 }
 
 export interface ResponseList {
+[x: string]: any;
   response_list: FinancialProduct[];
 }

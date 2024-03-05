@@ -5,7 +5,7 @@
       {{ username }} <span><fa-icon [icon]="faUser" /> </span>
     </p>
   </nav>
-  <div class="grid gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+  <div class="grid gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-5 style">
     @for (item of chartInfo; track item) {
       <app-cards [item]="item"  />
     }
