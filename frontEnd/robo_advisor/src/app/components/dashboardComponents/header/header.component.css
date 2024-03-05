@@ -1,0 +1,16 @@
+.style {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    minmax(150px, 1fr)
+  ); 
+  grid-auto-rows: 200px; 
+  grid-template-rows: repeat(300px);
+  /* background-color: wheat; */
+  grid-gap: 10px; 
+}
+
+/* @media screen and (width> 640px) {
+  .style {
+  }
+} */

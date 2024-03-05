@@ -55,12 +55,18 @@ export class BarChartComponent implements OnInit {
             label: 'Recommendations',
             data: this.converteData,
             backgroundColor: ['darkblue', 'gold', 'grey', 'red', 'green'],
+            borderColor: '#36A2EB',
             barThickness: 40,
           },
         ],
       },
       options: {
         aspectRatio: 2.5,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       },
     });
   }
