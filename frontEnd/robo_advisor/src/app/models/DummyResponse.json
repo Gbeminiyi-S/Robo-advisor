@@ -4,45 +4,60 @@
       "financial_product": "Nigerian Treasury Bills (NTB)",
       "ticker": "NT-B164400",
       "provider": "Central Bank of Nigeria",
-      "brief_description": "",
+      "brief_description": "Consider investing in Nigerian Treasury Bills (NTB) offered by the Central Bank of Nigeria. With an expected return of 10-15%, NTBs can provide a stable return on your investment over time.",
       "expected_return": "10-15%",
-      "composition": "20%"
+      "composition": "20%",
+      "expected_amount": "13,200 - 13,800",
+      "investmentAmount": "12000",
+      "currency": "Naira"
     },
 
     {
       "financial_product": "Fixed Deposit Account",
       "ticker": "N/A",
       "provider": "Commercial Banks in Nigeria",
-      "brief_description": "",
+      "brief_description": "You may opt for a Fixed Deposit Account with commercial banks in Nigeria. This low-risk investment option offers an expected return of 7-10%, providing steady growth for your funds.",
       "expected_return": "7-10%",
-      "composition": "30%"
+      "composition": "30%",
+      "expected_amount": "12,840 - 13,200",
+      "investmentAmount": "12000",
+      "currency": "Naira"
     },
 
     {
       "financial_product": "Mutual Fund",
       "ticker": "STANBIC IBTC Nigerian Equity Fund",
       "provider": "Stanbic IBTC Asset Management",
-      "brief_description": "",
+      "brief_description": "Diversify your investment portfolio with a Mutual Fund such as STANBIC IBTC Nigerian Equity Fund managed by Stanbic IBTC Asset Management. This fund aims to deliver returns of 12-18% by investing in a diversified portfolio of Nigerian equities.",
       "expected_return": "12-18%",
-      "composition": "25%"
+      "composition": "25%",
+      "expected_amount": "13,440 - 14,160",
+      "investmentAmount": "12000",
+      "currency": "Naira"
     },
 
     {
       "financial_product": "Exchange Traded Fund (ETF)",
       "ticker": "NEWGOLD ETF",
       "provider": "Meristem Wealth Management",
-      "brief_description": "",
+      "brief_description": "Consider investing in Exchange Traded Funds (ETFs) like NEWGOLD ETF managed by Meristem Wealth Management. This investment offers exposure to gold and aims to provide returns of 8-12% over time.",
       "expected_return": "8-12%",
-      "composition": "15%"
+      "composition": "15%",
+      "expected_amount": "12,960 - 13,440",
+      "investmentAmount": "12000",
+      "currency": "Naira"
     },
 
     {
       "financial_product": "Real Estate Investment Trust (REIT)",
       "ticker": "Skye Shelter Fund",
       "provider": "Skye Shelter & Finance Company Limited",
-      "brief_description": "",
+      "brief_description": "Explore Real Estate Investment Trusts (REITs) such as Skye Shelter Fund by Skye Shelter & Finance Company Limited. REITs offer returns of 10-14% by investing in a diversified portfolio of real estate assets.",
       "expected_return": "10-14%",
-      "composition": "10%"
+      "composition": "10%",
+      "expected_amount": "13,200 - 13,680",
+      "investmentAmount": "12000",
+      "currency": "Naira"
     }
   ]
 }

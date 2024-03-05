@@ -15,9 +15,4 @@ export class CardsComponent {
   @Input() item!: FinancialProduct;
   faArrowUp = faArrowUp;
 
-  darkBlue: string = 'darkblue';
-  gold: string = 'gold';
-  grey: string = 'grey';
-  red: string = 'red';
-  green: string = 'green';
 }
