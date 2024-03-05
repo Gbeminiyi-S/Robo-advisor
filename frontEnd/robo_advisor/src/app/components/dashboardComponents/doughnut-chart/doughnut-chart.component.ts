@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { Component, OnInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js/auto';
+import { AdviceService } from '../../../services/advice/advice.service';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -10,40 +12,58 @@ import { Chart } from 'chart.js/auto';
 })
 export class DoughnutChartComponent implements OnInit {
   public chart: any;
-  @Input() realData!: any[];
-  @Input() labelData!: any[];
+  chartInfo: any;
+  labeldata: any[] = [];
+  realdata: any[] = [];
+  converteData: any[] = [];
 
-  constructor() {}
+  constructor(public service: AdviceService) {}
 
   ngOnInit(): void {
-    this.createChart();
+    this.fetchData();
   }
 
-  createChart(): void {
-    if (this.realData && this.labelData) {
-      this.chart = new Chart('igCh', {
-        type: 'bar',
-        data: {
-          labels: this.labelData,
-          datasets: [
-            {
-              label: 'Recommendations',
-              data: this.realData,
-              backgroundColor: [
-                'darkblue',
-                'gold',
-                'grey',
-                'red',
-                'green',
-              ],
-              barThickness: 40,
-            },
-          ],
-        },
-        options: {
-          aspectRatio: 2.5,
-        },
-      });
-    }
+  fetchData(): void {
+    this.service.getChartInfo().subscribe(
+      (response) => {
+        this.chartInfo = response;
+        if (this.chartInfo != null) {
+          for (let i = 0; i < this.chartInfo.length; i++) {
+            this.labeldata.push(this.chartInfo[i].financial_product);
+            this.realdata.push(this.chartInfo[i].composition);
+          }
+        }
+        const numArr = this.realdata.map((numStr) => parseFloat(numStr));
+        this.converteData = [...numArr];
+        // console.log(this.converteData);
+        
+        this.renderChart();
+      },
+      (error) => {
+        console.log('error loading data', error);
+      },
+    );
+  }
+
+  renderChart(): void {
+    this.chart = new Chart('doughnutChart', {
+      type: 'doughnut', //this denotes tha type of chart
+
+      data: {
+        // values on X-Axis
+        labels: this.labeldata,
+        datasets: [
+          {
+            label: 'Recommendations',
+            data: this.converteData,
+            backgroundColor: ['darkblue', 'gold', 'grey', 'red', 'green'],
+            // barThickness: 40,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
   }
 }
