@@ -99,6 +99,7 @@
         [routerLink]="['']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >Home</a>
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
@@ -106,6 +107,7 @@
        [routerLink]="['/faq']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >FAQ's</a>
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300" *ngIf="isLoggedIn$ | async; else loggedOutLinkss">
@@ -126,6 +128,7 @@
       [routerLink]="['aboutuspage']"
       routerLinkActive="active active-style"
       [routerLinkActiveOptions]="{ exact: true }"
+      (click)="toggleMenu()"
       >About Us</a
     >
 
@@ -136,6 +139,7 @@
         [routerLink]="['contactuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >Contact Us</a
       >
       </li>
