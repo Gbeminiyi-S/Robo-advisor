@@ -1,0 +1,48 @@
+{
+  "response_list": [
+    {
+      "financial_product": "Nigerian Treasury Bills (NTB)",
+      "ticker": "NT-B164400",
+      "provider": "Central Bank of Nigeria",
+      "brief_description": "",
+      "expected_return": "10-15%",
+      "composition": "20%"
+    },
+
+    {
+      "financial_product": "Fixed Deposit Account",
+      "ticker": "N/A",
+      "provider": "Commercial Banks in Nigeria",
+      "brief_description": "",
+      "expected_return": "7-10%",
+      "composition": "30%"
+    },
+
+    {
+      "financial_product": "Mutual Fund",
+      "ticker": "STANBIC IBTC Nigerian Equity Fund",
+      "provider": "Stanbic IBTC Asset Management",
+      "brief_description": "",
+      "expected_return": "12-18%",
+      "composition": "25%"
+    },
+
+    {
+      "financial_product": "Exchange Traded Fund (ETF)",
+      "ticker": "NEWGOLD ETF",
+      "provider": "Meristem Wealth Management",
+      "brief_description": "",
+      "expected_return": "8-12%",
+      "composition": "15%"
+    },
+
+    {
+      "financial_product": "Real Estate Investment Trust (REIT)",
+      "ticker": "Skye Shelter Fund",
+      "provider": "Skye Shelter & Finance Company Limited",
+      "brief_description": "",
+      "expected_return": "10-14%",
+      "composition": "10%"
+    }
+  ]
+}

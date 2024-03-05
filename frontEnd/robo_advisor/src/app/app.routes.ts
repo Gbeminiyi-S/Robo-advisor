@@ -9,7 +9,9 @@ import { AgreementComponent } from './pages/agreement/agreement.component';
 import { FAQPageComponent } from './pages/faq-page/faq-page.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
-import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { BarChartComponent } from './components/dashboardComponents/bar-chart/bar-chart.component';
+import { TableComponent } from './components/dashboardComponents/table/table.component';
 
 export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
@@ -20,7 +22,8 @@ export const routes: Routes = [
   { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent },
   { path: 'aboutuspage', title: 'AboutUspage', component: AboutusComponent},
   { path: 'contactuspage', title: 'ContactUspage', component: ContactusComponent },
-  { path: 'sidebar', title: 'Sidebar', component: DashboardNavbarComponent },
+  { path: 'dashboard', title: 'Dashboard', component: DashboardPageComponent },
+  { path: 'chart', title: 'Dashboard', component: TableComponent },
   { path: 'faq', title: "FAQ's", component: FAQPageComponent},
   { path: '**', title: 'error404', component: Error404Component }
 ];
