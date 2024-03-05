@@ -1,104 +1,102 @@
-<main>
-  <div>
-    <table class="log-page">
-      <tbody>
-        <tr>
-          <td id="first">
-            <div class="write-ups">
-              <h1 id="head1">Achieve financial goals<br>
-                with confidence!
-              </h1>
-              <button id="break"></button>
-              <h1 id="head2">
-                Your trusted partner in personalized<br />
-                investment recommendations and <br />
-                portfolio management services.<br />
-              </h1>
-              <button id="home" [routerLink]="['']"
-              routerLinkActive="active active-style"
-              [routerLinkActiveOptions]="{ exact: true }">BACK TO HOME</button>
-            </div>
-          </td>
-  
-          <td id="second">
-            <div>
-              <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
-                <section id="mylabel">
-                  <!-- @if (errorMessage) {
-                    <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
-                  } -->
-                  <p id="sign">Sign in with your details</p>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="Email"
-                    formControlName="email"
-                    />
-                    <div class="ngIf" *ngIf="loginForm.get('email')!.hasError('required') && loginForm.get('email')!.touched">
-                      Valid email address is required.
-                    </div>
-                  <div class="ngIf" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
-                    Invalid email address.
-                  </div>
-                  <!-- <div *ngIf="loginForm.get('username')!.hasError('minlength') && loginForm.get('username')!.touched">
-                    Username must be at least 5 characters long.
-                  </div>  -->
-                  <br>
-                  <div class="password-container">
-                    <input
-                      [type]="showPassword ? 'password' : 'text'"
-                      placeholder="Password"
-                      id="pwd"
-                      required
-                      formControlName="password"
-                      />
-                      <span
-                        class="eyeicon"
-                        (click)="togglePasswordVisibility()"
-                      >
-                        <i
-                          [ngClass]="
-                            switchIcon ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
-                          "></i>
-                      </span>
-                    <div class="ngIf" *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched">
-                      Password is required.
-                    </div>
-                    <div class="ngIf" *ngIf="loginForm.get('password')!.hasError('minlength') && loginForm.get('password')!.touched">
-                      Password must be at least 5 characters long.
-                    </div>
-                  </div>
-                  <br />
+<header>
+  <app-navbar></app-navbar>
+</header>
 
-                  <button id="login" type="submit" [disabled]="loginForm.invalid">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
-                  <br />
-                  <div class="ngIfError" *ngIf="errorMessage">
-                    {{errorMessage}}
-                  </div>
-                </section>
-  
-                <section>
-                  <p id="par">
-                    Is this your first time here? For full access, you need to
-                    sign-up.
-                  </p>
-                  <a
-                    id="crt-acct"
-                    [routerLink]="['/signup']"
-                    routerLinkActive="active active-style"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >CREATE NEW ACCOUNT</a
-                  ><br>
-                  <br />
-                </section>
-              </form>
-              <br /><br />
+<main>
+  <div class="page">
+    <section id="first">
+      <div class="write-ups">
+        <h1 id="head1">Achieve financial goals<br>
+          with confidence!
+        </h1>
+        <button id="break"></button>
+        <h1 id="head2">
+          Your trusted partner in personalized<br />
+          investment recommendations and <br />
+          portfolio management services.<br />
+        </h1>
+        <button id="home" [routerLink]="['']"
+        routerLinkActive="active active-style"
+        [routerLinkActiveOptions]="{ exact: true }">BACK TO HOME</button>
+      </div>
+    </section>
+
+    <section id="second">
+      <div>
+        <form id="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
+          <section id="mylabel">
+            <!-- @if (errorMessage) {
+              <small class="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small>
+            } -->
+            <p id="sign">Sign in with your details</p>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              required
+              placeholder="Email"
+              formControlName="email"
+              />
+              <div class="ngIf" *ngIf="loginForm.get('email')!.hasError('required') && loginForm.get('email')!.touched">
+                Valid email address is required.
+              </div>
+            <div class="ngIf" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+              Invalid email address.
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <!-- <div *ngIf="loginForm.get('username')!.hasError('minlength') && loginForm.get('username')!.touched">
+              Username must be at least 5 characters long.
+            </div>  -->
+            <br>
+            <div class="password-container">
+              <input
+                [type]="showPassword ? 'password' : 'text'"
+                placeholder="Password"
+                id="pwd"
+                required
+                formControlName="password"
+                />
+                <span
+                  class="eyeicon"
+                  (click)="togglePasswordVisibility()"
+                >
+                  <i
+                    [ngClass]="
+                      switchIcon ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
+                    "></i>
+                </span>
+              <div class="ngIf" *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched">
+                Password is required.
+              </div>
+              <div class="ngIf" *ngIf="loginForm.get('password')!.hasError('minlength') && loginForm.get('password')!.touched">
+                Password must be at least 5 characters long.
+              </div>
+            </div>
+            <br />
+
+            <button id="login" type="submit" [disabled]="loginForm.invalid">{{isLoading?'LOGGING IN...': 'LOG IN'}}</button>
+            <br />
+            <div class="ngIfError" *ngIf="errorMessage">
+              {{errorMessage}}
+            </div>
+          </section>
+
+          <section>
+            <p id="par">
+              Is this your first time here? For full access, you need to
+              sign-up.
+            </p>
+            <a
+              id="crt-acct"
+              [routerLink]="['/signup']"
+              routerLinkActive="active active-style"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >CREATE NEW ACCOUNT</a
+            ><br>
+            <br />
+          </section>
+        </form>
+        <br /><br />
+      </div>
+    </section>
   </div>
 </main>

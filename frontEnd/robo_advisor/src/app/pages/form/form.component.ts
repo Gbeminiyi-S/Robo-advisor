@@ -11,6 +11,7 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
 import { QuestionnaireService } from '../../services/questionnaire/questionnaire.service';
 import { response } from 'express';
 import { error } from 'console';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,6 +24,7 @@ import { Router } from '@angular/router';
     ProgressComponent,
     NavigationComponent,
     SubmitComponent,
+    NavbarComponent,
   ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],

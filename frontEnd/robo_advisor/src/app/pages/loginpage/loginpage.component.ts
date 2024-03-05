@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 // import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    NavbarComponent
   ],
   templateUrl: './loginpage.component.html',
   styleUrl: './loginpage.component.css',
@@ -30,10 +32,6 @@ export class LoginpageComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
-  // loginForm: FormGroup = new FormGroup({
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  // });
 
   togglePasswordVisibility(): void {
     this.switchIcon = !this.switchIcon
