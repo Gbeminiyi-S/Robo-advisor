@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login/login.service';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 // import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    NavbarComponent
   ],
   templateUrl: './loginpage.component.html',
   styleUrl: './loginpage.component.css',
