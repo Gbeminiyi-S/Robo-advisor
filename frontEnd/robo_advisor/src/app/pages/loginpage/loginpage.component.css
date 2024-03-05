@@ -19,9 +19,10 @@ main {
 }
 .page {
   display: flex;
-  height: fit-content;
   flex-direction: row;
-  padding: 5rem 10rem;
+  padding-top: 8rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 #first {
   flex: 1;
