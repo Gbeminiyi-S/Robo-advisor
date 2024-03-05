@@ -70,6 +70,18 @@ button:hover, button:focus, button:active{
     background-color: #002146;
     color: white;
 }
+#back {
+    background-color: #ffc107;
+    color: #002146;
+}
+#back:hover, #back:focus, #hobackme:active {
+    background-color: #002146;
+    color: white;
+}
+#continue:hover, #continue:focus, #continue:active {
+    background-color: #ffc107;
+    color: #002146;
+}
 @media screen and (max-width:600px) {
     main {
         margin-top: 7rem;
