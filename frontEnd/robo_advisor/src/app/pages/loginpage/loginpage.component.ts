@@ -32,10 +32,6 @@ export class LoginpageComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
-  // loginForm: FormGroup = new FormGroup({
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  // });
 
   togglePasswordVisibility(): void {
     this.switchIcon = !this.switchIcon
