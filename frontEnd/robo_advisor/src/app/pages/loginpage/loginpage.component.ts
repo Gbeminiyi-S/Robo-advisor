@@ -56,9 +56,9 @@ export class LoginpageComponent {
         (response) => {
           this.isLoading = false;
           this.userDetails.setUsername(response.username);
+          this.userDetails.setEmail(response.email);
           this.router.navigate(['/homepage']);
           this.errorMessage = '';
-          console.log(response);
         },
         (error) => {
           this.errorMessage = error.error.message;

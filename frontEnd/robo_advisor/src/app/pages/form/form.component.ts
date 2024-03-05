@@ -12,6 +12,7 @@ import { QuestionnaireService } from '../../services/questionnaire/questionnaire
 import { response } from 'express';
 import { error } from 'console';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -44,6 +45,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
     private userDetails: UserDetailsService,
     private questionnaireService: QuestionnaireService,
+    private router: Router,
   ) {
     this.myForm = this.fb.group({});
     this.questions.forEach((_question, i) => {
@@ -100,14 +102,15 @@ export class FormComponent implements OnInit {
         this.questionnaireService.submitQuestions(this.myForm.value).subscribe(
           (response) => {
             console.log('posted succesfully', response);
+            this.router.navigate(['/dashboard']);
           },
           (error) => {
             console.log('error', error);
+            this.router.navigate(['/dashboard']);
           },
         );
       } else {
         console.log('invalid form');
-        
       }
     } else {
       this.attemptedToNavigateFlags[this.currentQuestion] = true;

@@ -1,3 +1,6 @@
+
+
+
 <!-- <div class="sidenav fixed bg-primary z-20 top-12 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out" [ngClass]="collapsed ? 'sidenav-collaped':''">
 <div class="logo-container flex align-items-center p-3 w-full">
     <button class="logo p-2 bg-white rounded-md" (click)="toggleCollapse()"> <img src="../../../assets/images/logo.png" alt="logo" class="max-w-6" /></button>
@@ -19,7 +22,7 @@
 </div>> -->
 
 <div
-  class="sidenav fixed bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out"
+  class="sidenav sticky bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out"
   [ngClass]="collapsed ? 'sidenav-collaped' : ''"
 >
 
@@ -50,8 +53,8 @@
       class="logo-text ml-4 font-medium text-white cursor-pointer"
       *ngIf="collapsed"
     >
-      <p class="text-sm">Jon Snow</p>
-      <p class="text-xs">jon.snowgmail.com</p>
+      <p class="text-sm capitalize font-bold">{{username}}</p>
+      <p class="text-xs">{{email}}</p>
     </div>
   
   </div>
@@ -123,3 +126,5 @@
 
 </div>
 >
+
+
