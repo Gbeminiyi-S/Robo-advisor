@@ -11,6 +11,7 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
 import { QuestionnaireService } from '../../services/questionnaire/questionnaire.service';
 import { response } from 'express';
 import { error } from 'console';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-form',
@@ -22,6 +23,7 @@ import { error } from 'console';
     ProgressComponent,
     NavigationComponent,
     SubmitComponent,
+    NavbarComponent,
   ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
