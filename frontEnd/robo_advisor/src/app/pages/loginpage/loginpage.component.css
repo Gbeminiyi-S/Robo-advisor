@@ -2,7 +2,7 @@
 
 main {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   font-family:
     "Poppins",
     sans-serif,
@@ -15,16 +15,24 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   overflow:scroll;
+  padding-top: 2.5rem;
 }
-
+.page {
+  display: flex;
+  height: fit-content;
+  flex-direction: row;
+  padding: 5rem 10rem;
+}
+#first {
+  flex: 1;
+}
+#second {
+  flex: 0.75;
+}
 .write-ups {
   border: 0px transparent transparent;
-  width: 65%;
-  height: 70%;
   display: grid;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   color: aliceblue;
 }
@@ -40,12 +48,14 @@ main {
   border: 1px solid orange;
   border-radius: 10px;
   font-size: 11px;
+  font-weight: bold;
   color: white;
   width: 140px;
   margin: 15px 15px 25px 15px;
 }
 #home:hover {
   background-color: orange;
+  color: #002146;
 }
 #head1 {
   padding: 20px;
@@ -75,17 +85,12 @@ main {
   background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
   border-radius: 4px;
-  width: 55%;
-  height: 80%;
-  float: left;
-  display: grid;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  position: relative;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 #email,
 #pwd {
-  width: 80%;
+  width: 90%;
   padding: 12px 20px;
   margin: 8px 0px;
   box-sizing: border-box;
@@ -99,23 +104,6 @@ main {
 #mylabel {
   margin: 20px 20px 10px 20px;
 }
-#fgt-usr,
-#fgt-pwd {
-  font-size: 2vh !important;
-  color: #002146 !important;
-}
-#fgt-usr {
-  text-align: left;
-  padding-top: 0px;
-  padding-left: 25px;
-  padding-bottom: 25px;
-}
-#fgt-pwd {
-  text-align: right;
-  padding-top: 0px;
-  padding-right: 25px;
-  padding-bottom: 25px;
-}
 #crt-acct {
   font-size: 2vh;
   font-weight: bold;
@@ -123,17 +111,14 @@ main {
   margin: 8px auto 25px 20px;
   transition: font-weight 0.3s ease;
 }
-table {
-  width: 100%;
-}
 #par {
   font-size: 14px;
   margin: 40px 20px 10px 20px;
 }
-
 input[type="text"] {
   width: 100% !important;
   margin: 5px 2% 0px 2%;
+  position: relative;
   background-color: white;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>');
   background-position: 5px center;
@@ -144,7 +129,6 @@ input[type="text"] {
   border-radius: 2px;
   transition: transform 0.3s ease;
 }
-
 input[type="password"] {
   width: 100% !important;
   margin: 0px 2% 0px 2%;
@@ -158,7 +142,6 @@ input[type="password"] {
   border-radius: 2px;
   transition: transform 0.3s ease;
 }
-
 input[type="text"]:focus, input[type="text"]:hover,
 input[type="password"]:focus, input[type="password"]:hover {
   outline: none;
@@ -175,27 +158,19 @@ button:hover, button:focus, button:active {
   background-color: #002146;
   border: none;
   color: whitesmoke;
+  font-weight: bold;
   padding: 10px 20px;
   text-decoration: none;
   margin: 5px 5px 5px 0px;
   border-radius: 10px;
   width: 100%;
 }
-
-.log-page {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  top: 20%;
-  position: absolute;
+#login:hover, #login:focus {
+  background-color: orange;
+  color: #002146;
 }
-
-#first {
-  align-content: right;
-  height: 100%;
-}
-#second {
-  height: 100% !important;
+.password-container {
+  position: relative;
 }
 .eyeicon {
   position: absolute;
@@ -213,50 +188,28 @@ button:hover, button:focus, button:active {
   font-size: 2.1vh;
 }
 
-@media screen and (max-width: 600px) {
-  main {
-    height: 100vh;
-    width: 100%;
-  }
-  table {
-    overflow-x: auto;
-    width: 100%;
-    top: 5%;
-  }
-  td {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  #login-form {
-    float: none;
-  }
-  .eyeicons {
-    right: 15%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   main {
-    max-width: 100%;
-    height: 100vh;
-  }
-  table {
-    overflow-x: auto;
+    height: 100%;
     width: 100%;
-    top: 5%;
   }
-  td {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  #login-form {
-    float: none;
+  .page{
+    flex-direction: column;
+    padding: 1.4rem;
   }
 }
-@media screen and (max-width: 1024px) {
-  #login-form {
-    width: 85%;
-  } 
+@media screen and (max-width:1024px) {
+  .page{
+    flex-direction: column;
+    padding: 1.4rem;
+  }
+  #head1 {
+    padding-top: 3.5rem;
+  }  
+}
+@media screen and (max-width:1280px) {
+  .page{
+    flex-direction: column;
+    padding: 1.4rem;
+  }  
 }

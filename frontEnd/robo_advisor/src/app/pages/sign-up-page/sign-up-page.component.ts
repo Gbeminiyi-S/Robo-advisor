@@ -19,8 +19,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent {
-  switchIcon: boolean = true;
+  switchIcon1: boolean = true;
+  switchIcon2: boolean = true;
   showPassword: boolean = true;
+  showConfirmPassword = true;
   isLoading: boolean= false;
 
   signUpForm: FormGroup = new FormGroup({
@@ -39,18 +41,22 @@ export class SignUpPageComponent {
     return password === confirmPassword ? null : {mismatch: true};
   }
 
-  togglePasswordVisibility(field: 'password' | 'confirmPassword'): void {
-    this.switchIcon = !this.switchIcon;    
-
+  togglePasswordVisibility(field: 'password'): void {
+    this.switchIcon1 = !this.switchIcon1;
+    
     // Toggle the showPassword only for the specified field
     if (field === 'password') {
         this.showPassword = !this.showPassword;
     }
   }
+  toggleConfirmPasswordVisibility(field: 'confirmPassword'): void {
+    this.switchIcon2 = !this.switchIcon2;    
 
-  // passInput = '';
-  // confirmPassInput = '';
-  // passError: string = '';
+    // Toggle the showPassword only for the specified field
+    if (field === 'confirmPassword') {
+        this.showConfirmPassword = !this.showConfirmPassword;
+    }
+  }
 
   errorMessage: string = '';
   

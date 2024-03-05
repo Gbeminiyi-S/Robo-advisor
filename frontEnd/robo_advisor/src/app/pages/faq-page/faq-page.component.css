@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 main {
-    margin: 5% auto;
     height: 100%;
     width: 100%;
     font-family: "Poppins", sans-serif, Roboto, -apple-system;
@@ -15,29 +14,30 @@ main {
     rgba(255, 255, 255, 0.3) 70%,
     rgba(255, 255, 255, 0.1) 100%
   ), #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
 }
-
 .page {
-    margin: auto;
-    height: 85%;
-    width: 60%;
+    padding: 2rem;
 }
 section {
     border: 2px solid grey;
     border-radius: 4px;
+    background-color: rgb(224 194 18);
     padding: 25px 15px;
     margin: 1% 0.5%;
     font-size: 1.5vh;
     float: left;
     width: 32%;
-    height: 250px;
+    height: 220px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
 }
 section:hover, section:focus {
     transform: scale(1.03);
     border: 2px solid #002146;
+    background-color: #002146;
+    color: rgb(224 194 18);
 }
 .row:after {
     content: "";
@@ -51,7 +51,7 @@ h1 {
     text-align: center;
     justify-content: center;
     padding: 25px 0 25px 0;
-    margin: 5% auto 3% auto;
+    margin-bottom: 1%;
     background-color: #002146;
 }  
 h2 {
@@ -66,17 +66,29 @@ ul {
     list-style: disc;
     list-style-position: inside;
 }
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 600px) {
     main {
-        margin: 10% auto;
-        height: 100%;
-        width: 100%;
-        font-size: 1.6vh;
+        margin-top: 5rem;
     }
     .page {
-        margin: 0 auto;
-        width: 98%;
+        width: 100%;
+    }
+    section {
+        height: fit-content;
+        width: 95%;
+        margin: 1% 0.5%;
+        padding: 25px 15px 25px 15px;
+    }
+    section:hover, section:focus {
+        transform: scale(1.02);
+    }
+}
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 5rem;
+    }
+    .page {
+        width: 100%;
     }
     section {
         height: fit-content;
