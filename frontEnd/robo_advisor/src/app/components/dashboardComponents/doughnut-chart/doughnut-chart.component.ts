@@ -36,7 +36,7 @@ export class DoughnutChartComponent implements OnInit {
         const numArr = this.realdata.map((numStr) => parseFloat(numStr));
         this.converteData = [...numArr];
         // console.log(this.converteData);
-        
+
         this.renderChart();
       },
       (error) => {
