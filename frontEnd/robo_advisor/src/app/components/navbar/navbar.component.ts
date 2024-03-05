@@ -42,12 +42,50 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.userDetails.isLoggedIn.subscribe((loggedIn) => {
-      this.isLoggedIn$.next(loggedIn);
-    });
+  // ngOnInit(): void {
+  //   console.log('NavbarComponent - ngOnInit');
+  //   // adding methodology for making the user stay logged-in, on refreshing...
+
+  //   // to check if the user was previously logged in...
+  //   const storedLoginStatus = localStorage.getItem('isLoggedIn');
+  //   const previousLoginStatus = storedLoginStatus
+  //     ? JSON.parse(storedLoginStatus)
+  //     : false;
+
+  //   // Set the initial login status
+  //   this.isLoggedIn$.next(previousLoginStatus);
+
+  //   // Subscribe to updates in the login status
+  //   this.userDetails.isLoggedIn.subscribe((loggedIn) => {
+  //     this.isLoggedIn$.next(loggedIn);
+  //   });
+  // }
+  // logOut(): void {
+  //   this.userDetails.clearUsername();
+  // }
+
+  ngOnInit(): void {  
+    // Check if running in a browser environment
+    if (typeof localStorage !== 'undefined') {
+      const storedLoginStatus = localStorage.getItem('isLoggedIn');
+      const previousLoginStatus = storedLoginStatus ? JSON.parse(storedLoginStatus) : false;
+  
+      console.log('Previous Login Status:', previousLoginStatus);
+  
+      this.isLoggedIn$.next(previousLoginStatus);
+  
+      this.userDetails.isLoggedIn.subscribe((loggedIn) => {
+        console.log('UserDetails Service - LoggedIn:', loggedIn);
+        this.isLoggedIn$.next(loggedIn);
+      });
+    } else {
+      console.warn('localStorage is not available. Check the execution environment.');
+    }
   }
+  
+
   logOut(): void {
     this.userDetails.clearUsername();
   }
+
 }

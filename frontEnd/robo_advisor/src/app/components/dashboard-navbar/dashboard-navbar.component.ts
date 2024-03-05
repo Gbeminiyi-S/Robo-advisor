@@ -31,7 +31,7 @@ export class DashboardNavbarComponent {
   ngOnInit(): void {
     // adding methodology for making the user stay logged-in, on refreshing...
 
-    // to check if the user ws previously logged in...
+    // to check if the user was previously logged in...
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     const previousLoginStatus = storedLoginStatus
       ? JSON.parse(storedLoginStatus)
@@ -46,6 +46,7 @@ export class DashboardNavbarComponent {
       localStorage.setItem('isLoggedIn', JSON.stringify(loggedIn));
     });
   }
+
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;
     this.onToggleSiddeNav.emit({

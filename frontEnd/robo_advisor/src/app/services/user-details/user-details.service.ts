@@ -7,7 +7,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class UserDetailsService {
   private readonly STORAGE_KEY = 'user_username';
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
+  
+  getUsername(): string | null {
+    return localStorage.getItem(this.STORAGE_KEY);
+  }
+  
   setUsername(username: string): void {
     localStorage.setItem(this.STORAGE_KEY, username);
     this.isLoggedIn.next(true); 
@@ -16,9 +20,5 @@ export class UserDetailsService {
   clearUsername(): void {
     localStorage.removeItem(this.STORAGE_KEY);
     this.isLoggedIn.next(false); 
-  }
-
-  getUsername(): string | null {
-    return localStorage.getItem(this.STORAGE_KEY);
   }
 }
