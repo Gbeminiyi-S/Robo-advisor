@@ -21,6 +21,7 @@ fill:#002146;
 
 .container {
     background: rgba(255,255,255,0.3);
+    width:80%;
     height: 80%;
     border-radius: 20px;
     border-left: 1px solid rgba(255,255,255,0.3);

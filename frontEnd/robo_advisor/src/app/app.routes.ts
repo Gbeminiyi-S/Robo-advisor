@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
   { path: 'login', title: 'Log-in Page', component: LoginpageComponent },
   { path: 'signup', title: 'Sign-up Page', component: SignUpPageComponent },
-  { path: 'formspage', title: 'User form', component: FormComponent, canActivate: [AuthGuardService] },
+  { path: 'formspage', title: 'User form', component: FormComponent,},
   { path: 'homepage', title: 'Homepage', component: HomepageComponent, canActivate: [AuthGuardService]},
   { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent, canActivate: [AuthGuardService] },
   { path: 'aboutuspage', title: 'AboutUspage', component: AboutusComponent},
