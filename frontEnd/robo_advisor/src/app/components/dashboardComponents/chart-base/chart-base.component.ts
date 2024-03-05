@@ -32,7 +32,7 @@ export class ChartBaseComponent implements OnInit {
         this.converteData = [...numArr];
       },
       (error) => {
-        console.log('error loading data', error);
+        // console.log('error loading data', error);
       },
     );
   }

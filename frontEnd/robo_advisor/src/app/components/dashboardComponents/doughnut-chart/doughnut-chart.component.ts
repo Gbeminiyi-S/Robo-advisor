@@ -21,7 +21,7 @@ export class DoughnutChartComponent implements OnInit {
 
   createChart(): void {
     if (this.realData && this.labelData) {
-      this.chart = new Chart('MyChart', {
+      this.chart = new Chart('igCh', {
         type: 'bar',
         data: {
           labels: this.labelData,

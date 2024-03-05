@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js/auto';
+import { AdviceService } from '../../../services/advice/advice.service';
 Chart.register(...registerables);
 
 @Component({
@@ -11,37 +12,56 @@ Chart.register(...registerables);
 })
 export class BarChartComponent implements OnInit {
   public chart: any;
+  chartInfo: any;
+  labeldata: any[] = [];
+  realdata: any[] = [];
+  converteData: any[] = [];
+
+  constructor(public service: AdviceService) {}
 
   ngOnInit(): void {
-    this.renderChart();
+    this.fetchData();
+  }
+  
+  fetchData(): void {
+    this.service.getChartInfo().subscribe(
+      (response) => {
+        this.chartInfo = response;
+        if (this.chartInfo != null) {
+          for (let i = 0; i < this.chartInfo.length; i++) {
+            this.labeldata.push(this.chartInfo[i].financial_product);
+            this.realdata.push(this.chartInfo[i].composition);
+          }
+        }
+        const numArr = this.realdata.map((numStr) => parseFloat(numStr));
+        this.converteData = [...numArr];
+        this.renderChart();
+      },
+      (error) => {
+        console.log('error loading data', error);
+      },
+    );
   }
 
   renderChart(): void {
-    this.chart = new Chart("barChart", {
+    this.chart = new Chart('barChart', {
       type: 'bar', //this denotes tha type of chart
 
-      data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
-	       datasets: [
+      data: {
+        // values on X-Axis
+        labels: this.labeldata,
+        datasets: [
           {
-            label: "Sales",
-            data: ['467','576', '572', '79', '92',
-								 '574', '573', '576'],
-            backgroundColor: 'blue'
+            label: 'Recommendations',
+            data: this.converteData,
+            backgroundColor: ['darkblue', 'gold', 'grey', 'red', 'green'],
+            barThickness: 40,
           },
-          {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-									 '0.00', '538', '541'],
-            backgroundColor: 'limegreen'
-          }  
-        ]
+        ],
       },
       options: {
-        aspectRatio:2.5
-      }
-      
+        aspectRatio: 2.5,
+      },
     });
   }
 }

@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
             this.labeldata.push(this.chartInfo[i].financial_product);
           }
         }
-        console.log(this.labeldata);
         
       },
       (error) => {
