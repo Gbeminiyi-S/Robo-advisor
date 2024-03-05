@@ -1,0 +1,12 @@
+.slide-in-stop {
+  animation: slide-in 5s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-200%); 
+  }
+  to {
+    transform: translateX(0); 
+  }
+}
