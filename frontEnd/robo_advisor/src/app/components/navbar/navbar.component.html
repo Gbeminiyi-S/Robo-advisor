@@ -59,7 +59,7 @@
 
       <a
         class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
-        [routerLink]="['aboutuspage']"
+        [routerLink]="['/aboutuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >About Us</a
@@ -67,7 +67,7 @@
 
       <a
         class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
-        [routerLink]="['contactuspage']"
+        [routerLink]="['/contactuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >Contact Us</a
@@ -99,6 +99,7 @@
         [routerLink]="['']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >Home</a>
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
@@ -106,6 +107,7 @@
        [routerLink]="['/faq']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >FAQ's</a>
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300" *ngIf="isLoggedIn$ | async; else loggedOutLinkss">
@@ -123,9 +125,10 @@
 
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
       <a
-      [routerLink]="['aboutuspage']"
+      [routerLink]="['/aboutuspage']"
       routerLinkActive="active active-style"
       [routerLinkActiveOptions]="{ exact: true }"
+      (click)="toggleMenu()"
       >About Us</a
     >
 
@@ -133,9 +136,10 @@
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
         <a
-        [routerLink]="['contactuspage']"
+        [routerLink]="['/contactuspage']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         >Contact Us</a
       >
       </li>

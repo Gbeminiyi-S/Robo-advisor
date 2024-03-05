@@ -10,7 +10,7 @@
 
 
 .sidenav-collaped {
-    width: 20%;
+    width: 250px;
 }
 
 /* #iconicon {
@@ -29,7 +29,6 @@
     transform: translate(-50%, -50%);
   }
   
-
   /* #sidenav-nav-link {
     position: relative;
   }
