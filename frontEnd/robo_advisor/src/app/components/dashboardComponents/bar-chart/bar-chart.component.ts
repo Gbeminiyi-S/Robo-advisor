@@ -56,12 +56,13 @@ export class BarChartComponent implements OnInit {
             data: this.converteData,
             backgroundColor: ['darkblue', 'gold', 'grey', 'red', 'green'],
             borderColor: '#36A2EB',
+            borderWidth: 1.4,
             barThickness: 40,
           },
         ],
       },
       options: {
-        aspectRatio: 2.5,
+        aspectRatio: 2.0,
         scales: {
           y: {
             beginAtZero: true
