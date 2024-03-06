@@ -20,7 +20,10 @@ interface SideNavToggle {
 export class DashboardNavbarComponent {
   @Output() onToggleSiddeNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
-  showLabel = true;
+  showLabel: boolean = false;
+  showLabel2: boolean = false;
+  showLabel3: boolean = false;
+  showLabel4: boolean = false;
   screenWidth = 0;
   navData = navbarData;
   isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

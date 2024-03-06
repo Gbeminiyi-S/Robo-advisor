@@ -1,11 +1,12 @@
 
+
 <div
   class="sidenav sticky bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out"
   [ngClass]="collapsed ? 'sidenav-collaped' : ''"
 >
 
 <div class="p-2 mx-auto flex justify-between items-center">
-  <a [routerLink]="['/homepage']">
+  <a [routerLink]="['']">
     <img
       src="../../../assets/images/logo.png"
       alt="logo"
@@ -59,12 +60,102 @@
         >
       </a>
     </li>
+
+
+  </ul>
+
+
+  <div class="logo-container  flex align-items-center  p-3 w-full">
+    <button class="logo p-2 h-8 w-8 bg-white rounded-md justify-center align-items-center" (click)="logOut()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </button>
+    <div
+      class="logo-text ml-4 font-bold text-white cursor-pointer"
+      *ngIf="collapsed"
+    >
+      <button class="text-sm">Log out</button>
+    </div>
+    
+  </div>
+
+</div>
+>
+
+
+
+
+<!-- 
+<div
+  class="sidenav sticky bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out"
+  [ngClass]="collapsed ? 'sidenav-collaped' : ''"
+>
+
+<div class="p-2 mx-auto flex justify-between items-center">
+  <a [routerLink]="['/homepage']">
+    <img
+      src="../../../assets/images/logo.png"
+      alt="logo"
+      [ngClass]="collapsed ? 'max-w-28' : 'max-w-12'"
+    />
+  </a>
+
+  <button
+  class="btn-close cursor-pointer ml-auto align-middle justify-center w-8 h-8 p-2 rounded-lg bg-transparent "
+  (click)="closeSidenav()"
+  *ngIf="collapsed"
+>
+  <i class="fa-solid fa-x" id="fa-times"></i>
+</button>
+</div>
+
+
+  <div class="logo-container flex align-items-center  p-3 w-full">
+    <button class="logobutton p-2 pb-2 h-8 w-8 bg-white rounded-3xl justify-center align-items-center" (mouseenter)="showLabel = true" (mouseleave)="showLabel = false" (click)="toggleCollapse()">
+      <i class="fa-regular fa-user"></i>
+      <span *ngIf="showLabel && !collapsed" class="absolute bg-white pr-4 pl-1 rounded-md text-primary top-1/2 left-full transform -translate-y-1/2 -translate-x-1/5  text-xs">Menu</span>
+    </button>
+    <div
+      class="logo-text ml-4 font-medium text-white cursor-pointer"
+      *ngIf="collapsed"
+    >
+      <p class="text-sm capitalize font-bold">{{username}}</p>
+      <p class="text-xs">{{email}}</p>
+    </div>
+  
+  </div>
+
+  <ul
+    class="sidenav-nav flex flex-col list-none p-3 m-0 align-items-center h-4/6 cursor-pointer"
+  >
+    <li class="sidenav-nav-item w-full mb-2" *ngFor="let data of navData">
+      <a
+      (mouseenter)="showLabel2 = true" (mouseleave)="showLabel2 = false"
+        [routerLink]="[data.RouterLink]"
+        class="sidenav-nav-link flex align-items-center h-12 text-white rounded-md list-none transition-all duration-300 ease-in-out hover:bg-white hover:text-primary"
+        id="sidenav-nav-link"
+      >
+        <i
+          class="sidenav-link-icon text-base w-8 m-3 text-center"
+          [class]="data.icon"
+          id="sidenav-nav-icon"
+        ></i>
+        <span *ngIf="showLabel2 && !collapsed" class="absolute bg-white pr-4 pl-1 rounded-md text-primary top-1/2 left-full transform -translate-y-1/2 -translate-x-1/5  text-xs">Advice</span>
+
+        <span
+          class="sidenav-link-text font-medium ml-3 pt-2.5"
+          *ngIf="collapsed"
+          id="sidenav-nav-text"
+          >{{ data.label }}</span
+        >
+      </a>
+    </li>
   </ul>
 
   <div class="fixed bottom-1">
   <div class="logo-container  flex align-items-center  p-3 w-full">
-    <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center">
+    <button class="logobutton p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center" (mouseenter)="showLabel3 = true" (mouseleave)="showLabel3 = false" >
       <i class="fa-solid fa-arrow-left"></i>
+      <span *ngIf="showLabel3 && !collapsed" class="absolute bg-white pr-4 pl-1 rounded-md text-primary top-1/2 left-full transform -translate-y-1/2 -translate-x-1/5  text-xs">Back to form</span>
     </button>
     <div
       class="logo-text ml-4 font-bold text-white cursor-pointer"
@@ -83,9 +174,11 @@
 
 
   <div class="logo-container  flex align-items-center  p-3 w-full">
-    <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center" (click)="logOut()">
+    <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center" (mouseenter)="showLabel4 = true" (mouseleave)="showLabel4 = false" (click)="logOut()">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span *ngIf="showLabel4 && !collapsed" class="absolute bg-white pr-4 pl-1 rounded-md text-primary top-1/2 left-full transform -translate-y-1/2 -translate-x-1/5  text-xs">Log Out</span>
     </button>
+
     <div
       class="logo-text ml-4 font-bold text-white cursor-pointer"
       *ngIf="collapsed"
@@ -108,4 +201,4 @@
 </div>
 >
 
-
+ -->
