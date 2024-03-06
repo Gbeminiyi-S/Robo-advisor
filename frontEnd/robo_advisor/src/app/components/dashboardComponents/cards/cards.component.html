@@ -5,7 +5,7 @@
     <div class="top flex justify-between">
       <p class="font-[poppins] text-[.75rem]">
         Investment:
-        <span class="font-bold font-mono text-[.87rem]">{{
+        <span class="fonnumber;ld font-mono text-[.87rem]">{{
           item.financial_product
         }}</span>
       </p>
@@ -22,19 +22,19 @@
     </p>
     <p class="font-[poppins] text-[.75rem]">
       Expected amount:
-      <span class="font-bold font-mono text-[.86rem]">{{ item.expected_amount }}</span>
+      <span class="font-bold font-mono text-[.86rem]">{{ item.estimatedReturnValue}}</span>
     </p>
 
     
     <p class="font-[poppins] text-[.75rem]">
       Expected Amount:
-      <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.expected_amount }}</span>
+      <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.estimatedReturnValue }}</span>
     </p>
 
 
     <div class="bottom mb-2">
       <span class="text-green-700"
-        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+        ><fa-icon [icon]="faArrowUp" /> {{ item.expectedReturn }}
         <small class="text-gray-500">expected returns</small></span
       >
     </div>
