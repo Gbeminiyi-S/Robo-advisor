@@ -27,6 +27,7 @@ export class DoughnutChartComponent implements OnInit {
     this.service.getChartInfo().subscribe(
       (response) => {
         this.chartInfo = response;
+
         if (this.chartInfo != null) {
           for (let i = 0; i < this.chartInfo.length; i++) {
             this.labeldata.push(this.chartInfo[i].financial_product);
@@ -62,7 +63,7 @@ export class DoughnutChartComponent implements OnInit {
         ],
       },
       options: {
-        aspectRatio: 2.5,
+        aspectRatio: 1.6,
       },
     });
   }

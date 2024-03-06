@@ -5,30 +5,38 @@
     <div class="top flex justify-between">
       <p class="font-[poppins] text-[.75rem]">
         Investment:
-        <span class="font-bold font-mono text-[1rem]">{{
+        <span class="font-bold font-mono text-[.87rem]">{{
           item.financial_product
         }}</span>
       </p>
-      <p class="">
+      <p>
         <span
-          class="text-sm font-bold bg-[gold] w-9 h-9 rounded-full text-white flex items-center justify-center"
+          class="text-sm font-bold bg-[#ce9f39] w-9 h-9 rounded-full text-white flex items-center justify-center"
           >{{ item.composition }}</span
         >
       </p>
     </div>
-    <div class="mt-auto flex flex-col">
-      <button
-        class="self-center bg-primary text-sm mb-2 text-slate-300 p-2 rounded-md hover:text-white "
-        (click)="openModal()"
+    <p class="font-[poppins] text-[.75rem]">
+      Provider:
+      <span class="font-bold font-mono text-[.86rem]">{{ item.provider }}</span>
+    </p>
+    <p class="font-[poppins] text-[.75rem]">
+      Expected amount:
+      <span class="font-bold font-mono text-[.86rem]">{{ item.expected_amount }}</span>
+    </p>
+
+    
+    <p class="font-[poppins] text-[.75rem]">
+      Expected Amount:
+      <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.expected_amount }}</span>
+    </p>
+
+
+    <div class="bottom mb-2">
+      <span class="text-green-700"
+        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+        <small class="text-gray-500">expected returns</small></span
       >
-        View Details
-      </button>
-      <div class="bottom mt-auto mb-2">
-        <span class="text-green-700"
-          ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
-          <small class="text-gray-500">expected returns</small></span
-        >
-      </div>
     </div>
   </div>
   @if (isModalOpen) {
