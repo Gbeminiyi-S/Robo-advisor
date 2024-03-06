@@ -11,7 +11,7 @@ export class QuestionnaireService {
 
   submitQuestions(questionnaireData: questionnaireData): Observable<any> {
     return this.http.post(
-      'http://localhost:8080/api/questionnaires/Questionnaire',
+      'http://localhost:8080/api/questionnaires',
       questionnaireData,
     );
   }
