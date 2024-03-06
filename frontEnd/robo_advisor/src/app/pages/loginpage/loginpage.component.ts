@@ -6,7 +6,6 @@ import { LoginService } from '../../services/login/login.service';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { AppStateService } from '../../services/app-state/app-state.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -47,13 +46,7 @@ export class LoginpageComponent {
     private loginService: LoginService,
     private router: Router,
     private userDetails: UserDetailsService,
-    private appStateService: AppStateService
   ) {}
-
-  ngOnInit(): void {
-    // Retrieve stored data from the service
-    this.pageData = this.appStateService.getPageData();
-  }
 
   onSubmit(): void {
     this.isLoading = true;
@@ -86,11 +79,6 @@ export class LoginpageComponent {
         this.clearErrorMessage();
       }, 3000);
     }
-  }
-
-  // Store relevant data before refreshing
-  storePageDataBeforeRefresh(): void {
-    this.appStateService.setPageData(this.pageData);
   }
 
 }
