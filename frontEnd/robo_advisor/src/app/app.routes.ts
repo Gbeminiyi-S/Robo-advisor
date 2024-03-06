@@ -12,16 +12,18 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { BarChartComponent } from './components/dashboardComponents/bar-chart/bar-chart.component';
 import { TableComponent } from './components/dashboardComponents/table/table.component';
-import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
 import { AuthGuardService } from './services/auth_guard/auth-guard.service';
 
 export const routes: Routes = [
   { path: '', title: 'Landing Page', component: LandingPageComponent },
   { path: 'login', title: 'Log-in Page', component: LoginpageComponent },
   { path: 'signup', title: 'Sign-up Page', component: SignUpPageComponent },
-  { path: 'formspage', title: 'User form', component: FormComponent, canActivate: [AuthGuardService] },
-  { path: 'homepage', title: 'Homepage', component: HomepageComponent, canActivate: [AuthGuardService]},
-  { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent, canActivate: [AuthGuardService] },
+  // { path: 'formspage', title: 'User form', component: FormComponent, canActivate: [AuthGuardService] },
+  // { path: 'homepage', title: 'Homepage', component: HomepageComponent, canActivate: [AuthGuardService]},
+  // { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent, canActivate: [AuthGuardService] },
+  { path: 'formspage', title: 'User form', component: FormComponent },
+  { path: 'homepage', title: 'Homepage', component: HomepageComponent},
+  { path: 'agreement', title: 'Terms & Conditions', component: AgreementComponent},
   { path: 'aboutuspage', title: 'AboutUspage', component: AboutusComponent},
   { path: 'contactuspage', title: 'ContactUspage', component: ContactusComponent },
   { path: 'dashboard', title: 'Dashboard', component: DashboardPageComponent },
