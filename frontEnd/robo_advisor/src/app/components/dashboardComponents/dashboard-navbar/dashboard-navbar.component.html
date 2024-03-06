@@ -65,17 +65,48 @@
   </ul>
 
 
-  <div class="logo-container  flex align-items-center  p-3 w-full">
-    <button class="logo p-2 h-8 w-8 bg-white rounded-md justify-center align-items-center" (click)="logOut()">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-    </button>
-    <div
-      class="logo-text ml-4 font-bold text-white cursor-pointer"
-      *ngIf="collapsed"
-    >
-      <button class="text-sm">Log out</button>
+  
+  <div class="fixed bottom-1">
+    <div class="logo-container  flex align-items-center  p-3 w-full">
+      <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center">
+        <i class="fa-solid fa-arrow-left"></i>
+         </button>
+      <div
+        class="logo-text ml-4 font-bold text-white cursor-pointer"
+        *ngIf="collapsed"
+      >
+        <button class="text-sm">
+          <a
+          [routerLink]="['/formspage']"
+          routerLinkActive="active  active-style"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Back to Form</a>
+        </button>
+      </div>
+      
     </div>
-    
+  
+  
+    <div class="logo-container  flex align-items-center  p-3 w-full">
+      <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+           </button>
+  
+      <div
+        class="logo-text ml-4 font-bold text-white cursor-pointer"
+        *ngIf="collapsed"
+      >
+        <button class="text-sm" (click)="logOut()">
+          <a
+          [routerLink]="['/login']"
+          routerLinkActive="active  active-style"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Log Out</a>
+        </button>
+      </div>
+      
+    </div>
+  
   </div>
 
 </div>

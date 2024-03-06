@@ -58,10 +58,7 @@ def store_data():
     import os
     import google.generativeai as genai # importing dependencies for the AI service
 
-    from dotenv import load_dotenv
-
-    load_dotenv()  # Load variables from .env file
-
+    
     value = os.getenv('GOOGLE_API_KEY')
 
     genai.configure(api_key=value)
