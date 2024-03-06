@@ -10,6 +10,6 @@ export class AdviceService {
   constructor(private http: HttpClient) { }
 
   getChartInfo(): Observable<any> {
-    return this.http.get('http://localhost:3000/response_list');
+    return this.http.get('http://localhost:5000/gemini_service');
   }
 }
