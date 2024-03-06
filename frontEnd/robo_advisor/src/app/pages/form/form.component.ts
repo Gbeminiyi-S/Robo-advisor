@@ -12,7 +12,8 @@ import { QuestionnaireService } from '../../services/questionnaire/questionnaire
 import { response } from 'express';
 import { error } from 'console';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { HomepageComponent } from '../homepage/homepage.component';
 
 @Component({
   selector: 'app-form',
@@ -25,6 +26,8 @@ import { Router } from '@angular/router';
     NavigationComponent,
     SubmitComponent,
     NavbarComponent,
+    HomepageComponent,
+    RouterLinkActive, RouterLink,
   ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],

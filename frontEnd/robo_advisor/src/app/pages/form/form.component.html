@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
 </header>
 
-<div class="questionairre h-screen p-4 bg-slate-300 mt-20 ">
+<div class="questionairre h-screen p-4 bg-slate-300 mt-20 md:mt-10 ">
   <div class="container">
     @if (currentQuestion === 0) {
       <div
@@ -14,7 +14,7 @@
       </div>
     }
     <div
-      class="w-[90%] sm:w-[75%] md:[70%] text-sm sm:text-[1rem] mx-auto relative bg-white rounded-sm shadow-lg text-center p-4 sm:p-6"
+      class="w-[90%] sm:w-[75%] md:[70%] formcontrol text-sm sm:text-[1rem] mx-auto relative bg-white rounded-sm shadow-lg text-center p-4 sm:p-6"
     >
       <div class="relative flex items-center justify-center">
         <h2 class="font-medium font-mono absolute text-[#3f51b5]">
@@ -104,5 +104,9 @@
         <app-submit (submit)="submitForm()" />
       }
     </div>
+    <div class="flex justify-start ml-32 mt-4">
+      <button id="back"  class="p-1.5 text-white bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary text-center text-sm border-2 border-solid border-primary font-semibold hover:bg-white" [routerLink]="['/homepage']" routerLinkActive="active active-style" [routerLinkActiveOptions]="{ exact: true }">Back to Home</button>
+     </div>
   </div>
+     
 </div>

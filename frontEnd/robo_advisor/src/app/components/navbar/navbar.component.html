@@ -16,7 +16,7 @@
     <div class="hidden space-x-8 pr-16 md:flex">
       <a
         class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
-        [routerLink]="['']"
+        [routerLink]="['/homepage']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >Home</a>
@@ -26,18 +26,6 @@
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >FAQ's</a>
-
-      <!-- <div *ngIf="isLoggedIn$ | async; else loggedOutLinks">
-        <a
-          [routerLink]="['/login']"
-          class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
-          (click)="logOut()"
-          >Logout</a
-        >
-      </div>
-      <ng-template #loggedOutLinks>
-        <a [routerLink]="['/login']" class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base">Login</a>
-      </ng-template> -->
 
       <a
         class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
@@ -78,7 +66,7 @@
     <ul class="list-none text-white">
       <li class="block text-left py-4 pl-6 border-b border-t bg-primary border-gray-300">
         <a
-        [routerLink]="['']"
+        [routerLink]="['/homepage']"
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         (click)="toggleMenu()"
@@ -92,18 +80,7 @@
         (click)="toggleMenu()"
         >FAQ's</a>
       </li>
-      <!-- <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300" *ngIf="isLoggedIn$ | async; else loggedOutLinkss">
-        <a
-        [routerLink]="['/login']"
-        (click)="logOut()"
-        >Logout</a
-      >
-      </li>
-
-      <ng-template #loggedOutLinkss>
-        <a [routerLink]="['/login']" class="block text-left py-4 pl-6 border-b border-t bg-primary border-gray-300">Login</a>
-      </ng-template> -->
-
+      
 
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
       <a
@@ -113,8 +90,6 @@
       (click)="toggleMenu()"
       >About Us</a
     >
-
-
       </li>
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
         <a
