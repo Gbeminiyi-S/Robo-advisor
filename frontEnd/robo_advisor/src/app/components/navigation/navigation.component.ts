@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightLong, faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navigation',
@@ -10,8 +10,8 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './navigation.component.css',
 })
 export class NavigationComponent {
-  faArrowRight= faArrowRight;
-  faArrowLeft= faArrowLeft;
+  faArrowRightLong = faArrowRightLong;
+  faArrowLeftLong = faArrowLeftLong;
   @Input() currentQuestion: number =0;
   @Input() totalQuestions: number =0;
 
