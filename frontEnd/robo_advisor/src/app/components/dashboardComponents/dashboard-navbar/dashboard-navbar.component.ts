@@ -64,4 +64,7 @@ export class DashboardNavbarComponent {
     this.userDetails.clearEmail();
     this.router.navigate(['/']);
   }
+  formNav(): void {
+    this.router.navigate(["/formspage"])
+  }
 }
