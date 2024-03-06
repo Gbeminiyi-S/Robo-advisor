@@ -26,10 +26,10 @@ section {
     background-color: rgb(224 194 18);
     padding: 25px 15px;
     margin: 1% 0.5%;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     float: left;
     width: 32%;
-    height: 220px;
+    height: 250px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
 }

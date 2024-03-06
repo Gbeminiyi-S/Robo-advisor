@@ -13,10 +13,16 @@ import { UserDetailsService } from '../../services/user-details/user-details.ser
 })
 export class HomepageComponent implements OnInit {
   username: string | null = null;
-
-  constructor(private userDetails: UserDetailsService){}
+  
+  // ngOnInit(): void {
+  //   this.username= this.userDetails.getUsername();
+  // }
+  
+  constructor(private userDetails: UserDetailsService) {}
 
   ngOnInit(): void {
-    this.username= this.userDetails.getUsername();
+    const storedUsername = this.userDetails.getUsername();
+    this.username = storedUsername;
   }
+
 }
