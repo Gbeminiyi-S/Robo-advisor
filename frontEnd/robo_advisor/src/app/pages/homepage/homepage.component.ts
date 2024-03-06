@@ -31,4 +31,5 @@ export class HomepageComponent implements OnInit {
   logOut(): void {
     this.userDetails.clearUsername();
   }
+
 }

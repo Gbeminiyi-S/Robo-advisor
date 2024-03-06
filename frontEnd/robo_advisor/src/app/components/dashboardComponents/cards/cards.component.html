@@ -1,7 +1,9 @@
-<div class="card p-4 my-4 flex-1 h-full">
-  <div class="p-4 bg-white text-black rounded-sm flex flex-col h-full justify-between ">
+<div class="card p-4 my-4 flex-1 h-full slide-in-stop">
+  <div
+    class="p-4 bg-white text-black rounded-sm flex flex-col h-full justify-between items-center"
+  >
     <div class="top flex justify-between">
-      <p class="font-[poppins] text-[.8rem]">
+      <p class="font-[poppins] text-[.75rem]">
         Investment:
         <span class="font-bold font-mono text-[1rem]">{{
           item.financial_product
@@ -14,11 +16,22 @@
         >
       </p>
     </div>
-    <div class="bottom mt-4 mb-2">
-      <span class="text-green-700"
-        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
-        <small class="text-gray-500">expected returns</small></span
+    <div class="mt-auto flex flex-col">
+      <button
+        class="self-start bg-primary text-sm mb-2 text-slate-300 p-2 rounded-md hover:text-white"
+        (click)="openModal()"
       >
+        View Details
+      </button>
+      <div class="bottom mt-auto mb-2">
+        <span class="text-green-700"
+          ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+          <small class="text-gray-500">expected returns</small></span
+        >
+      </div>
     </div>
   </div>
+  @if (isModalOpen) {
+    <app-modal [item]="item" (closeModal)="closeModal()"></app-modal>
+  }
 </div>

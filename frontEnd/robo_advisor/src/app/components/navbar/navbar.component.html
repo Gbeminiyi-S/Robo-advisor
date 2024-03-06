@@ -26,6 +26,8 @@
         routerLinkActive="active  active-style"
         [routerLinkActiveOptions]="{ exact: true }"
         >FAQ's</a>
+
+      <!-- <div *ngIf="isLoggedIn$ | async; else loggedOutLinks">
       <!-- @if (isLoggedIn$ | async) {
         <a
           class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base"
@@ -56,6 +58,7 @@
       <ng-template #loggedOutLinks>
         <a [routerLink]="['/login']" class="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base">Login</a>
       </ng-template> -->
+      <!-- </ng-template> --> -->
 
       <a
         class="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base"
@@ -110,6 +113,18 @@
         (click)="toggleMenu()"
         >FAQ's</a>
       </li>
+      <!-- <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300" *ngIf="isLoggedIn$ | async; else loggedOutLinkss">
+        <a
+        [routerLink]="['/login']"
+        (click)="logOut()"
+        >Logout</a
+      >
+      </li>
+
+      <ng-template #loggedOutLinkss>
+        <a [routerLink]="['/login']" class="block text-left py-4 pl-6 border-b border-t bg-primary border-gray-300">Login</a>
+      </ng-template> -->
+
 
       <li class="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
       <a
