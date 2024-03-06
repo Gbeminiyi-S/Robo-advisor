@@ -1,4 +1,5 @@
 #doughnutChart{
     width: 100%; /* Make the canvas take up the full width of its container */
-    height: 400px;
+    /* height: 400px; */
+    margin-top: 7rem;
 }
