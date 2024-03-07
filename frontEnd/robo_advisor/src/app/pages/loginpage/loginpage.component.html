@@ -101,9 +101,14 @@
             </div>
             <br />
 
-            <button id="login" type="submit" [disabled]="loginForm.invalid">
+            <button
+              id="login"
+              type="submit"
+              [disabled]="loginForm.invalid"
+              class="text-white font-bold"
+            >
               @if (isLoading) {
-                Loading, please wait
+                Loading, Please wait...
               } @else {
                 LOG IN
               }
