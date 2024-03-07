@@ -43,7 +43,8 @@ export class FormComponent implements OnInit {
   inputNumValue: number = 0;
   inputStrValue: string = '';
   username: string | null = null;
-  isLoading: boolean= false;
+  public fetchedResponse: any
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -110,7 +111,8 @@ export class FormComponent implements OnInit {
               this.router.navigate(['/dashboard']);
             }, 5000);
             console.log('posted succesfully', response);
-            this.isLoading=false
+            
+            this.router.navigate(['/dashboard']);
           },
           (error) => {
             console.log('error', error);

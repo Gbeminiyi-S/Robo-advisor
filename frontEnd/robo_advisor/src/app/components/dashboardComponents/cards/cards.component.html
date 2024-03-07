@@ -1,8 +1,9 @@
 <div class="card p-4 pb-1 my-2 flex-1 h-full slide-in-stop">
   <div class="p-4 pb-1 bg-white text-black rounded-md flex flex-col h-full">
     <div class="top flex justify-between">
-      <p class="font-[poppins] self-start">
-        <span class="text-left font-extrabold text-[.9rem]">{{
+      <p class="font-[poppins] text-[.75rem]">
+        Investment:
+        <span class="fonnumber;ld font-mono text-[.87rem]">{{
           item.financial_product
         }}</span>
       </p>
@@ -20,33 +21,23 @@
       Provider:
       <span class="font-bold font-mono text-[.86rem]">{{ item.provider }}</span>
     </p>
-    <div class="mt-auto">
-      <span class="text-green-700 mt-auto"
-        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+    <p class="font-[poppins] text-[.75rem]">
+      Expected amount:
+      <span class="font-bold font-mono text-[.86rem]">{{ item.estimatedReturnValue}}</span>
+    </p>
+
+    
+    <p class="font-[poppins] text-[.75rem]">
+      Invested Amount:
+      <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.principal }}</span>
+    </p>
+
+
+    <div class="bottom mb-2">
+      <span class="text-green-700"
+        ><fa-icon [icon]="faArrowUp" /> {{ item.expectedReturn }}
         <small class="text-gray-500">expected returns</small></span
       >
     </div>
-    <!-- <p (click)="onShowFull()"  class="cursor-pointer  text-blue-700" [ngClass]="{'invisible': showFullContent}">see more...</p>
-    @if (showFullContent) {
-      <p class="font-[poppins] text-[.8rem] font-bold">
-        Invested amount:
-        <span class="font-bold font-mono text-[.86rem]">{{ item.investmentAmount }}</span>
-      </p>
- 
-      <p class="font-[poppins] text-[.8rem] font-bold">
-        Expected Amount:
-        <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.expected_amount }}</span>
-      </p>
-  
-      <div>
-        <span class="text-green-700"
-          ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
-          <small class="text-gray-500">expected returns</small></span
-        >
-      </div>
-
-      <p (click)="onShowFull()" class="cursor-pointer text-blue-700">see less</p>
-
-    } -->
   </div>
 </div>

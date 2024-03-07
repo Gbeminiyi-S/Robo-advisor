@@ -5,17 +5,18 @@ import { UserDetailsService } from '../../../services/user-details/user-details.
 import { CardsComponent } from '../cards/cards.component';
 import { FinancialProduct } from '../../../models/interfaces/ResponseList';
 import { AdviceService } from '../../../services/advice/advice.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FontAwesomeModule, CardsComponent],
+  imports: [FontAwesomeModule, CardsComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
   public chart: any;
-  chartInfo: any;
+  chartInfo!: any[];
   labeldata: FinancialProduct[] = [];
   faUser = faUser;
   username: string | null = null;
@@ -39,6 +40,5 @@ export class HeaderComponent implements OnInit {
       },
     );
   }
-
 
 }

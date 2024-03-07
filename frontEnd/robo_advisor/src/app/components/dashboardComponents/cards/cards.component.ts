@@ -15,6 +15,7 @@ import { NgClass } from '@angular/common';
 })
 export class CardsComponent {
   @Input() item!: FinancialProduct;
+  chartInfo!: any[];
   faArrowUp = faArrowUp;
   showFullContent: boolean = false;
 

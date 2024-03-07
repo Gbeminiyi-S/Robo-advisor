@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from '../../components/dashboardComponents/footer/footer.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({

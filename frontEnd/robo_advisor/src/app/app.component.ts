@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './components/dashboardComponents/footer/footer.component';
 import { FormComponent } from './pages/form/form.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 

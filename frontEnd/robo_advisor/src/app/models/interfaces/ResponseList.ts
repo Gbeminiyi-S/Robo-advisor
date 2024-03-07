@@ -3,10 +3,10 @@ export interface FinancialProduct {
   ticker: string;
   provider: string;
   brief_description: string;
-  expected_return: string;
+  expectedReturn: string;
   composition: string;
-  expected_amount: string;
-  investmentAmount: string;
+  estimatedReturnValue: number;
+  principal: number;
   currency: string;
 }
 

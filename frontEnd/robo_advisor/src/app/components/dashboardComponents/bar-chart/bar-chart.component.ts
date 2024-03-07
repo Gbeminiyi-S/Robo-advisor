@@ -12,7 +12,7 @@ Chart.register(...registerables);
 })
 export class BarChartComponent implements OnInit {
   public chart: any;
-  chartInfo: any;
+  chartInfo!: any[];
   labeldata: any[] = [];
   realdata: any[] = [];
   converteData: any[] = [];
