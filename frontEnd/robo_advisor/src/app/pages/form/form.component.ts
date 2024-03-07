@@ -43,6 +43,7 @@ export class FormComponent implements OnInit {
   inputNumValue: number = 0;
   inputStrValue: string = '';
   username: string | null = null;
+  isLoading: boolean= false;
 
   constructor(
     private fb: FormBuilder,
@@ -100,23 +101,30 @@ export class FormComponent implements OnInit {
   }
 
   submitForm() {
+    this.isLoading=true;
     if (this.inputStrValue) {
       if (this.myForm.valid) {
         this.questionnaireService.submitQuestions(this.myForm.value).subscribe(
           (response) => {
+            setTimeout(() => {
+              this.router.navigate(['/dashboard']);
+            }, 5000);
             console.log('posted succesfully', response);
-            this.router.navigate(['/dashboard']);
+            this.isLoading=false
           },
           (error) => {
             console.log('error', error);
+            this.isLoading=false
             this.router.navigate(['/dashboard']);
           },
-        );
+          );
+        } else {
+          console.log('invalid form');
+          this.isLoading=false
+        }
       } else {
-        console.log('invalid form');
-      }
-    } else {
-      this.attemptedToNavigateFlags[this.currentQuestion] = true;
+        this.attemptedToNavigateFlags[this.currentQuestion] = true;
+        this.isLoading=false
     }
   }
 }
