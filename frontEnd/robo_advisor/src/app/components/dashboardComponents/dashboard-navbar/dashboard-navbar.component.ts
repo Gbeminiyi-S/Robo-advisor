@@ -65,6 +65,6 @@ export class DashboardNavbarComponent {
     this.router.navigate(['/']);
   }
   formNav(): void {
-    this.router.navigate(["/formspage"])
+    this.router.navigate(["/homepage"])
   }
 }
