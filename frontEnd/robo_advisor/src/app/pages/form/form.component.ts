@@ -44,6 +44,7 @@ export class FormComponent implements OnInit {
   inputStrValue: string = '';
   username: string | null = null;
   public fetchedResponse: any
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
