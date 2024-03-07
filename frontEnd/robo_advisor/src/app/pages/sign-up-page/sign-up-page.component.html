@@ -88,7 +88,7 @@
           Invalid email address.
         </div>
 
-        <button id="create">{{ isLoading ? "CREATING" : "CREATE" }}</button>
+        <button id="create">{{ isLoading ? "CREATING, please wait..." : "CREATE" }}</button>
         <button id="cancel" [routerLink]="['/login']"
         routerLinkActive="active active-style"
         [routerLinkActiveOptions]="{ exact: true }">CANCEL</button><br>

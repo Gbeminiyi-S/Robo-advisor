@@ -2,5 +2,20 @@
   class="p-2 rounded-sm bg-blue-700 text-slate-100"
   (click)="onSubmitEvent()"
 >
-  Submit
+  @if (isLoading) {
+    <div
+      class="h-[70vh] w-[85vw] bg-slate-50 absolute flex flex-col items-center justify-center top-0 -left-10"
+    >
+      <div class="flex items-center justify-center">
+        <p
+          class="w-20 h-20 rounded-full animate-spin border-4 border-slate-800 border-x-4 border-x-slate-400"
+        ></p>
+      </div>
+      <p class="animate-bounce my-3 text-stone-900 font-bold font-mono text-lg">
+        Submitting
+      </p>
+    </div>
+  } @else {
+    Submit
+  }
 </button>
