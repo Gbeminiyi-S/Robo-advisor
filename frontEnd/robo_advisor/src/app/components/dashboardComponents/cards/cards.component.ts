@@ -14,6 +14,7 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class CardsComponent {
   @Input() item!: FinancialProduct;
+  chartInfo!: any[];
   faArrowUp = faArrowUp;
   isModalOpen: boolean = false;
 

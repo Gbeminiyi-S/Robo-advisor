@@ -43,6 +43,7 @@ export class FormComponent implements OnInit {
   inputNumValue: number = 0;
   inputStrValue: string = '';
   username: string | null = null;
+  public fetchedResponse: any
 
   constructor(
     private fb: FormBuilder,
@@ -105,6 +106,7 @@ export class FormComponent implements OnInit {
         this.questionnaireService.submitQuestions(this.myForm.value).subscribe(
           (response) => {
             console.log('posted succesfully', response);
+            
             this.router.navigate(['/dashboard']);
           },
           (error) => {

@@ -12,7 +12,7 @@ Chart.register(...registerables);
 })
 export class DoughnutChartComponent implements OnInit {
   public chart: any;
-  chartInfo: any;
+  chartInfo!: any[];
   labeldata: any[] = [];
   realdata: any[] = [];
   converteData: any[] = [];
@@ -27,6 +27,7 @@ export class DoughnutChartComponent implements OnInit {
     this.service.getChartInfo().subscribe(
       (response) => {
         this.chartInfo = response;
+        console.log(response);
 
         if (this.chartInfo != null) {
           for (let i = 0; i < this.chartInfo.length; i++) {
@@ -41,7 +42,7 @@ export class DoughnutChartComponent implements OnInit {
         this.renderChart();
       },
       (error) => {
-        console.log('error loading data', error);
+        console.log('Error loading data', error);
       },
     );
   }

@@ -9,7 +9,6 @@ import { forkJoin } from 'rxjs';
 })
 export class QuestionnaireService {
   private apiUrl1 = 'http://localhost:5000/gemini_service';
-  private apiUrl2 = 'http://localhost:8080/api/questionnaires'
 
   constructor(private http: HttpClient) {}
 
@@ -26,12 +25,9 @@ export class QuestionnaireService {
 
     console.log('Request Payload:', questionnaireData);
 
-    const request1 = this.http.post<any[]>(`${this.apiUrl1}`, questionnaireData, requestOptions);
-
-    const request2 = this.http.post<any[]>(`${this.apiUrl2}`, questionnaireData, requestOptions);
+    return this.http.post<any[]>(`${this.apiUrl1}`, questionnaireData, requestOptions);
 
     // Combine and return the observables
-    return forkJoin([request1, request2]);
   }
 }
 

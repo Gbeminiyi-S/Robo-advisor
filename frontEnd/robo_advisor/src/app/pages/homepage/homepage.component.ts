@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from '../../components/dashboardComponents/footer/footer.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { UserDetailsService } from '../../services/user-details/user-details.service';
 import { BehaviorSubject } from 'rxjs';
