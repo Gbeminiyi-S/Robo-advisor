@@ -4,11 +4,12 @@ import { FinancialProduct } from '../../../models/interfaces/ResponseList';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { ModalComponent } from '../modal/modal.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [FontAwesomeModule, ModalComponent],
+  imports: [FontAwesomeModule, ModalComponent, NgClass],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css',
 })
@@ -16,13 +17,9 @@ export class CardsComponent {
   @Input() item!: FinancialProduct;
   chartInfo!: any[];
   faArrowUp = faArrowUp;
-  isModalOpen: boolean = false;
+  showFullContent: boolean = false;
 
-  openModal() {
-    this.isModalOpen = true;
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
+  onShowFull(): void {
+    this.showFullContent= !this.showFullContent;
   }
 }

@@ -11,7 +11,7 @@ export const FormQuestionsData: FormQuestions[] = [
     },
     {
       id:2,
-      text: "What's your primary goal for this investment?",
+      text: "Okay, now what's your primary goal for this investment?",
       name:'investmentPurpose',
       options: [
         { label: "Grow my capital over time (Capital Growth)", value: "Capital Growth" },
@@ -22,15 +22,15 @@ export const FormQuestionsData: FormQuestions[] = [
     },
     {
       id:3,
-      text: "How long do you plan to hold onto this investment?",
+      text: "How long do you plan to hold on to this investment? (in years)",
       name:'investmentHorizon',
       options: [
-        { label: "enter your investment horizon", value: "" },
+        { label: "enter your investment horizon (year)", value: "" },
       ]
     },
     {
       id:4,
-      text: "How comfortable are you with investing?",
+      text: "Thats noted, So how comfortable are you with investing?",
       name:'investmentKnowledge',
       options: [
         { label: '"Investing newbie" (Beginner)', value: "Beginner" },
@@ -71,7 +71,7 @@ export const FormQuestionsData: FormQuestions[] = [
     },
     {
       id:8,
-      text: "Where are you located? This helps me tailor recommendations to local regulations",
+      text: "lastly where are you located? This helps me tailor recommendations to local regulations",
       name:'location',
       options: [
         { label: "enter location", value: "" },

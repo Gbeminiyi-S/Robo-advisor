@@ -101,7 +101,7 @@
         (nextClick)="nextQuestion()"
       />
       @if (currentQuestion === questions.length - 1) {
-        <app-submit (submit)="submitForm()" />
+        <app-submit (submit)="submitForm()" [isLoading]="isLoading" />
       }
     </div>
     <div class="flex justify-start ml-32 mt-4">

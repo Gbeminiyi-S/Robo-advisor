@@ -1,41 +1,39 @@
-
-
 <div
   class="sidenav sticky bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out"
   [ngClass]="collapsed ? 'sidenav-collaped' : ''"
 >
+  <div class="p-2 mx-auto flex justify-between items-center">
+    <a [routerLink]="['']">
+      <img
+        src="../../../assets/images/logo.png"
+        alt="logo"
+        [ngClass]="collapsed ? 'max-w-28' : 'max-w-12'"
+      />
+    </a>
 
-<div class="p-2 mx-auto flex justify-between items-center">
-  <a [routerLink]="['']">
-    <img
-      src="../../../assets/images/logo.png"
-      alt="logo"
-      [ngClass]="collapsed ? 'max-w-28' : 'max-w-12'"
-    />
-  </a>
+    <button
+      class="btn-close cursor-pointer ml-auto align-middle justify-center w-8 h-8 p-2 rounded-lg bg-transparent"
+      (click)="closeSidenav()"
+      *ngIf="collapsed"
+    >
+      <i class="fa-solid fa-x" id="fa-times"></i>
+    </button>
+  </div>
 
-  <button
-  class="btn-close cursor-pointer ml-auto align-middle justify-center w-8 h-8 p-2 rounded-lg bg-transparent "
-  (click)="closeSidenav()"
-  *ngIf="collapsed"
->
-  <i class="fa-solid fa-x" id="fa-times"></i>
-</button>
-</div>
-
-
-  <div class="logo-container flex align-items-center  p-3 w-full">
-    <button class="logo p-2 pb-2 h-8 w-8 bg-white rounded-3xl justify-center align-items-center" (click)="toggleCollapse()">
+  <div class="logo-container flex align-items-center p-3 w-full">
+    <button
+      class="logo p-2 pb-2 h-8 w-8 bg-white rounded-3xl justify-center align-items-center"
+      (click)="toggleCollapse()"
+    >
       <i class="fa-regular fa-user"></i>
     </button>
     <div
       class="logo-text ml-4 font-medium text-white cursor-pointer"
       *ngIf="collapsed"
     >
-      <p class="text-sm capitalize font-bold">{{username}}</p>
-      <p class="text-xs">{{email}}</p>
+      <p class="text-sm capitalize font-bold">{{ username }}</p>
+      <p class="text-xs">{{ email }}</p>
     </div>
-  
   </div>
 
   <ul
@@ -53,63 +51,60 @@
           id="sidenav-nav-icon"
         ></i>
         <span
-          class="sidenav-link-text font-medium ml-3 pt-2.5"
+          class="sidenav-link-text font-medium ml-3 pt-2.5 text-[.9rem]"
           *ngIf="collapsed"
           id="sidenav-nav-text"
           >{{ data.label }}</span
         >
       </a>
     </li>
-
-
   </ul>
 
+  <!-- <button class="bg-primary text-wrap text-slate-50 rounded-sm p-2">
+    + New Response
+  </button> -->
 
-  
   <div class="fixed bottom-1">
-    <div class="logo-container  flex align-items-center  p-3 w-full">
-      <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center" (click)="formNav()">
+    <div class="logo-container flex align-items-center p-3 w-full">
+      <button
+        class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center"
+        (click)="formNav()"
+      >
         <i class="fa-solid fa-arrow-left"></i>
-         </button>
+      </button>
       <div
         class="logo-text ml-4 font-bold text-white cursor-pointer"
         *ngIf="collapsed"
       >
         <button class="text-sm" (click)="formNav()">
-          <a
-          >Back to Form</a>
+          <a>Back Home</a>
         </button>
       </div>
-      
     </div>
-  
-  
-    <div class="logo-container  flex align-items-center  p-3 w-full">
-      <button class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-           </button>
+
+    <div class="logo-container flex align-items-center p-3 w-full">
+      <button
+        class="logo p-2 h-6 w-6 bg-white rounded-md justify-center align-items-center"
+      >
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
       <div
         class="logo-text ml-4 font-bold text-white cursor-pointer"
         *ngIf="collapsed"
       >
         <button class="text-sm" (click)="logOut()">
           <a
-          [routerLink]="['/login']"
-          routerLinkActive="active  active-style"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Log Out</a>
+            [routerLink]="['/login']"
+            routerLinkActive="active  active-style"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Log Out</a
+          >
         </button>
       </div>
-      
     </div>
-  
   </div>
-
 </div>
 >
-
-
-
 
 <!-- 
 <div

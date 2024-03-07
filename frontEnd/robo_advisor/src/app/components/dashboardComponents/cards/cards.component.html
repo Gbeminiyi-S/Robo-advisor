@@ -1,7 +1,5 @@
-<div class="card p-4 my-4 flex-1 h-full slide-in-stop">
-  <div
-    class="p-4 bg-white text-black rounded-sm flex flex-col h-full justify-between items-center"
-  >
+<div class="card p-4 pb-1 my-2 flex-1 h-full slide-in-stop">
+  <div class="p-4 pb-1 bg-white text-black rounded-md flex flex-col h-full">
     <div class="top flex justify-between">
       <p class="font-[poppins] text-[.75rem]">
         Investment:
@@ -16,7 +14,10 @@
         >
       </p>
     </div>
-    <p class="font-[poppins] text-[.75rem]">
+    <p
+      class="font-[poppins] text-[.8rem] font-bold mt-8"
+      [ngClass]="{ 'mt-3': showFullContent }"
+    >
       Provider:
       <span class="font-bold font-mono text-[.86rem]">{{ item.provider }}</span>
     </p>
@@ -39,7 +40,4 @@
       >
     </div>
   </div>
-  @if (isModalOpen) {
-    <app-modal [item]="item" (closeModal)="closeModal()"></app-modal>
-  }
 </div>

@@ -1,3 +1,11 @@
 .bgs {
     background-color: #faf3e0;
 }
+
+#break {
+    height: 3px;
+    width: 80px;
+    border-radius: 3px;
+    background-color: orange;
+    margin-left: 20px;
+  }
