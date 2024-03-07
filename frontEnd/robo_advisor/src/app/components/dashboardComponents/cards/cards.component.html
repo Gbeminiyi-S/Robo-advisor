@@ -1,10 +1,8 @@
 <div class="card p-4 pb-1 my-2 flex-1 h-full slide-in-stop">
-  <div
-    class="p-4 pb-1 bg-white text-black rounded-md flex flex-col h-full "
-  >
+  <div class="p-4 pb-1 bg-white text-black rounded-md flex flex-col h-full">
     <div class="top flex justify-between">
       <p class="font-[poppins] self-start">
-        <span class="text-left font-extrabold  text-[.9rem]">{{
+        <span class="text-left font-extrabold text-[.9rem]">{{
           item.financial_product
         }}</span>
       </p>
@@ -15,11 +13,20 @@
         >
       </p>
     </div>
-    <p class="font-[poppins] text-[.8rem] font-bold mt-8 "[ngClass]="{'mt-3': showFullContent}" >
+    <p
+      class="font-[poppins] text-[.8rem] font-bold mt-8"
+      [ngClass]="{ 'mt-3': showFullContent }"
+    >
       Provider:
-      <span class="font-bold font-mono text-[.86rem] " >{{ item.provider }}</span>
+      <span class="font-bold font-mono text-[.86rem]">{{ item.provider }}</span>
     </p>
-    <p (click)="onShowFull()"  class="cursor-pointer  text-blue-700" [ngClass]="{'invisible': showFullContent}">see more...</p>
+    <div class="mt-auto">
+      <span class="text-green-700 mt-auto"
+        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+        <small class="text-gray-500">expected returns</small></span
+      >
+    </div>
+    <!-- <p (click)="onShowFull()"  class="cursor-pointer  text-blue-700" [ngClass]="{'invisible': showFullContent}">see more...</p>
     @if (showFullContent) {
       <p class="font-[poppins] text-[.8rem] font-bold">
         Invested amount:
@@ -40,7 +47,6 @@
 
       <p (click)="onShowFull()" class="cursor-pointer text-blue-700">see less</p>
 
-    }
+    } -->
   </div>
- 
 </div>
