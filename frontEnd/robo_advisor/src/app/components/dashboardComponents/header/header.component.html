@@ -1,10 +1,11 @@
 <!-- <header class="bg-[#0b0500] pb-12 p-2"> -->
   <header class="bg-gray-800 pb-12 p-2">
     <nav class="text-white flex justify-between items-center">
-      <p class="text-white">DashBoard</p>
+      <p class="text-white">👋Hi {{username}}!</p>
     <p class=""> <span class="bg-slate-50 w-9 h-9 rounded-full text-green-500 flex items-center justify-center"><fa-icon [icon]="faUser" /></span>
       </p>
     </nav>
+    <h1 class="text-center text-white font-bold text-xl">Recommended Investment Options</h1>
     <div class="style">
       @for (item of chartInfo; track item) {
         <app-cards [item]="item"  />

@@ -63,7 +63,18 @@ export class DoughnutChartComponent implements OnInit {
         ],
       },
       options: {
-        aspectRatio: 1.6,
+        aspectRatio: 1.5,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'black', // Change font color of labels
+              font: {
+                size: 14, // Adjust font size of labels
+                weight: 'bold', // Adjust font weight of labels
+              },
+            },
+          },
+        },
       },
     });
   }

@@ -22,7 +22,7 @@ export class BarChartComponent implements OnInit {
   ngOnInit(): void {
     this.fetchData();
   }
-  
+
   fetchData(): void {
     this.service.getChartInfo().subscribe(
       (response) => {
@@ -52,7 +52,7 @@ export class BarChartComponent implements OnInit {
         labels: this.labeldata,
         datasets: [
           {
-            label: 'Recommendations',
+            label: 'Capital Allocation by Percentage',
             data: this.converteData,
             backgroundColor: ['darkblue', 'gold', 'grey', 'red', 'green'],
             borderColor: '#36A2EB',
@@ -62,12 +62,39 @@ export class BarChartComponent implements OnInit {
         ],
       },
       options: {
-        aspectRatio: 2.0,
+        aspectRatio: 1.5,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'black', // Change font color of labels
+              font: {
+                size: 14, // Adjust font size of labels
+                weight: 'bold', // Adjust font weight of labels
+              },
+            },
+          },
+        },
         scales: {
           y: {
-            beginAtZero: true
-          }
-        }
+            beginAtZero: true,
+            ticks: {
+              color: 'black',
+              font: {
+                weight: 'bold',
+              },
+              // Change font color for y-axis labels to black
+            },
+          },
+          x: {
+            ticks: {
+              color: 'black', // Change font color for x-axis labels to black
+              font: {
+                weight: 'bolder',
+              },
+            },
+          },
+          
+        },
       },
     });
   }

@@ -1,11 +1,10 @@
-<div class="card p-4 my-4 flex-1 h-full slide-in-stop">
+<div class="card p-4 pb-1 my-2 flex-1 h-full slide-in-stop">
   <div
-    class="p-4 bg-white text-black rounded-sm flex flex-col h-full justify-between items-center"
+    class="p-4 pb-1 bg-white text-black rounded-md flex flex-col h-full "
   >
     <div class="top flex justify-between">
-      <p class="font-[poppins] text-[.75rem]">
-        Investment:
-        <span class="font-bold font-mono text-[.87rem]">{{
+      <p class="font-[poppins] self-start">
+        <span class="text-left font-extrabold  text-[.9rem]">{{
           item.financial_product
         }}</span>
       </p>
@@ -16,30 +15,32 @@
         >
       </p>
     </div>
-    <p class="font-[poppins] text-[.75rem]">
+    <p class="font-[poppins] text-[.8rem] font-bold mt-8 "[ngClass]="{'mt-3': showFullContent}" >
       Provider:
-      <span class="font-bold font-mono text-[.86rem]">{{ item.provider }}</span>
+      <span class="font-bold font-mono text-[.86rem] " >{{ item.provider }}</span>
     </p>
-    <p class="font-[poppins] text-[.75rem]">
-      Expected amount:
-      <span class="font-bold font-mono text-[.86rem]">{{ item.expected_amount }}</span>
-    </p>
+    <p (click)="onShowFull()"  class="cursor-pointer  text-blue-700" [ngClass]="{'invisible': showFullContent}">see more...</p>
+    @if (showFullContent) {
+      <p class="font-[poppins] text-[.8rem] font-bold">
+        Invested amount:
+        <span class="font-bold font-mono text-[.86rem]">{{ item.investmentAmount }}</span>
+      </p>
+ 
+      <p class="font-[poppins] text-[.8rem] font-bold">
+        Expected Amount:
+        <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.expected_amount }}</span>
+      </p>
+  
+      <div>
+        <span class="text-green-700"
+          ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
+          <small class="text-gray-500">expected returns</small></span
+        >
+      </div>
 
-    
-    <p class="font-[poppins] text-[.75rem]">
-      Expected Amount:
-      <span class="font-bold text-green-600 font-mono text-[.86rem]">{{ item.expected_amount }}</span>
-    </p>
+      <p (click)="onShowFull()" class="cursor-pointer text-blue-700">see less</p>
 
-
-    <div class="bottom mb-2">
-      <span class="text-green-700"
-        ><fa-icon [icon]="faArrowUp" /> {{ item.expected_return }}
-        <small class="text-gray-500">expected returns</small></span
-      >
-    </div>
+    }
   </div>
-  @if (isModalOpen) {
-    <app-modal [item]="item" (closeModal)="closeModal()"></app-modal>
-  }
+ 
 </div>
