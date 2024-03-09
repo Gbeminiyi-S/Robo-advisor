@@ -1,0 +1,19 @@
+
+spring:
+  data:
+    rest:
+      base-path: /api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/advice_request_directory?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: Inshallah@2024
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      logging:
+        level:
+          org.springframework.web: DEBUG
