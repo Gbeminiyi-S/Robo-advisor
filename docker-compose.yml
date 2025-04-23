@@ -1,0 +1,14 @@
+services:
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "5000:5000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    env_file:
+      - ./.env
+
+  go-backend:
+    build: ./go-backend
+    ports:
+      - "8080:8080"
