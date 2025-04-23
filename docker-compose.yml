@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
 
-  go-backend:
-    build: ./go-backend
-    ports:
-      - "8080:8080"
+  # go-backend:
+  #   build: ./go-backend
+  #   ports:
+  #     - "8080:8080"
