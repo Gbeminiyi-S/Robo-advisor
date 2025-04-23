@@ -33,14 +33,23 @@ This will start:
 3. Go backend service on [http://localhost:8080](http://localhost:8080)
 
 ### AI API (Flask)
-
+```
 Swagger UI: /api/swagger
+```
 
+```
 GET /api/gemini_response: Get recommendations
+```
 
+```
 GET /api/gemini_models: List Gemini model options
+```
 
+```
 POST /api/gemini_request: Submit user investment data
+```
+
+```
 Sample JSON payload:
 {
 "age": 30,
@@ -52,6 +61,7 @@ Sample JSON payload:
 "amount": 50000,
 "currency": "USD"
 }
+```
 
 To run the AI-service on your local environment via terminal;
 
