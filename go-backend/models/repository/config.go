@@ -8,4 +8,6 @@ type Config struct {
 	PostgresDB       string
 	PostgresTimezone string
 	PostgresSslMode  string
+	JwtSecret        string
+	JwtExpiration    string
 }
