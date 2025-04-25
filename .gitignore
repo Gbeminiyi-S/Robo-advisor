@@ -23,6 +23,7 @@ config/
 go.work
 go.work.sum
 
+.env
 docs/
 logs/
 cronlogs/

@@ -21,7 +21,7 @@ func JWTAuthMiddleware(db *gorm.DB) gin.HandlerFunc {
 		}
 
 		tokenStr := strings.TrimPrefix(authHeader, "Bearer ")
-		claims, err := GetUserClaims(tokenStr)
+		claims, err := GetUserClaims(db, tokenStr)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid or expired token"})
 			c.Abort()

@@ -9,9 +9,10 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
+	"gorm.io/gorm"
 )
 
-func CreateToken(userID uint, email string) (string, error) {
+func CreateToken(userID string, email string) (string, error) {
 	expirationMinutes, err := strconv.Atoi(config.AppConfig.JwtExpiration)
 	if err != nil {
 		return "", fmt.Errorf("invalid JWT expiration value: %v", err)
@@ -35,7 +36,7 @@ func CreateToken(userID uint, email string) (string, error) {
 	return token.SignedString([]byte(secret))
 }
 
-func VerifyToken(tokenStr string) (*models.JWTClaims, error) {
+func VerifyToken(db *gorm.DB, tokenStr string) (*models.JWTClaims, error) {
 	token, err := jwt.ParseWithClaims(tokenStr, &models.JWTClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(config.AppConfig.JwtSecret), nil
 	})
@@ -49,14 +50,24 @@ func VerifyToken(tokenStr string) (*models.JWTClaims, error) {
 		return nil, errors.New("could not parse claims")
 	}
 
+	var session models.UserSession
+	userSession, err := session.GetUserSession(db, claims.UserID, tokenStr)
+	if err != nil {
+		return nil, err
+	}
+
+	if time.Now().After(userSession.ExpiresAt) {
+		return nil, errors.New("token has expired")
+	}
+
 	return claims, nil
 }
 
-func IsTokenValid(tokenStr string) bool {
-	_, err := VerifyToken(tokenStr)
+func IsTokenValid(db *gorm.DB, tokenStr string) bool {
+	_, err := VerifyToken(db, tokenStr)
 	return err == nil
 }
 
-func GetUserClaims(tokenStr string) (*models.JWTClaims, error) {
-	return VerifyToken(tokenStr)
+func GetUserClaims(db *gorm.DB, tokenStr string) (*models.JWTClaims, error) {
+	return VerifyToken(db, tokenStr)
 }

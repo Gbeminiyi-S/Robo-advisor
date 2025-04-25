@@ -7,16 +7,18 @@ import (
 	"gorm.io/gorm"
 )
 
+
 type User struct {
-	ID               uint    `gorm:"primaryKey"`
-	Name             string  `gorm:"not null"`
-	Email            string  `gorm:"uniqueIndex;not null"`
-	Password         string  `gorm:"not null"`
-	ResetToken       *string `gorm:"index"`
-	ResetTokenExpiry *time.Time
-	CreatedAt        time.Time
-	UpdatedAt        time.Time
-	DeletedAt        gorm.DeletedAt `gorm:"index"`
+	ID        string `gorm:"type:uuid;primaryKey;unique;not null"`
+	Name      string `gorm:"not null"`
+	Email     string `gorm:"uniqueIndex;not null"`
+	Password  string `gorm:"not null"`
+	FirstName string `gorm:"not null"`
+	LastName  string `gorm:"not null"`
+	IsActive  bool   `gorm:"default:true"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt gorm.DeletedAt `gorm:"index"`
 }
 
 func (u *User) CreateUser(db *gorm.DB, user *User) error {
@@ -50,7 +52,7 @@ func (u *User) GetUserByUsername(db *gorm.DB, name string) (*User, error) {
 	return &user, nil
 }
 
-func (u *User) GetUserByID(db *gorm.DB, id uint) (*User, error) {
+func (u *User) GetUserByID(db *gorm.DB, id string) (*User, error) {
 	var user User
 
 	err := config.FindByID(db, user, id)

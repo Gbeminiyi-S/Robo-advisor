@@ -17,8 +17,10 @@ func main() {
 		log.Println("Ready to go!")
 	}
 
-	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{})
+	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{}, &models.PasswordReset{})
 	if dbErr != nil {
 		log.Fatalf("Migration failed: %v", dbErr)
+	} else {
+		log.Println("Database auto-migrated successfully!")
 	}
 }
