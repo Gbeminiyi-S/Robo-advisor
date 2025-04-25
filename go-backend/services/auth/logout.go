@@ -13,7 +13,7 @@ func Logout(db *gorm.DB, email, token string) error {
 
 	_, err := user.GetUserByEmail(db, email)
 	if err != nil {
-		return fmt.Errorf("User not found: %v", err)
+		return fmt.Errorf("user not found: %v", err)
 	}
 
 	logoutErr := session.DeleteUserSession(db, token)
