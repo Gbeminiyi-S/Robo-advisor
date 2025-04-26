@@ -17,7 +17,7 @@ func Login(db *gorm.DB, email, password string) (string, error) {
 
 	existingUser, err := user.GetUserByEmail(db, email)
 	if err != nil {
-		return "", fmt.Errorf("User not found: %v", err)
+		return "", fmt.Errorf("user not found: %v", err)
 	}
 
 	userExists := utils.CheckPasswordHash(password, existingUser.Password)

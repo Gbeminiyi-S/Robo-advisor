@@ -7,7 +7,6 @@ import (
 	"gorm.io/gorm"
 )
 
-
 type User struct {
 	ID        string `gorm:"type:uuid;primaryKey;unique;not null"`
 	Name      string `gorm:"not null"`
@@ -19,6 +18,23 @@ type User struct {
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt `gorm:"index"`
+}
+
+type SignupRequest struct {
+	Email     string `json:"email" binding:"required,email"`
+	Password  string `json:"password" binding:"required"`
+	Name      string `json:"username" binding:"required"`
+	FirstName string `json:"first_name" binding:"required"`
+	LastName  string `json:"last_name" binding:"required"`
+}
+
+type LoginRequest struct {
+	Email    string `json:"email" binding:"required,email"`
+	Password string `json:"password" binding:"required"`
+}
+
+type LogoutRequest struct {
+	Email string `json:"email" binding:"required,email"`
 }
 
 func (u *User) CreateUser(db *gorm.DB, user *User) error {

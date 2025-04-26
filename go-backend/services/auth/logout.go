@@ -7,16 +7,16 @@ import (
 	"gorm.io/gorm"
 )
 
-func Logout(db *gorm.DB, email, token string) error {
+func Logout(db *gorm.DB, email string) error {
 	var user *models.User
 	var session *models.UserSession
 
-	_, err := user.GetUserByEmail(db, email)
+	loggedInUser, err := user.GetUserByEmail(db, email)
 	if err != nil {
 		return fmt.Errorf("user not found: %v", err)
 	}
 
-	logoutErr := session.DeleteUserSession(db, token)
+	logoutErr := session.DeleteUserSession(db, loggedInUser.ID)
 	if logoutErr != nil {
 		return logoutErr
 	}

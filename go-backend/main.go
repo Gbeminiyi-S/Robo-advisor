@@ -1,9 +1,22 @@
+// @title Robo-Advisor API
+// @version 1.0
+// @description This is a backend server for authentication and AI interaction.
+// @host localhost:8080
+// @BasePath /
+
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+
 package main
 
 import (
 	"go-backend/config"
 	"go-backend/models"
+	"go-backend/routes"
 	"log"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -17,10 +30,20 @@ func main() {
 		log.Println("Ready to go!")
 	}
 
-	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{}, &models.PasswordReset{})
+	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{}, &models.PasswordReset{}, &models.UserSession{})
 	if dbErr != nil {
 		log.Fatalf("Migration failed: %v", dbErr)
 	} else {
 		log.Println("Database auto-migrated successfully!")
 	}
+
+	router := gin.Default()
+
+	routes.SetupRoutes(router, db)
+
+	port := config.AppConfig.Port
+	if port == "" {
+		port = "8080"
+	}
+	router.Run(":" + port)
 }
