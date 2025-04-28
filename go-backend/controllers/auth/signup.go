@@ -1,3 +1,13 @@
+package auth
+
+import (
+	"go-backend/models"
+	"go-backend/services/auth"
+	"net/http"
+	
+	"github.com/gin-gonic/gin"
+)
+
 // @Summary      Register a new user
 // @Description  Create a new user account
 // @Tags         Auth
@@ -7,17 +17,6 @@
 // @Success      200   {object}  models.SignupResponse
 // @Failure      400   {object}  models.ErrorResponse
 // @Router       /auth/signup [post]
-
-package auth
-
-import (
-	"go-backend/models"
-	"go-backend/services/auth"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
-)
-
 func (base *Controller) Signup(c *gin.Context) {
 	var input models.SignupRequest
 

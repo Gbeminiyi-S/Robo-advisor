@@ -23,5 +23,17 @@ type LogoutResponse struct {
 
 type PasswordResetResponse struct {
 	Status  string `json:"status" example:"success"`
-	Message string `json:"message" example:"Action successful"`
+	Message string `json:"message" example:"Password reset successful"`
+}
+
+type PasswordChangeResponse struct {
+	Status  string `json:"status" example:"success"`
+	Message string `json:"message" example:"Password changed successfully"`
+}
+
+type AIResponse struct {
+	Status string      `json:"status" example:"success"`
+	Data   interface{} `json:"data,omitempty" example: "data": {
+    "investmentAdvice": "Based on your risk tolerance, we recommend a diversified portfolio of stocks and bonds."
+  }`
 }

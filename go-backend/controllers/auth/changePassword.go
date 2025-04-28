@@ -4,7 +4,7 @@ import (
 	"go-backend/models"
 	"go-backend/services/auth"
 	"net/http"
-	
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,12 +13,12 @@ import (
 // @Tags         Auth
 // @Accept       json
 // @Produce      json
-// @Param        body  body      models.PasswordResetRequest  true  "Email for password reset"
-// @Success      200   {object}  models.PasswordResetResponse
+// @Param        body  body      models.PasswordChangeRequest  true  "Email for password reset"
+// @Success      200   {object}  models.PasswordChangeResponse
 // @Failure      400   {object}  models.ErrorResponse
 // @Router       /auth/password-reset [post]
-func (base *Controller) PasswordReset(c *gin.Context) {
-	var input models.PasswordResetRequest
+func (base *Controller) PasswordChange(c *gin.Context) {
+	var input models.PasswordChangeRequest
 
 	err := c.BindJSON(&input)
 	if err != nil {
@@ -26,11 +26,11 @@ func (base *Controller) PasswordReset(c *gin.Context) {
 		return
 	}
 
-	resetMsg, resetErr := auth.ResetPassword(base.Db, input.Email)
+	_, resetErr := auth.ValidateResetToken(base.Db, input.Token, input.NewPassword)
 	if resetErr != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "error": resetErr.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": "success", "message": resetMsg})
+	c.JSON(http.StatusOK, gin.H{"status": "success", "message": "Password changed successfully"})
 }

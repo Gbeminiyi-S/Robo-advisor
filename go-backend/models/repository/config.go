@@ -10,5 +10,9 @@ type Config struct {
 	PostgresSslMode  string
 	JwtSecret        string
 	JwtExpiration    string
+	AppHost          string
+	FrontendHost     string
 	Port             string
+	EmailAddress     string
+	EmailPassword    string
 }

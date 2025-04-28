@@ -11,4 +11,5 @@ func SetupAuthRoutes(router *gin.RouterGroup, controller auth.Controller) {
 	router.POST("/login", controller.Login)
 	router.POST("/logout", controller.Logout)
 	router.POST("/password-reset", controller.PasswordReset)
+	router.POST("/change-password", controller.PasswordChange)
 }

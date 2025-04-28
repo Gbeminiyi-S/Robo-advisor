@@ -1,15 +1,3 @@
-// LogoutHandler godoc
-// @Summary      User logout
-// @Description  Invalidate user session/token
-// @Tags         Auth
-// @Security     BearerAuth
-// @Accept       json
-// @Produce      json
-// @Param        body  body      models.LogoutRequest  true  "Email for logout"
-// @Success      200   {object}  models.LogoutResponse
-// @Failure      401   {object}  models.ErrorResponse
-// @Router       /auth/logout [post]
-
 package auth
 
 import (
@@ -20,6 +8,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary      User logout
+// @Description  Invalidate user session/token
+// @Tags         Auth
+// @Security     BearerAuth
+// @Accept       json
+// @Produce      json
+// @Param        body  body      models.LogoutRequest  true  "Email for logout"
+// @Success      200   {object}  models.LogoutResponse
+// @Failure      401   {object}  models.ErrorResponse
+// @Router       /auth/logout [post]
 func (base *Controller) Logout(c *gin.Context) {
 	var input models.LogoutRequest
 

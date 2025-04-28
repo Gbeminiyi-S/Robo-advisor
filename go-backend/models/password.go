@@ -20,6 +20,11 @@ type PasswordResetRequest struct {
 	Email string `json:"email" binding:"required,email"`
 }
 
+type PasswordChangeRequest struct {
+	Token       string `json:"token" binding:"required"`
+	NewPassword string `json:"new_password" binding:"required,min=8"`
+}
+
 func (p *PasswordReset) CreatePasswordReset(db *gorm.DB, passReset *PasswordReset) error {
 	err := config.CreateOneRecord(db, passReset)
 	if err != nil {

@@ -1,8 +1,8 @@
-package auth
+package ai
 
 import (
 	"go-backend/models"
-	"go-backend/services/auth"
+	"go-backend/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,13 +18,13 @@ type Controller struct {
 // @Tags         Auth
 // @Accept       json
 // @Produce      json
-// @Param        body  body      models.LoginRequest  true  "Login credentials"
-// @Success      200   {object}  models.LoginResponse
+// @Param        body  body      models.AIServiceRequest  true  "Interaction with the AI Service"
+// @Success      200   {object}  models.AIResponse
 // @Failure      400   {object}  models.ErrorResponse
 // @Failure      401   {object}  models.ErrorResponse
 // @Router       /auth/login [post]
-func (base *Controller) Login(c *gin.Context) {
-	var input models.LoginRequest
+func (base *Controller) GetAiResponse(c *gin.Context) {
+	var input models.AIServiceRequest
 
 	err := c.BindJSON(&input)
 	if err != nil {
@@ -32,11 +32,11 @@ func (base *Controller) Login(c *gin.Context) {
 		return
 	}
 
-	token, err := auth.Login(base.Db, input.Email, input.Password)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "error": err.Error()})
+	resp, respErr := services.CallAIService(base.Db, input)
+	if respErr != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "error": respErr.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": "success", "message": "Login successful", "token": token})
+	c.JSON(http.StatusOK, resp)
 }

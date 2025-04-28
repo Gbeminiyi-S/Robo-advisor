@@ -1,11 +1,12 @@
 package auth
 
 import (
+	"fmt"
 	"time"
 	"gorm.io/gorm"
-	"fmt"
 
 	"go-backend/models"
+	"go-backend/services"
 	"go-backend/utils"
 )
 
@@ -35,7 +36,11 @@ func ResetPassword(db *gorm.DB, email string) (string, error) {
 		return "", createErr
 	}
 
-	// Send email with reset token (not implemented)
 	// You would send a link with the reset token to the user's email
+	emailErr := services.SendEmail(db, []string{email}, hashedToken)
+	if emailErr != nil {
+		return "", emailErr
+	}
+
 	return hashedToken, nil
 }

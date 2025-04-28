@@ -1,7 +1,7 @@
 // @title Robo-Advisor API
 // @version 1.0
 // @description This is a backend server for authentication and AI interaction.
-// @host localhost:8080
+// @host {config.AppConfig.AppHost}
 // @BasePath /
 
 // @securityDefinitions.apikey BearerAuth
@@ -30,7 +30,7 @@ func main() {
 		log.Println("Ready to go!")
 	}
 
-	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{}, &models.PasswordReset{}, &models.UserSession{})
+	dbErr := db.AutoMigrate(&models.User{}, &models.Interaction{}, &models.PasswordReset{}, &models.UserSession{}, &models.AIPersistedResponse{})
 	if dbErr != nil {
 		log.Fatalf("Migration failed: %v", dbErr)
 	} else {
