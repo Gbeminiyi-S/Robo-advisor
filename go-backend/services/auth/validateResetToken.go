@@ -15,7 +15,7 @@ func ValidateResetToken(db *gorm.DB, token, password string) (string, error) {
 	var reset models.PasswordReset
 	var user models.User
 
-	err := config.FindByFields(db, &reset, "token = ?", token, "expires_at > ?", time.Now())
+	err := config.FindByTwoFields(db, &reset, "token = ?", token, "expires_at > ?", time.Now())
 	if err != nil {
 		return "", fmt.Errorf("invalid or expired reset token")
 	}

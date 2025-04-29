@@ -38,7 +38,7 @@ func (u *UserSession) GetUserSessionByID(db *gorm.DB, userID string) (*UserSessi
 func (u *UserSession) GetUserSession(db *gorm.DB, userID string, token string) (*UserSession, error) {
 	var userSession UserSession
 
-	err := config.FindByFields(db, userSession, "token", token, "user_id", userID)
+	err := config.FindByTwoFields(db, userSession, "token", token, "user_id", userID)
 	if err != nil {
 		return nil, err
 	}

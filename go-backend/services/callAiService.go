@@ -14,7 +14,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func CallAIService(db *gorm.DB, req models.AIServiceRequest) (*models.AIServiceResponse, error) {
+func CallAIService(db *gorm.DB, req models.AIServiceRequest, user models.User) (*models.AIServiceResponse, error) {
 	httpClient := utils.NewHTTPClient(10 * time.Second)
 	aiServiceURL := "http://ai-service:5000/api/gemini_request"
 
@@ -43,6 +43,8 @@ func CallAIService(db *gorm.DB, req models.AIServiceRequest) (*models.AIServiceR
 		}
 
 		aiServiceResponse := models.AIPersistedResponse{
+			User:      user,
+			UserID:    user.ID,
 			Query:     datatypes.JSON(queryJSON),
 			Data:      datatypes.JSON(dataJSON),
 			Status:    parsedResponse.Status,

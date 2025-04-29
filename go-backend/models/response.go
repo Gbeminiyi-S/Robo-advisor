@@ -31,9 +31,11 @@ type PasswordChangeResponse struct {
 	Message string `json:"message" example:"Password changed successfully"`
 }
 
+type InvestmentAdvice struct {
+	InvestmentAdvice string `json:"investmentAdvice" example:"Based on your risk tolerance, we recommend a diversified portfolio of stocks and bonds."`
+}
+
 type AIResponse struct {
-	Status string      `json:"status" example:"success"`
-	Data   interface{} `json:"data,omitempty" example: "data": {
-    "investmentAdvice": "Based on your risk tolerance, we recommend a diversified portfolio of stocks and bonds."
-  }`
+	Status string           `json:"status" example:"success"`
+	Data   InvestmentAdvice `json:"data,omitempty"`
 }

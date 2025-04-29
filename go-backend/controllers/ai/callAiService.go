@@ -13,8 +13,8 @@ type Controller struct {
 	Db *gorm.DB
 }
 
-// @Summary      User login
-// @Description  Authenticate user and return JWT token
+// @Summary      AI Service
+// @Description  Interaction with the AI Service
 // @Tags         Auth
 // @Accept       json
 // @Produce      json
@@ -22,9 +22,21 @@ type Controller struct {
 // @Success      200   {object}  models.AIResponse
 // @Failure      400   {object}  models.ErrorResponse
 // @Failure      401   {object}  models.ErrorResponse
-// @Router       /auth/login [post]
+// @Router       /ai/send-request [post]
 func (base *Controller) GetAiResponse(c *gin.Context) {
 	var input models.AIServiceRequest
+
+	userRaw, exists := c.Get("user")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"status": "error", "error": "User not found in context"})
+		return
+	}
+
+	user, ok := userRaw.(models.User)
+	if !ok {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "error": "Failed to cast user"})
+		return
+	}
 
 	err := c.BindJSON(&input)
 	if err != nil {
@@ -32,7 +44,7 @@ func (base *Controller) GetAiResponse(c *gin.Context) {
 		return
 	}
 
-	resp, respErr := services.CallAIService(base.Db, input)
+	resp, respErr := services.CallAIService(base.Db, input, user)
 	if respErr != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "error": respErr.Error()})
 		return

@@ -1,8 +1,11 @@
 package models
 
 import (
-	"gorm.io/datatypes"
+	"go-backend/config"
 	"time"
+
+	"gorm.io/datatypes"
+	"gorm.io/gorm"
 )
 
 type AIServiceRequest struct {
@@ -25,6 +28,8 @@ type AIServiceResponse struct {
 
 type AIPersistedResponse struct {
 	ID        uint           `gorm:"primaryKey;autoIncrement"`
+	UserID    string         `json:"userId"`
+	User      User           `gorm:"foreignKey:UserID"`
 	Status    string         `json:"status"`
 	Query     datatypes.JSON `gorm:"type:jsonb" json:"query"`
 	Data      datatypes.JSON `gorm:"type:jsonb" json:"data,omitempty"`
@@ -33,3 +38,62 @@ type AIPersistedResponse struct {
 	CreatedAt time.Time      `json:"createdAt"`
 	UpdatedAt time.Time      `json:"updatedAt"`
 }
+
+func (a *AIPersistedResponse) GetAllAIResponses(db *gorm.DB, userID string) (*AIPersistedResponse, error) {
+	var interaction AIPersistedResponse
+
+	err := config.FindByID(db, interaction, userID)
+	if err != nil {
+		return nil, err
+	}
+
+	return &interaction, nil
+}
+
+func (a *AIPersistedResponse) GetTodayResponses(db *gorm.DB, userID string, pagination config.Pagination) ([]AIPersistedResponse, error) {
+	today := time.Now()
+	start := time.Date(today.Year(), today.Month(), today.Day(), 0, 0, 0, 0, today.Location())
+	end := start.Add(24 * time.Hour)
+
+	var results []AIPersistedResponse
+	err := config.FindByThreeFieldsPaginated(db, results, "user_id", userID,
+		"created_at >= ?", start,
+		"created_at <= ?", end,
+		pagination)
+	if err != nil {
+		return nil, err
+	}
+
+	return results, err
+}
+
+func (a *AIPersistedResponse) GetYesterdayResponses(db *gorm.DB, userID string, pagination config.Pagination) ([]AIPersistedResponse, error) {
+	today := time.Now()
+	start := time.Date(today.Year(), today.Month(), today.Day()-1, 0, 0, 0, 0, today.Location())
+	end := start.Add(24 * time.Hour)
+
+	var results []AIPersistedResponse
+	err := config.FindByThreeFieldsPaginated(db, results, "user_id", userID,
+		"created_at >= ?", start,
+		"created_at <= ?", end,
+		pagination)
+	if err != nil {
+		return nil, err
+	}
+
+	return results, err
+}
+
+func (a *AIPersistedResponse) GetPastDaysResponses(db *gorm.DB, userID string, days int, pagination config.Pagination) ([]AIPersistedResponse, error) {
+	now := time.Now()
+	start := now.AddDate(0, 0, -days)
+
+	var results []AIPersistedResponse
+	err := config.FindByUserAndDateRangePaginated(db, &results, userID, start, now, pagination)
+	if err != nil {
+		return nil, err
+	}
+
+	return results, err
+}
+
