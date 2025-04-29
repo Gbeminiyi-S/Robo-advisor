@@ -5,10 +5,14 @@ type SignupResponse struct {
 	Message string `json:"message" example:"User created successfully"`
 }
 
-// Standard error response
 type ErrorResponse struct {
 	Status string `json:"status" example:"error"`
 	Error  string `json:"error" example:"Something went wrong"`
+}
+
+type AuthErrorResponse struct {
+	Status string `json:"status" example:"error"`
+	Error  string `json:"error" example:"Invalid or expired token"`
 }
 
 type LoginResponse struct {

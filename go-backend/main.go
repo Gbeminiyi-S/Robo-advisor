@@ -1,9 +1,8 @@
 // @title Robo-Advisor API
 // @version 1.0
 // @description This is a backend server for authentication and AI interaction.
-// @host {config.AppConfig.AppHost}
+// @host localhost:8080
 // @BasePath /
-
 // @securityDefinitions.apikey BearerAuth
 // @in header
 // @name Authorization

@@ -21,7 +21,8 @@ type Controller struct {
 // @Param        body  body      models.LoginRequest  true  "Login credentials"
 // @Success      200   {object}  models.LoginResponse
 // @Failure      400   {object}  models.ErrorResponse
-// @Failure      401   {object}  models.ErrorResponse
+// @Failure      401   {object}  models.AuthErrorResponse
+// @Security BearerAuth
 // @Router       /auth/login [post]
 func (base *Controller) Login(c *gin.Context) {
 	var input models.LoginRequest

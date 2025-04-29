@@ -50,7 +50,7 @@ func (a *AIPersistedResponse) GetAllAIResponses(db *gorm.DB, userID string) (*AI
 	return &interaction, nil
 }
 
-func (a *AIPersistedResponse) GetTodayResponses(db *gorm.DB, userID string, pagination config.Pagination) ([]AIPersistedResponse, error) {
+func (a *AIPersistedResponse) GetTodayResponse(db *gorm.DB, userID string, pagination config.Pagination) ([]AIPersistedResponse, error) {
 	today := time.Now()
 	start := time.Date(today.Year(), today.Month(), today.Day(), 0, 0, 0, 0, today.Location())
 	end := start.Add(24 * time.Hour)
@@ -67,24 +67,7 @@ func (a *AIPersistedResponse) GetTodayResponses(db *gorm.DB, userID string, pagi
 	return results, err
 }
 
-func (a *AIPersistedResponse) GetYesterdayResponses(db *gorm.DB, userID string, pagination config.Pagination) ([]AIPersistedResponse, error) {
-	today := time.Now()
-	start := time.Date(today.Year(), today.Month(), today.Day()-1, 0, 0, 0, 0, today.Location())
-	end := start.Add(24 * time.Hour)
-
-	var results []AIPersistedResponse
-	err := config.FindByThreeFieldsPaginated(db, results, "user_id", userID,
-		"created_at >= ?", start,
-		"created_at <= ?", end,
-		pagination)
-	if err != nil {
-		return nil, err
-	}
-
-	return results, err
-}
-
-func (a *AIPersistedResponse) GetPastDaysResponses(db *gorm.DB, userID string, days int, pagination config.Pagination) ([]AIPersistedResponse, error) {
+func (a *AIPersistedResponse) GetResponseByNoOfDays(db *gorm.DB, userID string, days int, pagination config.Pagination) ([]AIPersistedResponse, error) {
 	now := time.Now()
 	start := now.AddDate(0, 0, -days)
 
@@ -96,4 +79,3 @@ func (a *AIPersistedResponse) GetPastDaysResponses(db *gorm.DB, userID string, d
 
 	return results, err
 }
-
