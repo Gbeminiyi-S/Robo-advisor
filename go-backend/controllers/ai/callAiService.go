@@ -29,13 +29,13 @@ func (base *Controller) GetAiResponse(c *gin.Context) {
 
 	userRaw, exists := c.Get("user")
 	if !exists {
-		c.JSON(http.StatusUnauthorized, gin.H{"status": "error", "error": "User not found in context"})
+		c.JSON(http.StatusUnauthorized, gin.H{"status": "error", "error": "Invalid or expired token"})
 		return
 	}
 
 	user, ok := userRaw.(models.User)
 	if !ok {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "error": "Failed to cast user"})
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "error": "Failed to fetch user details"})
 		return
 	}
 
