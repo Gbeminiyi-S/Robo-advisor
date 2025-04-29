@@ -1,5 +1,10 @@
 package models
 
+import (
+	"gorm.io/datatypes"
+	"time"
+)
+
 type AIServiceRequest struct {
 	Age                 int     `json:"age"`
 	Location            string  `json:"location"`
@@ -19,11 +24,12 @@ type AIServiceResponse struct {
 }
 
 type AIPersistedResponse struct {
-	ID        uint        `gorm:"primaryKey;autoIncrement"`
-	Status    string      `json:"status"`
-	Data      interface{} `json:"data,omitempty"`
-	Message   string      `json:"message,omitempty"`
-	Error     string      `json:"error,omitempty"`
-	CreatedAt string      `json:"createdAt"`
-	UpdatedAt string      `json:"updatedAt"`
+	ID        uint           `gorm:"primaryKey;autoIncrement"`
+	Status    string         `json:"status"`
+	Query     datatypes.JSON `gorm:"type:jsonb" json:"query"`
+	Data      datatypes.JSON `gorm:"type:jsonb" json:"data,omitempty"`
+	Message   string         `json:"message,omitempty"`
+	Error     string         `json:"error,omitempty"`
+	CreatedAt time.Time      `json:"createdAt"`
+	UpdatedAt time.Time      `json:"updatedAt"`
 }

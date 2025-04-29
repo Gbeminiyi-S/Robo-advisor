@@ -10,6 +10,7 @@ import (
 	"log"
 	"time"
 
+	"gorm.io/datatypes"
 	"gorm.io/gorm"
 )
 
@@ -31,16 +32,27 @@ func CallAIService(db *gorm.DB, req models.AIServiceRequest) (*models.AIServiceR
 	}
 
 	if parsedResponse.Status == "success" {
-		aiServiceResponse := models.AIPersistedResponse{
-			Data:      parsedResponse.Data,
-			Status:    parsedResponse.Status,
-			CreatedAt: time.Now().Format(time.RFC3339),
-			UpdatedAt: time.Now().Format(time.RFC3339),
-		}
-		
-		err := config.CreateOneRecord(db, aiServiceResponse)
+		queryJSON, err := json.Marshal(req)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to marshal request: %v", err)
+		}
+
+		dataJSON, err := json.Marshal(parsedResponse.Data)
+		if err != nil {
+			return nil, fmt.Errorf("failed to marshal response data: %v", err)
+		}
+
+		aiServiceResponse := models.AIPersistedResponse{
+			Query:     datatypes.JSON(queryJSON),
+			Data:      datatypes.JSON(dataJSON),
+			Status:    parsedResponse.Status,
+			CreatedAt: time.Now(),
+			UpdatedAt: time.Now(),
+		}
+
+		createErr := config.CreateOneRecord(db, aiServiceResponse)
+		if createErr != nil {
+			return nil, createErr
 		}
 	}
 
