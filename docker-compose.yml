@@ -3,12 +3,16 @@ services:
     build: ./ai-service
     ports:
       - "5000:5000"
-    environment:
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
     env_file:
-      - ./.env
+      - ./ai-service/.env
 
-  # go-backend:
-  #   build: ./go-backend
-  #   ports:
-  #     - "8080:8080"
+  go-backend:
+    build:
+      context: ./go-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./go-backend/.env
+    depends_on:
+      - ai-service
