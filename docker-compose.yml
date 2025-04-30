@@ -1,0 +1,18 @@
+services:
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./ai-service/.env
+
+  go-backend:
+    build:
+      context: ./go-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./go-backend/.env
+    depends_on:
+      - ai-service
