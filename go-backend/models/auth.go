@@ -2,6 +2,7 @@ package models
 
 import (
 	"go-backend/config"
+	"log"
 	"time"
 
 	"gorm.io/gorm"
@@ -51,6 +52,7 @@ func (u *User) GetUserByEmail(db *gorm.DB, email string) (*User, error) {
 
 	err := config.FindOneByField(db, user, "email", email)
 	if err != nil {
+		log.Printf("Error finding by one field: %v", err)
 		return nil, err
 	}
 
@@ -62,6 +64,7 @@ func (u *User) GetUserByUsername(db *gorm.DB, name string) (*User, error) {
 
 	err := config.FindOneByField(db, user, "name", name)
 	if err != nil {
+		log.Printf("Error getting user by username: %v", err)
 		return nil, err
 	}
 
@@ -73,6 +76,7 @@ func (u *User) GetUserByID(db *gorm.DB, id string) (*User, error) {
 
 	err := config.FindByID(db, user, id)
 	if err != nil {
+		log.Printf("Error getting user by ID: %v", err)
 		return nil, err
 	}
 
@@ -82,6 +86,7 @@ func (u *User) GetUserByID(db *gorm.DB, id string) (*User, error) {
 func (u *User) UpdateUserPassword(db *gorm.DB, user *User) error {
 	err := config.UpdateOneFieldByID(db, user, user.ID, "password", user.Password)
 	if err != nil {
+		log.Printf("Error updating user password: %v", err)
 		return err
 	}
 

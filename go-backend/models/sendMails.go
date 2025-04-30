@@ -1,6 +1,9 @@
 package models
 
-import "gopkg.in/gomail.v2"
+import (
+	"log"
+	"gopkg.in/gomail.v2"
+)
 
 type Email struct {
 	SMTPHost    string
@@ -20,6 +23,7 @@ func SendEmail(cfg Email, to []string, subject, body string) error {
 	d := gomail.NewDialer(cfg.SMTPHost, cfg.SMTPPort, cfg.SenderEmail, cfg.SenderPass)
 
 	if err := d.DialAndSend(m); err != nil {
+		log.Printf("Error sending mail: %v", err)
 		return err
 	}
 

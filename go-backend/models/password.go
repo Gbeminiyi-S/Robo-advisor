@@ -3,6 +3,7 @@ package models
 import (
 	"go-backend/config"
 	"time"
+	"log"
 
 	"gorm.io/gorm"
 )
@@ -28,6 +29,7 @@ type PasswordChangeRequest struct {
 func (p *PasswordReset) CreatePasswordReset(db *gorm.DB, passReset *PasswordReset) error {
 	err := config.CreateOneRecord(db, passReset)
 	if err != nil {
+		log.Printf("Error creating password reset: %v", err)
 		return err
 	}
 

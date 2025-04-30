@@ -3,6 +3,7 @@ package models
 import (
 	"go-backend/config"
 	"time"
+	"log"
 
 	"gorm.io/gorm"
 )
@@ -18,6 +19,7 @@ type UserSession struct {
 func (u *UserSession) CreateUserSession(db *gorm.DB, session *UserSession) error {
 	err := config.CreateOneRecord(db, session)
 	if err != nil {
+		log.Printf("Error creating user session: %v", err)
 		return err
 	}
 
@@ -29,6 +31,7 @@ func (u *UserSession) GetUserSessionByID(db *gorm.DB, userID string) (*UserSessi
 
 	err := config.FindOneByField(db, userSession, "user_id", userID)
 	if err != nil {
+		log.Printf("Error getting user session by ID: %v", err)
 		return nil, err
 	}
 
@@ -40,6 +43,7 @@ func (u *UserSession) GetUserSession(db *gorm.DB, userID string, token string) (
 
 	err := config.FindByTwoFields(db, userSession, "token", token, "user_id", userID)
 	if err != nil {
+		log.Printf("Error getting user session: %v", err)
 		return nil, err
 	}
 
@@ -48,9 +52,10 @@ func (u *UserSession) GetUserSession(db *gorm.DB, userID string, token string) (
 
 func (u *UserSession) DeleteUserSession(db *gorm.DB, userID string) error {
 	var userSession UserSession
-
+	
 	err := config.DeleteSpecificRecord(db, userSession, "user_id = ?", userID)
 	if err != nil {
+		log.Printf("Error deleting user session: %v", err)
 		return err
 	}
 

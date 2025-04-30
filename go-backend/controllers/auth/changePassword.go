@@ -13,7 +13,7 @@ import (
 // @Tags         Auth
 // @Accept       json
 // @Produce      json
-// @Param        body  body      models.PasswordChangeRequest  true  "Email for password reset"
+// @Param        body  body      models.PasswordChangeRequest  true  "Token and new password for reset"
 // @Success      200   {object}  models.PasswordChangeResponse
 // @Failure      400   {object}  models.ErrorResponse
 // @Router       /auth/change-password [post]
